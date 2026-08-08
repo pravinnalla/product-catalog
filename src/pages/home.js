@@ -4,7 +4,7 @@
  * ------------------------------------------------------------
  * File      : home.js
  * Purpose   : Home Page
- * Version   : 1.2.0
+ * Version   : 1.3.0
  * ============================================================
  */
 
@@ -13,6 +13,11 @@ import { renderFooter } from "../components/footer.js";
 import { renderHero } from "../components/hero.js";
 import { renderCategories } from "../components/categories.js";
 import { renderFeaturedProducts } from "../components/featured-products.js";
+import { renderWhyChooseUs } from "../components/why-choose-us.js";
+import { renderStatistics } from "../components/statistics.js";
+import { renderBrands } from "../components/brands.js";
+import { renderGallery } from "../components/gallery.js";
+import { renderCallToAction } from "../components/call-to-action.js";
 
 /**
  * ------------------------------------------------------------
@@ -58,85 +63,16 @@ export function renderHomePage(app) {
 
     renderFeaturedProducts();
 
-    renderPlaceholders();
+    renderWhyChooseUs();
+
+    renderStatistics();
+
+    renderBrands();
+
+    renderGallery();
+
+    renderCallToAction();
 
     renderFooter();
-
-}
-
-/**
- * ------------------------------------------------------------
- * Temporary Placeholders
- * ------------------------------------------------------------
- */
-
-function renderPlaceholders() {
-
-    createPlaceholder(
-        "why-choose-us",
-        "Why Choose Us"
-    );
-
-    createPlaceholder(
-        "statistics",
-        "Statistics"
-    );
-
-    createPlaceholder(
-        "brands",
-        "Brands"
-    );
-
-    createPlaceholder(
-        "gallery",
-        "Gallery"
-    );
-
-    createPlaceholder(
-        "call-to-action",
-        "Call To Action"
-    );
-
-}
-
-/**
- * ------------------------------------------------------------
- * Placeholder Generator
- * ------------------------------------------------------------
- */
-
-function createPlaceholder(id, title) {
-
-    const element = document.getElementById(id);
-
-    if (!element) return;
-
-    element.innerHTML = `
-
-        <section class="container py-5">
-
-            <div class="card border-secondary-subtle shadow-sm">
-
-                <div class="card-body text-center py-5">
-
-                    <h2 class="mb-3">
-
-                        ${title}
-
-                    </h2>
-
-                    <p class="text-secondary mb-0">
-
-                        This section will be implemented in the next milestone.
-
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    `;
 
 }
