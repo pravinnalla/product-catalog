@@ -4,7 +4,7 @@
  * ------------------------------------------------------------
  * File      : product-card.js
  * Purpose   : Reusable Product Card Component
- * Version   : 1.1.0
+ * Version   : 1.2.0
  * ============================================================
  */
 
@@ -94,7 +94,7 @@ export function productCard(product) {
                     </a>
 
                     <a
-                        href="/contact.html"
+                        href="/contact.html?product=${product.id}"
                         class="btn btn-danger">
 
                         <i class="bi bi-envelope-paper me-2"></i>

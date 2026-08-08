@@ -1,13 +1,26 @@
 {
-  "name": "product-catalog",
-  "version": "1.0.0",
-  "description": "",
-  "main": "vite.config.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs"
+    "name": "product-catalog",
+    "version": "1.0.0",
+    "private": true,
+    "description": "Industrial Product Catalog Website",
+    "author": "Pravin Nalla",
+    "license": "MIT",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview",
+        "lint": "eslint .",
+        "format": "prettier --write ."
+    },
+    "dependencies": {
+        "@popperjs/core": "^2.11.8",
+        "bootstrap": "^5.3.8",
+        "bootstrap-icons": "^1.13.1"
+    },
+    "devDependencies": {
+        "eslint": "^9.34.0",
+        "prettier": "^3.6.2",
+        "vite": "^7.1.0"
+    }
 }

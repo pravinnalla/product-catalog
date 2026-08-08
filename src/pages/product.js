@@ -248,14 +248,14 @@ function renderProductDetail(product) {
                 <div class="d-flex flex-wrap gap-3 mb-4">
 
                     <a
-                        href="/contact.html"
-                        class="btn btn-danger btn-lg">
+    href="/contact.html?product=${product.id}"
+    class="btn btn-danger btn-lg">
 
-                        <i class="bi bi-envelope-paper me-2"></i>
+    <i class="bi bi-envelope-paper me-2"></i>
 
-                        Request Quote
+    Request Quote
 
-                    </a>
+</a>
 
                     <a
                         href="/products.html"

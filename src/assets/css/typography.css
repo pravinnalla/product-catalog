@@ -1,0 +1,279 @@
+/* ==========================================================================
+   PRODUCT CATALOG DESIGN SYSTEM
+   --------------------------------------------------------------------------
+   File        : typography.css
+   Description : Global Typography Styles
+   Version     : 1.0.0
+   ========================================================================== */
+
+
+/* ==========================================================================
+   BODY
+   ========================================================================== */
+
+body {
+    font-family: var(--font-family-base);
+    font-size: var(--text-base);
+    font-weight: var(--font-regular);
+    line-height: var(--leading-normal);
+
+    color: var(--text-secondary);
+    background: var(--background);
+}
+
+
+/* ==========================================================================
+   HEADINGS
+   ========================================================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+
+    font-family: var(--font-family-heading);
+
+    font-weight: var(--font-bold);
+
+    line-height: var(--leading-tight);
+
+    color: var(--text-primary);
+
+    margin-bottom: var(--space-4);
+}
+
+h1 {
+
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+
+}
+
+h2 {
+
+    font-size: clamp(2rem, 4vw, 3rem);
+
+}
+
+h3 {
+
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+
+}
+
+h4 {
+
+    font-size: clamp(1.5rem, 2.5vw, 1.875rem);
+
+}
+
+h5 {
+
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+
+}
+
+h6 {
+
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+
+}
+
+
+/* ==========================================================================
+   PARAGRAPH
+   ========================================================================== */
+
+p {
+
+    margin-bottom: var(--space-4);
+
+    color: var(--text-secondary);
+
+}
+
+
+/* ==========================================================================
+   LINKS
+   ========================================================================== */
+
+a {
+
+    color: var(--brand);
+
+    transition: color var(--transition-fast);
+
+}
+
+a:hover {
+
+    color: var(--brand-hover);
+
+}
+
+a:focus-visible {
+
+    outline: 2px solid var(--brand);
+
+    outline-offset: 3px;
+
+}
+
+
+/* ==========================================================================
+   LISTS
+   ========================================================================== */
+
+ul,
+ol {
+
+    margin-bottom: var(--space-4);
+
+    padding-left: var(--space-5);
+
+}
+
+li {
+
+    margin-bottom: var(--space-2);
+
+}
+
+
+/* ==========================================================================
+   INLINE TEXT
+   ========================================================================== */
+
+strong {
+
+    font-weight: var(--font-bold);
+
+}
+
+b {
+
+    font-weight: var(--font-bold);
+
+}
+
+em {
+
+    font-style: italic;
+
+}
+
+small {
+
+    font-size: var(--text-sm);
+
+    color: var(--text-muted);
+
+}
+
+mark {
+
+    background: rgba(255, 193, 7, .25);
+
+    padding: 0 .2rem;
+
+}
+
+
+/* ==========================================================================
+   HORIZONTAL RULE
+   ========================================================================== */
+
+hr {
+
+    margin: var(--space-8) 0;
+
+    border: 0;
+
+    border-top: 1px solid var(--border-color);
+
+}
+
+
+/* ==========================================================================
+   BLOCKQUOTE
+   ========================================================================== */
+
+blockquote {
+
+    padding-left: var(--space-5);
+
+    margin: var(--space-6) 0;
+
+    border-left: 4px solid var(--brand);
+
+    color: var(--text-muted);
+
+    font-style: italic;
+
+}
+
+
+/* ==========================================================================
+   CODE
+   ========================================================================== */
+
+code {
+
+    font-family: var(--font-family-monospace);
+
+    font-size: .9em;
+
+    background: var(--gray-100);
+
+    padding: .15rem .35rem;
+
+    border-radius: var(--radius-sm);
+
+}
+
+pre {
+
+    overflow-x: auto;
+
+    padding: var(--space-4);
+
+    background: var(--gray-100);
+
+    border-radius: var(--radius-md);
+
+}
+
+pre code {
+
+    padding: 0;
+
+    background: transparent;
+
+}
+
+
+/* ==========================================================================
+   TEXT SELECTION
+   ========================================================================== */
+
+::selection {
+
+    background: var(--brand);
+
+    color: var(--text-inverse);
+
+}
+
+
+/* ==========================================================================
+   PLACEHOLDER
+   ========================================================================== */
+
+::placeholder {
+
+    color: var(--text-muted);
+
+    opacity: .8;
+
+}

@@ -119,23 +119,28 @@ export function renderNavbar() {
                 </ul>
 
                 <!-- ===================================== -->
-                <!-- CTA -->
-                <!-- ===================================== -->
+<!-- CTA -->
+<!-- ===================================== -->
 
-                <div class="d-flex">
+${
+    currentPage !== "contact"
+        ? `
+            <div class="d-flex">
 
-                    <a
-                        href="/contact.html"
-                        class="btn btn-danger">
+                <a
+                    href="/contact.html"
+                    class="btn btn-danger">
 
-                        
-                        <i class="bi bi-envelope-paper me-2"></i>
+                    <i class="bi bi-envelope-paper me-2"></i>
 
-                        Request Quote
+                    Request Quote
 
-                    </a>
+                </a>
 
-                </div>
+            </div>
+        `
+        : ""
+}
 
             </div>
 
