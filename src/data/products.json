@@ -1,0 +1,119 @@
+[
+    {
+        "id": "industrial-safety-helmet",
+        "category": "Safety Helmets",
+        "title": "Industrial Safety Helmet",
+        "brand": "Karam",
+        "image": "https://picsum.photos/600/450?random=301",
+        "description": "Reliable head protection for industrial and construction environments.",
+        "specifications": {
+            "application": "Industrial and construction environments",
+            "protection": "Head protection",
+            "brand": "Karam"
+        }
+    },
+    {
+        "id": "industrial-safety-gloves",
+        "category": "Safety Gloves",
+        "title": "Industrial Safety Gloves",
+        "brand": "3M",
+        "image": "https://picsum.photos/600/450?random=302",
+        "description": "Durable hand protection designed for demanding industrial applications.",
+        "specifications": {
+            "application": "Industrial applications",
+            "protection": "Hand protection",
+            "brand": "3M"
+        }
+    },
+    {
+        "id": "steel-toe-safety-shoes",
+        "category": "Safety Footwear",
+        "title": "Steel Toe Safety Shoes",
+        "brand": "Allen Cooper",
+        "image": "https://picsum.photos/600/450?random=303",
+        "description": "Protective industrial footwear offering comfort and reliable toe protection.",
+        "specifications": {
+            "application": "Industrial workplaces",
+            "protection": "Toe protection",
+            "brand": "Allen Cooper"
+        }
+    },
+    {
+        "id": "abc-fire-extinguisher",
+        "category": "Fire Safety",
+        "title": "ABC Dry Chemical Fire Extinguisher",
+        "brand": "Safex",
+        "image": "https://picsum.photos/600/450?random=304",
+        "description": "Portable fire protection equipment suitable for multiple fire classes.",
+        "specifications": {
+            "application": "Fire protection",
+            "protection": "Multiple fire classes",
+            "brand": "Safex"
+        }
+    },
+    {
+        "id": "industrial-safety-goggles",
+        "category": "Eye Protection",
+        "title": "Industrial Safety Goggles",
+        "brand": "Udyogi",
+        "image": "https://picsum.photos/600/450?random=305",
+        "description": "Protective eyewear designed for industrial work environments.",
+        "specifications": {
+            "application": "Industrial workplaces",
+            "protection": "Eye protection",
+            "brand": "Udyogi"
+        }
+    },
+    {
+        "id": "particulate-respirator",
+        "category": "Respiratory Protection",
+        "title": "Particulate Respirator",
+        "brand": "3M",
+        "image": "https://picsum.photos/600/450?random=306",
+        "description": "Respiratory protection for dusty and particulate work environments.",
+        "specifications": {
+            "application": "Dusty and particulate environments",
+            "protection": "Respiratory protection",
+            "brand": "3M"
+        }
+    },
+    {
+        "id": "industrial-safety-coverall",
+        "category": "Protective Clothing",
+        "title": "Industrial Safety Coverall",
+        "brand": "Karam",
+        "image": "https://picsum.photos/600/450?random=307",
+        "description": "Protective workwear designed for industrial and engineering applications.",
+        "specifications": {
+            "application": "Industrial and engineering applications",
+            "protection": "Protective workwear",
+            "brand": "Karam"
+        }
+    },
+    {
+        "id": "full-body-safety-harness",
+        "category": "Fall Protection",
+        "title": "Full Body Safety Harness",
+        "brand": "Udyogi",
+        "image": "https://picsum.photos/600/450?random=308",
+        "description": "Fall protection equipment for work at height and industrial applications.",
+        "specifications": {
+            "application": "Work at height",
+            "protection": "Fall protection",
+            "brand": "Udyogi"
+        }
+    },
+    {
+        "id": "ventilated-safety-helmet",
+        "category": "Safety Helmets",
+        "title": "Ventilated Safety Helmet",
+        "brand": "Karam",
+        "image": "https://picsum.photos/600/450?random=309",
+        "description": "Lightweight industrial helmet designed for comfortable workplace protection.",
+        "specifications": {
+            "application": "Industrial workplaces",
+            "protection": "Head protection",
+            "brand": "Karam"
+        }
+    }
+]
