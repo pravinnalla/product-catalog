@@ -4,115 +4,108 @@
  * ------------------------------------------------------------
  * File      : product-card.js
  * Purpose   : Reusable Product Card Component
- * Version   : 1.2.0
+ * Version   : 2.2.0
  * ============================================================
+ */
+
+const PRODUCTS_IMAGE_PATH =
+    "/product-catalog/src/assets/images/products/";
+
+/**
+ * ------------------------------------------------------------
+ * Product Card
+ * ------------------------------------------------------------
  */
 
 export function productCard(product) {
 
+    const imagePath =
+        product.image
+            ? PRODUCTS_IMAGE_PATH + product.image
+            : "";
+
     return `
 
-<div class="col-md-6 col-xl-4">
+        <article class="card h-100 border-0 shadow-sm">
 
-    <article class="card h-100 border-0 shadow-sm">
+            <!-- ========================================= -->
+            <!-- Product Image -->
+            <!-- ========================================= -->
 
-        <!-- ========================================= -->
-        <!-- Product Image -->
-        <!-- ========================================= -->
+            <div class="position-relative">
 
-        <div class="position-relative">
+                <img
+                    src="${imagePath}"
+                    class="card-img-top"
+                    alt="${product.name}"
+                    loading="lazy"
+                    style="
+                        height: 180px;
+                        object-fit: contain;
+                        padding: 12px;
+                    ">
 
-            <img
-                src="${product.image}"
-                class="card-img-top"
-                alt="${product.title}"
-                loading="lazy">
+            </div>
 
-            <span
-                class="badge text-bg-danger position-absolute top-0 start-0 m-3">
+            <!-- ========================================= -->
+            <!-- Product Details -->
+            <!-- ========================================= -->
 
-                ${product.category}
+            <div
+                class="
+                    card-body
+                    d-flex
+                    flex-column
+                    p-3
+                ">
 
-            </span>
+                <h6
+                    class="
+                        card-title
+                        fw-semibold
+                        mb-3
+                    ">
 
-        </div>
+                    ${product.name}
 
-        <!-- ========================================= -->
-        <!-- Product Details -->
-        <!-- ========================================= -->
+                </h6>
 
-        <div class="card-body d-flex flex-column p-4">
+                <!-- ===================================== -->
+                <!-- Request Quote -->
+                <!-- ===================================== -->
 
-            <h5 class="card-title fw-semibold mb-2">
+                <div class="mt-auto">
 
-                ${product.title}
+                    <div class="d-grid">
 
-            </h5>
+                        <a
+                            href="/contact.html?product=${product.id}"
+                            class="
+                                btn
+                                btn-sm
+                                btn-danger
+                            ">
 
-            <p class="card-text text-secondary small mb-3">
+                            <i
+                                class="
+                                    bi
+                                    bi-envelope-paper
+                                    me-1
+                                ">
+                            </i>
 
-                ${product.description}
+                            Request Quote
 
-            </p>
+                        </a>
 
-            <!-- ===================================== -->
-            <!-- Brand -->
-            <!-- ===================================== -->
-
-            <p class="small mb-4">
-
-                <span class="text-secondary">
-
-                    Brand:
-
-                </span>
-
-                <strong>
-
-                    ${product.brand}
-
-                </strong>
-
-            </p>
-
-            <!-- ===================================== -->
-            <!-- Actions -->
-            <!-- ===================================== -->
-
-            <div class="mt-auto">
-
-                <div class="d-grid gap-2">
-
-                    <a
-                        href="/product.html?id=${product.id}"
-                        class="btn btn-outline-danger">
-
-                        <i class="bi bi-eye me-2"></i>
-
-                        View Details
-
-                    </a>
-
-                    <a
-                        href="/contact.html?product=${product.id}"
-                        class="btn btn-danger">
-
-                        <i class="bi bi-envelope-paper me-2"></i>
-
-                        Request Quote
-
-                    </a>
+                    </div>
 
                 </div>
 
             </div>
 
-        </div>
+        </article>
 
-    </article>
-
-</div>
-
-`;
+    `;
 
 }

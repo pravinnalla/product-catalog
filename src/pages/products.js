@@ -4,7 +4,7 @@
  * ------------------------------------------------------------
  * File      : products.js
  * Purpose   : Products Page
- * Version   : 1.4.0
+ * Version   : 1.6.0
  * ============================================================
  */
 
@@ -23,6 +23,27 @@ const products = getProducts();
 
 /**
  * ------------------------------------------------------------
+ * Product Categories
+ * ------------------------------------------------------------
+ *
+ * Only two main categories are required on the Products page.
+ *
+ * ------------------------------------------------------------
+ */
+
+const PRODUCT_CATEGORIES = [
+    {
+        id: "fire-extinguishers",
+        name: "Fire Extinguishers"
+    },
+    {
+        id: "safety-equipment",
+        name: "Safety Equipment"
+    }
+];
+
+/**
+ * ------------------------------------------------------------
  * Catalogue Settings
  * ------------------------------------------------------------
  */
@@ -37,9 +58,30 @@ const PRODUCTS_PER_PAGE = 6;
 
 let selectedCategory = "All";
 
-let searchTerm = "";
+let searchTerm =
+    getInitialSearchTerm();
 
 let currentPage = 1;
+
+/**
+ * ------------------------------------------------------------
+ * Read Search Parameter From URL
+ * ------------------------------------------------------------
+ */
+
+function getInitialSearchTerm() {
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+    return (
+        params.get("search") ||
+        ""
+    ).trim().toLowerCase();
+
+}
 
 /**
  * ------------------------------------------------------------
@@ -90,43 +132,44 @@ function renderProductsHeader() {
 
     header.innerHTML = `
 
-<section class="py-5 bg-body-tertiary">
+        <section class="py-5 bg-body-tertiary">
 
-    <div class="container">
+            <div class="container">
 
-        <div class="row justify-content-center text-center">
+                <div class="row justify-content-center text-center">
 
-            <div class="col-lg-8">
+                    <div class="col-lg-8">
 
-                <span class="badge rounded-pill text-bg-danger px-3 py-2 mb-3">
+                        <span
+                            class="badge rounded-pill text-bg-danger px-3 py-2 mb-3">
 
-                    OUR PRODUCTS
+                            OUR PRODUCTS
 
-                </span>
+                        </span>
 
-                <h1 class="display-5 fw-bold mb-3">
+                        <h1 class="display-5 fw-bold mb-3">
 
-                    Industrial Safety Products
+                            Industrial Safety Products
 
-                </h1>
+                        </h1>
 
-                <p class="lead text-secondary mb-0">
+                        <p class="lead text-secondary mb-0">
 
-                    Explore our range of quality safety products
-                    designed to protect people across industries
-                    and workplaces.
+                            Explore our range of quality safety products
+                            designed to protect people across industries
+                            and workplaces.
 
-                </p>
+                        </p>
+
+                    </div>
+
+                </div>
 
             </div>
 
-        </div>
+        </section>
 
-    </div>
-
-</section>
-
-`;
+    `;
 
 }
 
@@ -145,192 +188,204 @@ function renderProductsCatalogue() {
 
     catalogue.innerHTML = `
 
-<section class="py-5">
+        <section class="py-5">
 
-    <div class="container">
+            <div class="container">
 
-        <div class="row g-4">
+                <div class="row g-4">
 
-            <!-- ========================================= -->
-            <!-- Category Sidebar -->
-            <!-- ========================================= -->
+                    <!-- ========================================= -->
+                    <!-- Category Sidebar -->
+                    <!-- ========================================= -->
 
-            <aside class="col-lg-3">
+                    <aside class="col-lg-3">
 
-                <div class="card border-0 shadow-sm">
+                        <div class="card border-0 shadow-sm">
 
-                    <div class="card-body">
+                            <div class="card-body">
 
-                        <div class="d-flex justify-content-between align-items-center mb-4">
+                                <div
+                                    class="d-flex justify-content-between
+                                           align-items-center mb-4">
 
-                            <h5 class="fw-bold mb-0">
+                                    <h5 class="fw-bold mb-0">
 
-                                Product Categories
+                                        Product Categories
 
-                            </h5>
+                                    </h5>
 
-                            <button
-                                type="button"
-                                id="clearCategory"
-                                class="btn btn-sm btn-outline-secondary">
+                                    <button
+                                        type="button"
+                                        id="clearCategory"
+                                        class="btn btn-sm
+                                               btn-outline-secondary">
 
-                                Clear
+                                        Clear
 
-                            </button>
+                                    </button>
+
+                                </div>
+
+                                <div
+                                    id="categoryList"
+                                    class="list-group list-group-flush">
+
+                                    ${renderCategoryLinks()}
+
+                                </div>
+
+                            </div>
 
                         </div>
+
+                    </aside>
+
+                    <!-- ========================================= -->
+                    <!-- Products Area -->
+                    <!-- ========================================= -->
+
+                    <div class="col-lg-9">
+
+                        <!-- Search / Sort -->
+
+                        <div class="row g-3 mb-4">
+
+                            <div class="col-md-8">
+
+                                <div class="input-group">
+
+                                    <span class="input-group-text">
+
+                                        <i class="bi bi-search"></i>
+
+                                    </span>
+
+                                   <input
+    id="productSearch"
+    type="search"
+    class="form-control"
+    placeholder="Search products..."
+    autocomplete="off"
+    value="${searchTerm}">
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-4">
+
+                                <select
+                                    id="productSort"
+                                    class="form-select">
+
+                                    <option
+                                        value="default"
+                                        selected>
+
+                                        Sort Products
+
+                                    </option>
+
+                                    <option value="name-asc">
+
+                                        Name: A to Z
+
+                                    </option>
+
+                                    <option value="name-desc">
+
+                                        Name: Z to A
+
+                                    </option>
+
+                                    <option value="category">
+
+                                        Category
+
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                        <!-- ===================================== -->
+                        <!-- Results Information -->
+                        <!-- ===================================== -->
 
                         <div
-                            id="categoryList"
-                            class="list-group list-group-flush">
+                            class="d-flex justify-content-between
+                                   align-items-center mb-4">
 
-                            ${renderCategoryLinks()}
+                            <p
+                                id="productResultCount"
+                                class="text-secondary small mb-0">
+                            </p>
 
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </aside>
-
-            <!-- ========================================= -->
-            <!-- Products Area -->
-            <!-- ========================================= -->
-
-            <div class="col-lg-9">
-
-                <!-- Search / Sort -->
-
-                <div class="row g-3 mb-4">
-
-                    <div class="col-md-8">
-
-                        <div class="input-group">
-
-                            <span class="input-group-text">
-
-                                <i class="bi bi-search"></i>
-
+                            <span
+                                id="activeCategory"
+                                class="badge text-bg-light
+                                       border text-dark d-none">
                             </span>
 
-                            <input
-                                id="productSearch"
-                                type="search"
-                                class="form-control"
-                                placeholder="Search products..."
-                                autocomplete="off">
+                        </div>
+
+                        <!-- ===================================== -->
+                        <!-- Product Grid -->
+                        <!-- ===================================== -->
+
+                        <div
+                            id="productGrid"
+                            class="row g-4">
+                        </div>
+
+                        <!-- ===================================== -->
+                        <!-- No Results -->
+                        <!-- ===================================== -->
+
+                        <div
+                            id="noProducts"
+                            class="d-none text-center py-5">
+
+                            <i
+                                class="bi bi-search
+                                       display-5 text-secondary">
+                            </i>
+
+                            <h4 class="fw-semibold mt-3">
+
+                                No Products Found
+
+                            </h4>
+
+                            <p class="text-secondary mb-0">
+
+                                Try another search term or category.
+
+                            </p>
 
                         </div>
 
-                    </div>
+                        <!-- ===================================== -->
+                        <!-- Pagination -->
+                        <!-- ===================================== -->
 
-                    <div class="col-md-4">
-
-                        <select
-                            id="productSort"
-                            class="form-select">
-
-                            <option value="default" selected>
-
-                                Sort Products
-
-                            </option>
-
-                            <option value="name-asc">
-
-                                Name: A to Z
-
-                            </option>
-
-                            <option value="name-desc">
-
-                                Name: Z to A
-
-                            </option>
-
-                            <option value="category">
-
-                                Category
-
-                            </option>
-
-                        </select>
+                        <nav
+                            id="productPagination"
+                            class="mt-5"
+                            aria-label="Product pagination">
+                        </nav>
 
                     </div>
 
                 </div>
-
-                <!-- ===================================== -->
-                <!-- Results Information -->
-                <!-- ===================================== -->
-
-                <div class="d-flex justify-content-between align-items-center mb-4">
-
-                    <p
-                        id="productResultCount"
-                        class="text-secondary small mb-0">
-                    </p>
-
-                    <span
-                        id="activeCategory"
-                        class="badge text-bg-light border text-dark">
-                    </span>
-
-                </div>
-
-                <!-- ===================================== -->
-                <!-- Product Grid -->
-                <!-- ===================================== -->
-
-                <div
-                    id="productGrid"
-                    class="row g-4">
-                </div>
-
-                <!-- ===================================== -->
-                <!-- No Results -->
-                <!-- ===================================== -->
-
-                <div
-                    id="noProducts"
-                    class="d-none text-center py-5">
-
-                    <i class="bi bi-search display-5 text-secondary"></i>
-
-                    <h4 class="fw-semibold mt-3">
-
-                        No Products Found
-
-                    </h4>
-
-                    <p class="text-secondary mb-0">
-
-                        Try another search term or category.
-
-                    </p>
-
-                </div>
-
-                <!-- ===================================== -->
-                <!-- Pagination -->
-                <!-- ===================================== -->
-
-                <nav
-                    id="productPagination"
-                    class="mt-5"
-                    aria-label="Product pagination">
-                </nav>
 
             </div>
 
-        </div>
+        </section>
 
-    </div>
-
-</section>
-
-`;
+    `;
 
     initializeProductControls();
 
@@ -346,21 +401,23 @@ function renderProductsCatalogue() {
 
 function renderCategoryLinks() {
 
-    return [
+    let html =
+        categoryLink(
+            "All",
+            "All"
+        );
 
-        "All",
-        "Safety Helmets",
-        "Safety Gloves",
-        "Safety Footwear",
-        "Fire Safety",
-        "Eye Protection",
-        "Respiratory Protection",
-        "Protective Clothing",
-        "Fall Protection"
+    PRODUCT_CATEGORIES.forEach(category => {
 
-    ]
-        .map(category => categoryLink(category))
-        .join("");
+        html +=
+            categoryLink(
+                category.name,
+                category.id
+            );
+
+    });
+
+    return html;
 
 }
 
@@ -370,40 +427,45 @@ function renderCategoryLinks() {
  * ------------------------------------------------------------
  */
 
-function categoryLink(category) {
+function categoryLink(
+    categoryName,
+    categoryId
+) {
 
     const active =
-        selectedCategory === category;
+        selectedCategory === categoryId;
 
     return `
 
-<button
-    type="button"
-    class="
-        list-group-item
-        list-group-item-action
-        border-0
-        px-0
-        ${active ? "fw-semibold text-danger" : ""}
-    "
-    data-category="${category}">
+        <button
+            type="button"
+            class="
+                list-group-item
+                list-group-item-action
+                border-0
+                px-0
+                py-2
+                ${active
+                    ? "fw-semibold text-danger"
+                    : ""}
+            "
+            data-category="${categoryId}">
 
-    <i
-        class="
-            bi
-            ${active
-                ? "bi-check-circle-fill"
-                : "bi-circle"
-            }
-            me-2
-        ">
-    </i>
+            <i
+                class="
+                    bi
+                    ${active
+                        ? "bi-check-circle-fill"
+                        : "bi-circle"}
+                    me-2
+                ">
+            </i>
 
-    ${category}
+            ${categoryName}
 
-</button>
+        </button>
 
-`;
+    `;
 
 }
 
@@ -428,7 +490,9 @@ function initializeProductControls() {
         document.querySelector("#productSort");
 
     /**
+     * --------------------------------------------------------
      * Search
+     * --------------------------------------------------------
      */
 
     searchInput?.addEventListener(
@@ -436,7 +500,9 @@ function initializeProductControls() {
         event => {
 
             searchTerm =
-                event.target.value.trim().toLowerCase();
+                event.target.value
+                    .trim()
+                    .toLowerCase();
 
             currentPage = 1;
 
@@ -446,53 +512,90 @@ function initializeProductControls() {
     );
 
     /**
+     * --------------------------------------------------------
      * Category
+     * --------------------------------------------------------
      */
 
     categoryList?.addEventListener(
-        "click",
-        event => {
+    "click",
+    event => {
 
-            const button =
-                event.target.closest(
-                    "[data-category]"
-                );
+        const button =
+            event.target.closest(
+                "[data-category]"
+            );
 
-            if (!button) return;
+        if (!button) return;
 
-            selectedCategory =
-                button.dataset.category;
+        selectedCategory =
+            button.dataset.category;
 
-            currentPage = 1;
+        /*
+         * Clear the search box whenever a main
+         * product category is selected.
+         */
 
-            renderCategoryList();
+        searchTerm = "";
 
-            renderProductGrid();
+        const searchInput =
+            document.querySelector(
+                "#productSearch"
+            );
+
+        if (searchInput) {
+
+            searchInput.value = "";
 
         }
-    );
+
+        currentPage = 1;
+
+        renderCategoryList();
+
+        renderProductGrid();
+
+    }
+);
 
     /**
+     * --------------------------------------------------------
      * Clear Category
+     * --------------------------------------------------------
      */
 
     clearCategory?.addEventListener(
-        "click",
-        () => {
+    "click",
+    () => {
 
-            selectedCategory = "All";
+        selectedCategory = "All";
 
-            currentPage = 1;
+        searchTerm = "";
 
-            renderCategoryList();
+        const searchInput =
+            document.querySelector(
+                "#productSearch"
+            );
 
-            renderProductGrid();
+        if (searchInput) {
+
+            searchInput.value = "";
 
         }
-    );
+
+        currentPage = 1;
+
+        renderCategoryList();
+
+        renderProductGrid();
+
+    }
+);
 
     /**
+     * --------------------------------------------------------
      * Sort
+     * --------------------------------------------------------
      */
 
     sortSelect?.addEventListener(
@@ -528,6 +631,58 @@ function renderCategoryList() {
 
 /**
  * ------------------------------------------------------------
+ * Convert Text To Comparable Category
+ * ------------------------------------------------------------
+ *
+ * Example:
+ *
+ * Fire Extinguishers
+ * fire-extinguishers
+ * FIRE EXTINGUISHERS
+ *
+ * All become:
+ *
+ * fire-extinguishers
+ *
+ * ------------------------------------------------------------
+ */
+
+function normalizeCategory(value) {
+
+    return String(value || "")
+        .trim()
+        .toLowerCase()
+        .replace(/[_\s]+/g, "-")
+        .replace(/[^a-z0-9-]/g, "")
+        .replace(/-+/g, "-");
+
+}
+
+/**
+ * ------------------------------------------------------------
+ * Get Product Name
+ * ------------------------------------------------------------
+ *
+ * Our simplified products.json may use "name".
+ *
+ * The fallback to "title" keeps compatibility with
+ * older product records.
+ *
+ * ------------------------------------------------------------
+ */
+
+function getProductName(product) {
+
+    return (
+        product.name ||
+        product.title ||
+        ""
+    );
+
+}
+
+/**
+ * ------------------------------------------------------------
  * Filter Products
  * ------------------------------------------------------------
  */
@@ -538,21 +693,53 @@ function getFilteredProducts() {
         [...products];
 
     /**
+     * --------------------------------------------------------
      * Category Filter
+     * --------------------------------------------------------
      */
 
     if (selectedCategory !== "All") {
 
+        const selectedCategoryObject =
+            PRODUCT_CATEGORIES.find(
+                category =>
+                    category.id ===
+                    selectedCategory
+            );
+
+        const selectedCategoryName =
+            selectedCategoryObject
+                ? selectedCategoryObject.name
+                : selectedCategory;
+
+        const selectedCategoryNormalized =
+            normalizeCategory(
+                selectedCategoryName
+            );
+
         filteredProducts =
             filteredProducts.filter(
-                product =>
-                    product.category === selectedCategory
+                product => {
+
+                    const productCategory =
+                        normalizeCategory(
+                            product.category
+                        );
+
+                    return (
+                        productCategory ===
+                        selectedCategoryNormalized
+                    );
+
+                }
             );
 
     }
 
     /**
+     * --------------------------------------------------------
      * Search Filter
+     * --------------------------------------------------------
      */
 
     if (searchTerm) {
@@ -561,14 +748,24 @@ function getFilteredProducts() {
             filteredProducts.filter(
                 product => {
 
-                    const searchableText = `
+                    const searchableText = [
 
-                        ${product.title}
-                        ${product.category}
-                        ${product.brand}
-                        ${product.description}
+    getProductName(product),
 
-                    `.toLowerCase();
+    product.category,
+
+    product.subcategory,
+
+    product.description,
+
+    product.brand,
+
+    product.id
+
+]
+                        .filter(Boolean)
+                        .join(" ")
+                        .toLowerCase();
 
                     return searchableText.includes(
                         searchTerm
@@ -606,7 +803,10 @@ function sortProducts(productList) {
 
             sortedProducts.sort(
                 (a, b) =>
-                    a.title.localeCompare(b.title)
+                    getProductName(a)
+                        .localeCompare(
+                            getProductName(b)
+                        )
             );
 
             break;
@@ -615,7 +815,10 @@ function sortProducts(productList) {
 
             sortedProducts.sort(
                 (a, b) =>
-                    b.title.localeCompare(a.title)
+                    getProductName(b)
+                        .localeCompare(
+                            getProductName(a)
+                        )
             );
 
             break;
@@ -624,7 +827,10 @@ function sortProducts(productList) {
 
             sortedProducts.sort(
                 (a, b) =>
-                    a.category.localeCompare(b.category)
+                    String(a.category || "")
+                        .localeCompare(
+                            String(b.category || "")
+                        )
             );
 
             break;
@@ -652,7 +858,8 @@ function paginateProducts(productList) {
 
     const totalPages =
         Math.ceil(
-            totalProducts / PRODUCTS_PER_PAGE
+            totalProducts /
+            PRODUCTS_PER_PAGE
         );
 
     if (
@@ -660,7 +867,8 @@ function paginateProducts(productList) {
         totalPages > 0
     ) {
 
-        currentPage = totalPages;
+        currentPage =
+            totalPages;
 
     }
 
@@ -699,16 +907,24 @@ function paginateProducts(productList) {
 function renderProductGrid() {
 
     const productGrid =
-        document.querySelector("#productGrid");
+        document.querySelector(
+            "#productGrid"
+        );
 
     const resultCount =
-        document.querySelector("#productResultCount");
+        document.querySelector(
+            "#productResultCount"
+        );
 
     const activeCategory =
-        document.querySelector("#activeCategory");
+        document.querySelector(
+            "#activeCategory"
+        );
 
     const noProducts =
-        document.querySelector("#noProducts");
+        document.querySelector(
+            "#noProducts"
+        );
 
     if (!productGrid) return;
 
@@ -724,14 +940,18 @@ function renderProductGrid() {
      */
 
     filteredProducts =
-        sortProducts(filteredProducts);
+        sortProducts(
+            filteredProducts
+        );
 
     /**
      * Pagination
      */
 
     const pagination =
-        paginateProducts(filteredProducts);
+        paginateProducts(
+            filteredProducts
+        );
 
     const visibleProducts =
         pagination.products;
@@ -742,7 +962,9 @@ function renderProductGrid() {
 
     if (resultCount) {
 
-        if (filteredProducts.length === 0) {
+        if (
+            filteredProducts.length === 0
+        ) {
 
             resultCount.textContent =
                 "Showing 0 products";
@@ -773,14 +995,27 @@ function renderProductGrid() {
 
         if (selectedCategory === "All") {
 
-            activeCategory.classList.add("d-none");
+            activeCategory.classList.add(
+                "d-none"
+            );
 
         } else {
 
-            activeCategory.classList.remove("d-none");
+            activeCategory.classList.remove(
+                "d-none"
+            );
+
+            const selectedCategoryObject =
+                PRODUCT_CATEGORIES.find(
+                    category =>
+                        category.id ===
+                        selectedCategory
+                );
 
             activeCategory.textContent =
-                selectedCategory;
+                selectedCategoryObject
+                    ? selectedCategoryObject.name
+                    : selectedCategory;
 
         }
 
@@ -794,7 +1029,9 @@ function renderProductGrid() {
 
         productGrid.innerHTML = "";
 
-        noProducts?.classList.remove("d-none");
+        noProducts?.classList.remove(
+            "d-none"
+        );
 
         renderPagination(0);
 
@@ -802,19 +1039,36 @@ function renderProductGrid() {
 
     }
 
-    noProducts?.classList.add("d-none");
+    noProducts?.classList.add(
+        "d-none"
+    );
 
     /**
-     * Render Cards
+     * Render Product Cards
+     * --------------------------------------------------------
+     * 3 cards per row on desktop.
+     * 2 cards per row on medium screens.
+     * 1 card per row on small screens.
+     * --------------------------------------------------------
      */
 
     productGrid.innerHTML =
         visibleProducts
-            .map(product => productCard(product))
+            .map(
+                product => `
+
+                    <div class="col-md-6 col-xl-4">
+
+                        ${productCard(product)}
+
+                    </div>
+
+                `
+            )
             .join("");
 
     /**
-     * Render Pagination
+     * Pagination
      */
 
     renderPagination(
@@ -829,12 +1083,26 @@ function renderProductGrid() {
  * ------------------------------------------------------------
  */
 
+/**
+ * ------------------------------------------------------------
+ * Render Pagination
+ * ------------------------------------------------------------
+ */
+
 function renderPagination(totalPages) {
 
     const pagination =
-        document.querySelector("#productPagination");
+        document.querySelector(
+            "#productPagination"
+        );
 
     if (!pagination) return;
+
+    /**
+     * --------------------------------------------------------
+     * No Pagination Required
+     * --------------------------------------------------------
+     */
 
     if (totalPages <= 1) {
 
@@ -844,15 +1112,77 @@ function renderPagination(totalPages) {
 
     }
 
-    let paginationItems = "";
-
     /**
-     * Previous
+     * --------------------------------------------------------
+     * Build Page Numbers
+     * --------------------------------------------------------
+     *
+     * Example when current page is 20:
+     *
+     * 1 ... 19 20 21 ... 48
+     *
+     * This prevents the pagination from becoming too wide.
+     *
+     * --------------------------------------------------------
      */
 
-    paginationItems += `
+    const pages = [];
 
-        <li class="page-item ${currentPage === 1 ? "disabled" : ""}">
+    pages.push(1);
+
+    if (currentPage > 4) {
+
+        pages.push("ellipsis-start");
+
+    }
+
+    const startPage =
+        Math.max(
+            2,
+            currentPage - 1
+        );
+
+    const endPage =
+        Math.min(
+            totalPages - 1,
+            currentPage + 1
+        );
+
+    for (
+        let page = startPage;
+        page <= endPage;
+        page++
+    ) {
+
+        pages.push(page);
+
+    }
+
+    if (currentPage < totalPages - 3) {
+
+        pages.push("ellipsis-end");
+
+    }
+
+    if (totalPages > 1) {
+
+        pages.push(totalPages);
+
+    }
+
+    /**
+     * --------------------------------------------------------
+     * Previous Button
+     * --------------------------------------------------------
+     */
+
+    let paginationItems = `
+
+        <li
+            class="page-item
+                ${currentPage === 1
+                    ? "disabled"
+                    : ""}">
 
             <button
                 type="button"
@@ -869,18 +1199,52 @@ function renderPagination(totalPages) {
     `;
 
     /**
+     * --------------------------------------------------------
      * Page Numbers
+     * --------------------------------------------------------
      */
 
-    for (
-        let page = 1;
-        page <= totalPages;
-        page++
-    ) {
+    pages.forEach(page => {
+
+        /**
+         * Ellipsis
+         */
+
+        if (
+            page === "ellipsis-start" ||
+            page === "ellipsis-end"
+        ) {
+
+            paginationItems += `
+
+                <li
+                    class="page-item disabled">
+
+                    <span class="page-link">
+
+                        &hellip;
+
+                    </span>
+
+                </li>
+
+            `;
+
+            return;
+
+        }
+
+        /**
+         * Normal Page
+         */
 
         paginationItems += `
 
-            <li class="page-item ${page === currentPage ? "active" : ""}">
+            <li
+                class="page-item
+                    ${page === currentPage
+                        ? "active"
+                        : ""}">
 
                 <button
                     type="button"
@@ -895,15 +1259,21 @@ function renderPagination(totalPages) {
 
         `;
 
-    }
+    });
 
     /**
-     * Next
+     * --------------------------------------------------------
+     * Next Button
+     * --------------------------------------------------------
      */
 
     paginationItems += `
 
-        <li class="page-item ${currentPage === totalPages ? "disabled" : ""}">
+        <li
+            class="page-item
+                ${currentPage === totalPages
+                    ? "disabled"
+                    : ""}">
 
             <button
                 type="button"
@@ -919,9 +1289,21 @@ function renderPagination(totalPages) {
 
     `;
 
+    /**
+     * --------------------------------------------------------
+     * Pagination HTML
+     * --------------------------------------------------------
+     */
+
     pagination.innerHTML = `
 
-        <ul class="pagination justify-content-center mb-0">
+        <ul
+            class="
+                pagination
+                justify-content-center
+                flex-wrap
+                mb-0
+            ">
 
             ${paginationItems}
 
@@ -930,43 +1312,51 @@ function renderPagination(totalPages) {
     `;
 
     /**
+     * --------------------------------------------------------
      * Pagination Events
+     * --------------------------------------------------------
      */
 
     pagination
-        .querySelectorAll("[data-page]")
-        .forEach(button => {
+        .querySelectorAll(
+            "[data-page]"
+        )
+        .forEach(
+            button => {
 
-            button.addEventListener(
-                "click",
-                () => {
+                button.addEventListener(
+                    "click",
+                    () => {
 
-                    const page =
-                        Number(
-                            button.dataset.page
-                        );
+                        const page =
+                            Number(
+                                button.dataset.page
+                            );
 
-                    if (
-                        page < 1 ||
-                        page > totalPages ||
-                        page === currentPage
-                    ) {
-                        return;
+                        if (
+                            page < 1 ||
+                            page > totalPages ||
+                            page === currentPage
+                        ) {
+
+                            return;
+
+                        }
+
+                        currentPage =
+                            page;
+
+                        renderProductGrid();
+
+                        scrollToProductGrid();
+
                     }
+                );
 
-                    currentPage = page;
-
-                    renderProductGrid();
-
-                    scrollToProductGrid();
-
-                }
-            );
-
-        });
+            }
+        );
 
 }
-
 /**
  * ------------------------------------------------------------
  * Scroll To Product Grid
@@ -976,12 +1366,16 @@ function renderPagination(totalPages) {
 function scrollToProductGrid() {
 
     const productGrid =
-        document.querySelector("#productGrid");
+        document.querySelector(
+            "#productGrid"
+        );
 
     if (!productGrid) return;
 
     const position =
-        productGrid.getBoundingClientRect().top +
+        productGrid
+            .getBoundingClientRect()
+            .top +
         window.scrollY -
         120;
 

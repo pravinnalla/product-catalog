@@ -1,119 +1,2011 @@
 [
-    {
-        "id": "industrial-safety-helmet",
-        "category": "Safety Helmets",
-        "title": "Industrial Safety Helmet",
-        "brand": "Karam",
-        "image": "https://picsum.photos/600/450?random=301",
-        "description": "Reliable head protection for industrial and construction environments.",
-        "specifications": {
-            "application": "Industrial and construction environments",
-            "protection": "Head protection",
-            "brand": "Karam"
-        }
-    },
-    {
-        "id": "industrial-safety-gloves",
-        "category": "Safety Gloves",
-        "title": "Industrial Safety Gloves",
-        "brand": "3M",
-        "image": "https://picsum.photos/600/450?random=302",
-        "description": "Durable hand protection designed for demanding industrial applications.",
-        "specifications": {
-            "application": "Industrial applications",
-            "protection": "Hand protection",
-            "brand": "3M"
-        }
-    },
-    {
-        "id": "steel-toe-safety-shoes",
-        "category": "Safety Footwear",
-        "title": "Steel Toe Safety Shoes",
-        "brand": "Allen Cooper",
-        "image": "https://picsum.photos/600/450?random=303",
-        "description": "Protective industrial footwear offering comfort and reliable toe protection.",
-        "specifications": {
-            "application": "Industrial workplaces",
-            "protection": "Toe protection",
-            "brand": "Allen Cooper"
-        }
-    },
-    {
-        "id": "abc-fire-extinguisher",
-        "category": "Fire Safety",
-        "title": "ABC Dry Chemical Fire Extinguisher",
-        "brand": "Safex",
-        "image": "https://picsum.photos/600/450?random=304",
-        "description": "Portable fire protection equipment suitable for multiple fire classes.",
-        "specifications": {
-            "application": "Fire protection",
-            "protection": "Multiple fire classes",
-            "brand": "Safex"
-        }
-    },
-    {
-        "id": "industrial-safety-goggles",
-        "category": "Eye Protection",
-        "title": "Industrial Safety Goggles",
-        "brand": "Udyogi",
-        "image": "https://picsum.photos/600/450?random=305",
-        "description": "Protective eyewear designed for industrial work environments.",
-        "specifications": {
-            "application": "Industrial workplaces",
-            "protection": "Eye protection",
-            "brand": "Udyogi"
-        }
-    },
-    {
-        "id": "particulate-respirator",
-        "category": "Respiratory Protection",
-        "title": "Particulate Respirator",
-        "brand": "3M",
-        "image": "https://picsum.photos/600/450?random=306",
-        "description": "Respiratory protection for dusty and particulate work environments.",
-        "specifications": {
-            "application": "Dusty and particulate environments",
-            "protection": "Respiratory protection",
-            "brand": "3M"
-        }
-    },
-    {
-        "id": "industrial-safety-coverall",
-        "category": "Protective Clothing",
-        "title": "Industrial Safety Coverall",
-        "brand": "Karam",
-        "image": "https://picsum.photos/600/450?random=307",
-        "description": "Protective workwear designed for industrial and engineering applications.",
-        "specifications": {
-            "application": "Industrial and engineering applications",
-            "protection": "Protective workwear",
-            "brand": "Karam"
-        }
-    },
-    {
-        "id": "full-body-safety-harness",
-        "category": "Fall Protection",
-        "title": "Full Body Safety Harness",
-        "brand": "Udyogi",
-        "image": "https://picsum.photos/600/450?random=308",
-        "description": "Fall protection equipment for work at height and industrial applications.",
-        "specifications": {
-            "application": "Work at height",
-            "protection": "Fall protection",
-            "brand": "Udyogi"
-        }
-    },
-    {
-        "id": "ventilated-safety-helmet",
-        "category": "Safety Helmets",
-        "title": "Ventilated Safety Helmet",
-        "brand": "Karam",
-        "image": "https://picsum.photos/600/450?random=309",
-        "description": "Lightweight industrial helmet designed for comfortable workplace protection.",
-        "specifications": {
-            "application": "Industrial workplaces",
-            "protection": "Head protection",
-            "brand": "Karam"
-        }
-    }
+  {
+    "id": "fire-001",
+    "category": "Fire Extinguishers",
+    "subcategory": "CO2 Type Fire Extinguisher Spare Parts",
+    "name": "CO2 Hose",
+    "image": "co2-hose-1.png"
+  },
+  {
+    "id": "fire-002",
+    "category": "Fire Extinguishers",
+    "subcategory": "CO2 Type Fire Extinguisher Spare Parts",
+    "name": "CO2 Horn and Bend",
+    "image": "CO2HornandBend.png"
+  },
+  {
+    "id": "fire-003",
+    "category": "Fire Extinguishers",
+    "subcategory": "CO2 Type Fire Extinguisher Spare Parts",
+    "name": "CO2 Handle Lockguard",
+    "image": "CO2HandleLockguard.png"
+  },
+  {
+    "id": "fire-004",
+    "category": "Fire Extinguishers",
+    "subcategory": "ABC Type Fire Extinguisher Spare Parts",
+    "name": "Fire Extinguisher Vehicle Bracket",
+    "image": "FireExtinguisherVehicleBracket.png"
+  },
+  {
+    "id": "fire-005",
+    "category": "Fire Extinguishers",
+    "subcategory": "ABC Type Fire Extinguisher Spare Parts",
+    "name": "Nitrogen Filling Machine",
+    "image": "NitrogenFillingMachine.png"
+  },
+  {
+    "id": "fire-006",
+    "category": "Fire Extinguishers",
+    "subcategory": "ABC Type Fire Extinguisher Spare Parts",
+    "name": "ABC O-ring and Washers",
+    "image": "ABC_O-ringAndWashers.png"
+  },
+  {
+    "id": "fire-007",
+    "category": "Fire Extinguishers",
+    "subcategory": "ABC Type Fire Extinguisher Spare Parts",
+    "name": "ABC Hose and Siphon Belt",
+    "image": "ABCHoseAndSiphonBelt.png"
+  },
+  {
+    "id": "fire-008",
+    "category": "Fire Extinguishers",
+    "subcategory": "ABC Type Fire Extinguisher Spare Parts",
+    "name": "Fire Extinguisher Valves and Pressure Gauge",
+    "image": "FireExtinguisherValvesAndPressureGauge.png"
+  },
+  {
+    "id": "fire-009",
+    "category": "Fire Extinguishers",
+    "subcategory": "DCP Type Fire Extinguisher Spare Parts",
+    "name": "Safty Lock and Washer",
+    "image": "SaftyLockAndWasher.png"
+  },
+  {
+    "id": "fire-010",
+    "category": "Fire Extinguishers",
+    "subcategory": "DCP Type Fire Extinguisher Spare Parts",
+    "name": "Squeeze Grip Cap",
+    "image": "SqueezeGripCap.png"
+  },
+  {
+    "id": "fire-011",
+    "category": "Fire Extinguishers",
+    "subcategory": "DCP Type Fire Extinguisher Spare Parts",
+    "name": "DCP Hose Nozzle",
+    "image": "DCPHoseNozzle.png"
+  },
+  {
+    "id": "fire-012",
+    "category": "Fire Extinguishers",
+    "subcategory": "DCP Type Fire Extinguisher Spare Parts",
+    "name": "DCP Valve Type Nozzle",
+    "image": "DCPValveTypeNozzle.png"
+  },
+  {
+    "id": "fire-013",
+    "category": "Fire Extinguishers",
+    "subcategory": "DCP Type Fire Extinguisher Spare Parts",
+    "name": "DCP Container",
+    "image": "DCPContainer.png"
+  },
+  {
+    "id": "fire-014",
+    "category": "Fire Extinguishers",
+    "subcategory": "AFFF/Water Type Fire Extinguisher Spare Parts",
+    "name": "AFFF Hose Refill",
+    "image": "AFFFHoseRefill.png"
+  },
+  {
+    "id": "fire-015",
+    "category": "Fire Extinguishers",
+    "subcategory": "AFFF/Water Type Fire Extinguisher Spare Parts",
+    "name": "AFFF Nozzle",
+    "image": "AFFFNozzle.png"
+  },
+  {
+    "id": "fire-016",
+    "category": "Fire Extinguishers",
+    "subcategory": "AFFF/Water Type Fire Extinguisher Spare Parts",
+    "name": "AFFF Refill",
+    "image": "AFFFRefill.png"
+  },
+  {
+    "id": "fire-017",
+    "category": "Fire Extinguishers",
+    "subcategory": "Hydrant Accessories",
+    "name": "Hydrant Valve",
+    "image": "HydrantValve.jpg"
+  },
+  {
+    "id": "fire-018",
+    "category": "Fire Extinguishers",
+    "subcategory": "Hydrant Accessories",
+    "name": "FRP Hose Box",
+    "image": "FRPHoseBox.jpg"
+  },
+  {
+    "id": "fire-019",
+    "category": "Fire Extinguishers",
+    "subcategory": "Hydrant Accessories",
+    "name": "Hose Reel Drum",
+    "image": "HoseReelDrum.jpg"
+  },
+  {
+    "id": "fire-020",
+    "category": "Fire Extinguishers",
+    "subcategory": "Hydrant Accessories",
+    "name": "Short Branch Pipe Nozzle",
+    "image": "ShortBranchPipeNozzle.jpg"
+  },
+  {
+    "id": "fire-021",
+    "category": "Fire Extinguishers",
+    "subcategory": "Hydrant Accessories",
+    "name": "FRP Cabinets",
+    "image": "FRPCabinets.jpg"
+  },
+  {
+    "id": "fire-022",
+    "category": "Fire Extinguishers",
+    "subcategory": "Hydrant Accessories",
+    "name": "Hose Pipes",
+    "image": "HosePipes.jpg"
+  },
+  {
+    "id": "fire-023",
+    "category": "Fire Extinguishers",
+    "subcategory": "Hydrant Accessories",
+    "name": "Hydrant Accessories",
+    "image": "HydrantAccessories.jpg"
+  },
+  {
+    "id": "fire-024",
+    "category": "Fire Extinguishers",
+    "subcategory": "Hydrant Accessories",
+    "name": "Water Foam Monitors",
+    "image": "WaterFoamMonitors.jpg"
+  },
+  {
+    "id": "fire-025",
+    "category": "Fire Extinguishers",
+    "subcategory": "Hydrant Accessories",
+    "name": "Hose Binding Machine",
+    "image": "HoseBindingMachine.jpg"
+  },
+  {
+    "id": "fire-026",
+    "category": "Fire Extinguishers",
+    "subcategory": "Hydrant Accessories",
+    "name": "FB Inductors",
+    "image": "FBInductors.jpg"
+  },
+  {
+    "id": "fire-027",
+    "category": "Fire Extinguishers",
+    "subcategory": "Hydrant Accessories",
+    "name": "Breaching Inlets",
+    "image": "BreachingInlets.jpg"
+  },
+  {
+    "id": "fire-028",
+    "category": "Fire Extinguishers",
+    "subcategory": "Hydrant Accessories",
+    "name": "Foam Generators and Machines",
+    "image": "FoamGeneratorsAndMachines"
+  },
+  {
+    "id": "fire-029",
+    "category": "Fire Extinguishers",
+    "subcategory": "Hydrant Accessories",
+    "name": "Sprinklers and Flexidrops",
+    "image": "SprinklersAndFlexidrops.jpg"
+  },
+  {
+    "id": "fire-030",
+    "category": "Fire Extinguishers",
+    "subcategory": "Hydrant Accessories",
+    "name": "Other Items",
+    "image": "OtherItems.jpg"
+  },
+  {
+    "id": "fire-031",
+    "category": "Fire Extinguishers",
+    "subcategory": "Hydrant Accessories",
+    "name": "Male Female Coupling",
+    "image": "MaleFemaleCoupling.png"
+  },
+  {
+    "id": "fire-032",
+    "category": "Fire Extinguishers",
+    "subcategory": "Hydrant Accessories",
+    "name": "Shut Off Nozzle",
+    "image": "ShutOffNozzle.png"
+  },
+  {
+    "id": "fire-033",
+    "category": "Fire Extinguishers",
+    "subcategory": "Hydrant Accessories",
+    "name": "Lugs",
+    "image": "Lugs.png"
+  },
+  {
+    "id": "fire-034",
+    "category": "Fire Extinguishers",
+    "subcategory": "Hydrant Accessories",
+    "name": "Spindle Bonut Lugs",
+    "image": "SpindleBonutLugs.png"
+  },
+  {
+    "id": "fire-035",
+    "category": "Fire Extinguishers",
+    "subcategory": "Hydrant Accessories",
+    "name": "NRV/Shank Reducer",
+    "image": "NRV-ShankReducer.png"
+  },
+  {
+    "id": "fire-036",
+    "category": "Fire Extinguishers",
+    "subcategory": "Fire Extinguisher Products & Services",
+    "name": "CO2 Gas Cartridge",
+    "image": "CO2GasCartridge.png"
+  },
+  {
+    "id": "fire-037",
+    "category": "Fire Extinguishers",
+    "subcategory": "Fire Extinguisher Products & Services",
+    "name": "Fire Extinguisher ISI Mark",
+    "image": "FireExtinguisherISIMark.png"
+  },
+  {
+    "id": "fire-038",
+    "category": "Fire Extinguishers",
+    "subcategory": "Fire Extinguisher Products & Services",
+    "name": "Brass Forged Cap",
+    "image": "BrassForgedCap.png"
+  },
+  {
+    "id": "fire-039",
+    "category": "Fire Extinguishers",
+    "subcategory": "Fire Extinguisher Products & Services",
+    "name": "Fire Extinguisher Refilling and Servicing",
+    "image": "FireExtinguisherRefillingAndServicing.png"
+  },
+  {
+    "id": "fire-040",
+    "category": "Fire Extinguishers",
+    "subcategory": "Fire Extinguisher Products & Services",
+    "name": "Stickers and Signages",
+    "image": "StickersAndSignages1.jpg"
+  },
+  {
+    "id": "fire-041",
+    "category": "Fire Extinguishers",
+    "subcategory": "Fire Extinguisher Products & Services",
+    "name": "Stickers and Signages",
+    "image": "StickersAndSignages2.png"
+  },
+  {
+    "id": "fire-042",
+    "category": "Fire Extinguishers",
+    "subcategory": "Fire Extinguisher Products & Services",
+    "name": "All Type Of Fire Extinguisher",
+    "image": "AllTypeOfFireExtinguisher.png"
+  },
+  {
+    "id": "fire-043",
+    "category": "Fire Extinguishers",
+    "subcategory": "Fire Extinguisher Products & Services",
+    "name": "Clean Agent And Modular Type Fire Extinguisher",
+    "image": "CleanAgentAndModularTypeFireExtinguisher.png"
+  },
+  {
+    "id": "fire-044",
+    "category": "Fire Extinguishers",
+    "subcategory": "Fire Extinguisher Products & Services",
+    "name": "Fire Alarm Accessories",
+    "image": "FireAlarmAccessories.jpg"
+  },
+  {
+    "id": "fire-045",
+    "category": "Fire Extinguishers",
+    "subcategory": "Fire Extinguisher Products & Services",
+    "name": "ABC Type Fire Extinguisher ISI Mark",
+    "image": "ABCTypeFireExtinguisherISIMark.jpg"
+  },
+  {
+    "id": "fire-046",
+    "category": "Fire Extinguishers",
+    "subcategory": "Fire Extinguisher Products & Services",
+    "name": "CO2 Type Fire Extinguisher ISI Mark",
+    "image": "CO2TypeFireExtinguisherISIMark.jpg"
+  },
+  {
+    "id": "fire-047",
+    "category": "Fire Extinguishers",
+    "subcategory": "Fire Extinguisher Products & Services",
+    "name": "DCP Type Fire Extinguisher ISI Mark",
+    "image": "DCPTypeFireExtinguisherISIMark.jpg"
+  },
+  {
+    "id": "fire-048",
+    "category": "Fire Extinguishers",
+    "subcategory": "Fire Extinguisher Products & Services",
+    "name": "M-Foam Fire Extinguisher ISI Mark",
+    "image": "M-FoamFireExtinguisherISIMark.jpg"
+  },
+  {
+    "id": "fire-049",
+    "category": "Fire Extinguishers",
+    "subcategory": "Fire Extinguisher Products & Services",
+    "name": "W/CO2 Fire Extinguisher ISI Mark",
+    "image": "W-CO2FireExtinguisherISIMark.jpg"
+  },
+  {
+    "id": "safety-001",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "13GPOL- Lint Free Glove",
+    "image": "13GPOGlove.png"
+  },
+  {
+    "id": "safety-002",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "GNL 90- Lint Free Glove",
+    "image": "GNL90Glove.png"
+  },
+  {
+    "id": "safety-003",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "KLT-CF- Crinkle Palm Latex Glove",
+    "image": "KLTCFGlove.png"
+  },
+  {
+    "id": "safety-004",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "KNIT1 - Smooth Nitrile Coated",
+    "image": "KNIT1Coated.png"
+  },
+  {
+    "id": "safety-005",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "KPU1-PLUS/BLACK- 13G PU Coated Gloves",
+    "image": "KPU1PLUSBLACK13GPUGloves.png"
+  },
+  {
+    "id": "safety-006",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "KPU1-PLUS/GREY- 13G PU Coated Gloves",
+    "image": "KPU1PLUSGREY13GPUGloves.png"
+  },
+  {
+    "id": "safety-007",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "KPU1-PLUS/WHITE-13G PU Coated Gloves",
+    "image": "KPU1PLUSWHITE13GPUGloves.png"
+  },
+  {
+    "id": "safety-008",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "KPU1/15- PU Coated Gloves",
+    "image": "KPU115PUCoatedGloves.png"
+  },
+  {
+    "id": "safety-009",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "KPU1/H GREY- PU Coated Gloves",
+    "image": "KPU1HGREYPUCoatedGloves.png"
+  },
+  {
+    "id": "safety-010",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "LFSL/CTS212- CUT & SEWN COATED GLOVES",
+    "image": "LFSLCTS212CUTSEWNCOATEDGLOVES.png"
+  },
+  {
+    "id": "safety-011",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "MONO- Lint Free Glove",
+    "image": "MONOLintFreeGlove.png"
+  },
+  {
+    "id": "safety-012",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "NITRIFLEX1- Micro Foam/Nitrile Coat",
+    "image": "NITRIFLEX1MicroFoamNitrileCoat.png"
+  },
+  {
+    "id": "safety-013",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "ULTRAGRIP-N - Nylon Tactile Gloves",
+    "image": "ULTRAGRIPNNylonTactileGloves.png"
+  },
+  {
+    "id": "safety-014",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "ANT/D- Heat resistant Leather Wool lined",
+    "image": "ANTDHeatresistantLeatherWoollined.png"
+  },
+  {
+    "id": "safety-015",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "GK/ALU/SP/P- Split leather Alum back",
+    "image": "GKALUSPPSplitleatherAlumback.png"
+  },
+  {
+    "id": "safety-016",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "GT350/SS RH and LH- Heatproof Paramid lined",
+    "image": "GT350SSRHandLHHeatproofParamidlined.png"
+  },
+  {
+    "id": "safety-017",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "HR/35/PKBA- Heat and Welding Glove",
+    "image": "HR35PKBAHeatandWeldingGlove.png"
+  },
+  {
+    "id": "safety-018",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "HR35/FK- Para Aramid Glove",
+    "image": "HR35FKParaAramidGlove.png"
+  },
+  {
+    "id": "safety-019",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "MICROWELD- Mini welder comfort gloves",
+    "image": "MICROWELDMiniweldercomfortgloves.png"
+  },
+  {
+    "id": "safety-020",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "WELDCUT- Welding & Cut Glove 5/E",
+    "image": "WELDCUTWeldingCutGlove5E.png"
+  },
+  {
+    "id": "safety-021",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "WELDPLUS- Heavy Duty Welding Glove",
+    "image": "WELDCUTWeldingCutGlove5E.png"
+  },
+  {
+    "id": "safety-022",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "WS14- Light duty Welding glove",
+    "image": "WS14LightdutyWeldingglove.png"
+  },
+  {
+    "id": "safety-023",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "WSBCL/ST35- Leather, fleece-lined.",
+    "image": "WSBCLST35Leatherfleecelined.png"
+  },
+  {
+    "id": "safety-024",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "WSCDY/CL35 - Split leather weld glove",
+    "image": "WSCDYCL35Splitleatherweldglove.png"
+  },
+  {
+    "id": "safety-025",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "WSL/DP12 LH and RH available- Split Finger-Double Palm",
+    "image": "WSLDP12LHRHavailableSplitFingerDoublePalm.png"
+  },
+  {
+    "id": "safety-026",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "WSRCL35 + WSYCL35- Comfort welder glove",
+    "image": "WSRCL35WSYCL35Comfortwelderglove.png"
+  },
+  {
+    "id": "safety-027",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "FNC/L- Latex finger cots",
+    "image": "FNCLLatexfingercots.jpg"
+  },
+  {
+    "id": "safety-028",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "KN18 - Superior long 18\" nitrile glove",
+    "image": "KN18Superiorlong18nitrileglove.png"
+  },
+  {
+    "id": "safety-029",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "KNF-22- 22 mil nitrile flock line glove",
+    "image": "KN18Superiorlong18nitrileglove1.png"
+  },
+  {
+    "id": "safety-030",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "KNF15 - Green Nitrile Grip Glove",
+    "image": "KNF15GreenNitrileGripGlove.png"
+  },
+  {
+    "id": "safety-031",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "KNF17 - 17 mil nitrile flock line glove",
+    "image": "KNF1717milnitrileflocklineglove.png"
+  },
+  {
+    "id": "safety-032",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "NITRICHEM- 18G Nitrile FULL DIPPED CUT 1",
+    "image": "NITRICHEM18GNitrileFULLDIPPEDCUT1.png"
+  },
+  {
+    "id": "safety-033",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "NITRICUT 1 - 15G nitrile full dipped cut 1",
+    "image": "NITRICUT115Gnitrilefulldippedcut1.png"
+  },
+  {
+    "id": "safety-034",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "NITRICUT5- 15G Nitrile full dipped glove 5/D",
+    "image": "NITRICUT515GNitrilefulldippedglove5D.png"
+  },
+  {
+    "id": "safety-035",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "NPF/3B-3mil disposable nitrile gloves",
+    "image": "NPF3B3mildisposablenitrilegloves.png"
+  },
+  {
+    "id": "safety-036",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "NPF/5B- 5 mil disposable nitrile gloves",
+    "image": "NPF5B5mildisposablenitrilegloves.png"
+  },
+  {
+    "id": "safety-037",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "NPF/8OR- 8mil Orange Nitrile Glove",
+    "image": "NPF8OR8milOrangeNitrileGlove.png"
+  },
+  {
+    "id": "safety-038",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "10G/POL/KRCF- 10G Cut Level 2 Gloves",
+    "image": "10GPOLKRCF10GCutLevel2Gloves.png"
+  },
+  {
+    "id": "safety-039",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "POWERCUT/L - 13G HDPE gloves",
+    "image": "POWERCUTL13GHDPEgloves.png"
+  },
+  {
+    "id": "safety-040",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "DOC/C/A - Leather DOCKER gloves",
+    "image": "DOCCALeatherDOCKERgloves.png"
+  },
+  {
+    "id": "safety-041",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "GC/WP/F27- Leather driving gloves",
+    "image": "GCWPF27Leatherdrivinggloves.png"
+  },
+  {
+    "id": "safety-042",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "KAN/B/DP-Double palm DOCKER gloves",
+    "image": "KANBDPDoublepalmDOCKERgloves.png"
+  },
+  {
+    "id": "safety-043",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "KAN/G/FL/DP- Soft rigger gloves",
+    "image": "KANGFLDPSoftriggergloves.png"
+  },
+  {
+    "id": "safety-044",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "PLTSJ12- Comfortable handling gloves",
+    "image": "PLTSJ12Comfortablehandlinggloves.png"
+  },
+  {
+    "id": "safety-045",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "HDRD/O - Heavy duty texturized rubber glove",
+    "image": "HDRDOHeavydutytexturizedrubberglove.png"
+  },
+  {
+    "id": "safety-046",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "LDRT/O- Light duty textured gloves",
+    "image": "LDRTOLightdutytexturedgloves.png"
+  },
+  {
+    "id": "safety-047",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "CONFORT GRIP- Split Leather Gloves-3/C",
+    "image": "CONFORTGRIPSplitLeatherGloves3C.png"
+  },
+  {
+    "id": "safety-048",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "EasyFit- PU Coated Cut Gloves-3/B",
+    "image": "EasyFitPUCoatedCutGloves3B.png"
+  },
+  {
+    "id": "safety-049",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "EASYFIT/SD- 13G Seamless PU Coated",
+    "image": "EASYFITSD13GSeamlessPUCoated.png"
+  },
+  {
+    "id": "safety-050",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "EASYTOUCH- 15G Gloves Cut Level B",
+    "image": "EASYTOUCH15GGlovesCutLevelB.png"
+  },
+  {
+    "id": "safety-051",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "EASYTOUCH/IMPACTO - 15G Gloves Cut Level B",
+    "image": "EASYTOUCHIMPACTO15GGlovesCutLevelB.png"
+  },
+  {
+    "id": "safety-052",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "GRC10+GRC10/O- Split Leather Gloves-3/C",
+    "image": "GRC10GRC10OSplitLeatherGloves3C.png"
+  },
+  {
+    "id": "safety-053",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "GTA10 - 10G Cut Level 3 Gloves",
+    "image": "GTA1010GCutLevel3Gloves.png"
+  },
+  {
+    "id": "safety-054",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "POWERCLEAN- PU Coated Cut Gloves-3/B",
+    "image": "POWERCLEANPUCoatedCutGloves3B.png"
+  },
+  {
+    "id": "safety-055",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "POWERFIT- PU Coated Cut Gloves-3/B",
+    "image": "POWERFITPUCoatedCutGloves3B.png"
+  },
+  {
+    "id": "safety-056",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "POWERFIT/VIZ-PU Coated Cut Gloves-3/B",
+    "image": "POWERFITVIZPUCoatedCutGloves3B.png"
+  },
+  {
+    "id": "safety-057",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "POWERTOUCH- 15G Gloves Cut Level C",
+    "image": "POWERTOUCH15GGlovesCutLevelC.png"
+  },
+  {
+    "id": "safety-058",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "POWERTOUCH/IMPACTO - 15G Gloves Cut Level C",
+    "image": "POWERTOUCHIMPACTO15GGlovesCutLevelC.png"
+  },
+  {
+    "id": "safety-059",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "AST9/SD10 & SD16 (CTS65 & CTS66)- Cut and swen ESD gloves",
+    "image": "AST9SD10SD6CTS65CTS66CutandswenESDgloves.png"
+  },
+  {
+    "id": "safety-060",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "EASYFIT/SD- 13G Seamless PU Coated",
+    "image": "EASYFITSD13GSeamlessPUCoated1.png"
+  },
+  {
+    "id": "safety-061",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "KESD/CUT- 13G Seamless PU Coated",
+    "image": "KESDCUT13GSeamlessPUCoated.png"
+  },
+  {
+    "id": "safety-062",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "KESD/FC- ESD GLOVE",
+    "image": "KESDFCESDGLOVE.jpeg"
+  },
+  {
+    "id": "safety-063",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "KESD/TF- Carbon fiber knitted glove",
+    "image": "KESDTFCarbonfiberknittedglove.png"
+  },
+  {
+    "id": "safety-064",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "LFC/ESD (CTS30) and TY- ESD Coated glove",
+    "image": "LFCESDCTS30andTYESDCoatedglove.png"
+  },
+  {
+    "id": "safety-065",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "POWERFIT/SD - CLEAN PU coated glove",
+    "image": "POWERFITSDCLEANPUcoatedglove.png"
+  },
+  {
+    "id": "safety-066",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "CL4 - PU Coated Cut Gloves-4/C",
+    "image": "CL4PUCoatedCutGloves4C.png"
+  },
+  {
+    "id": "safety-067",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "CL4/lrp- PU Coated Cut Gloves-4/C",
+    "image": "CL4lrpPUCoatedCutGloves4C.png"
+  },
+  {
+    "id": "safety-068",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "FLEXSLEEVE- CUT PROTECTION SLEEVE –LEVEL D",
+    "image": "FLEXSLEEVECUTPROTECTIONSLEEVELEVELD.png"
+  },
+  {
+    "id": "safety-069",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "GTFHT/13/G- 13G Gloves Cut Level C",
+    "image": "GTFHT13G13GGlovesCutLevelC.png"
+  },
+  {
+    "id": "safety-070",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "GTFHT/13/G-FINGER COT- 13G Gloves Cut Level C",
+    "image": "GTFHT13GFINGERCOT13GGlovesCutLevelC.png"
+  },
+  {
+    "id": "safety-071",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "MASTERTOUCH- CUT PROTECTION GLOVE – LEVEL D",
+    "image": "MASTERTOUCHCUTPROTECTIONGLOVELEVELD.png"
+  },
+  {
+    "id": "safety-072",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "MASTERTOUCH/GRIP - ULTRA DOTTED CUT PROTECTION GLOVE – LEVEL D",
+    "image": "MASTERTOUCHGRIPULTRADOTTEDCUTPROTECTIONGLOVELEVELD.png"
+  },
+  {
+    "id": "safety-073",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "MASTERTOUCH/IMPACTO - 13G Coated Cut Glove-4/C",
+    "image": "MASTERTOUCHIMPACTO13GCoatedCutGlove4C.png"
+  },
+  {
+    "id": "safety-074",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "NITRIFLEX3- 13G knit, nitrile-coat",
+    "image": "NITRIFLEX313Gknitnitrilecoat.png"
+  },
+  {
+    "id": "safety-075",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "NITRIFLEX3/VRP/IMPACTO- Impact glove cut D",
+    "image": "NITRIFLEX3VRPIMPACTOImpactglovecutD.png"
+  },
+  {
+    "id": "safety-076",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "OCTOPUS BARRIER- CUT PROTECTION GLOVE LEVEL- D",
+    "image": "OCTOPUSBARRIERCUTPROTECTIONGLOVELEVELD.png"
+  },
+  {
+    "id": "safety-077",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "POWERFEEL- CUT RESISTANCE GLOVE 4C",
+    "image": "POWERFEELCUTRESISTANCEGLOVE4C.png"
+  },
+  {
+    "id": "safety-078",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "POWERFEEL/LW- CUT RESISTANCE GLOVE 4C",
+    "image": "POWERFEELLWCUTRESISTANCEGLOVE4C.png"
+  },
+  {
+    "id": "safety-079",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "POWERFEEL/RP- CUT RESISTANT GLOVES - LEVEL 4/C",
+    "image": "POWERFEELRPCUTRESISTANTGLOVESLEVEL4C.jpeg"
+  },
+  {
+    "id": "safety-080",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "COLD DRIVER - Grain smooth and cold glove",
+    "image": "COLDDRIVERGrainsmoothandcoldglove.png"
+  },
+  {
+    "id": "safety-081",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "COLD SKIN- Cold protection liner gloves",
+    "image": "COLDSKINColdprotectionlinergloves.png"
+  },
+  {
+    "id": "safety-082",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "ELECTROCUT - 13G Cut E Gloves",
+    "image": "ELECTROCUT13GCutEGloves.png"
+  },
+  {
+    "id": "safety-083",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "ELECTROCUT/LW - 13G Cut E Gloves",
+    "image": "ELECTROCUTLW13GCutEGloves.png"
+  },
+  {
+    "id": "safety-084",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "ELECTROCUT/LW/RP- 13G Cut E Long Gloves",
+    "image": "ELECTROCUTLWRP13GCutELongGloves.png"
+  },
+  {
+    "id": "safety-085",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "ELECTROCUT_BLACK - Cut E Gloves",
+    "image": "ELECTROCUTBLACKCutEGloves.png"
+  },
+  {
+    "id": "safety-086",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "ElectroFlex 5- 13G Seamless Knitted PU Gloves",
+    "image": "ElectroFlex513GSeamlessKnittedPUGloves.png"
+  },
+  {
+    "id": "safety-087",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "ELECTROGRIP-N- 15G Knit Textured Coat",
+    "image": "ELECTROGRIPN15GKnitTexturedCoat.png"
+  },
+  {
+    "id": "safety-088",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "FLEXCUT/18- 18G Cut Protection 5/D",
+    "image": "FLEXCUT1818GCutProtection5D.png"
+  },
+  {
+    "id": "safety-089",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "FLEXCUT/E- 13G Nitrile Coated Gloves",
+    "image": "FLEXCUTE13GNitrileCoatedGloves.png"
+  },
+  {
+    "id": "safety-090",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "FLEXCUT/E/IMPACTO- Shock absorb gloves",
+    "image": "FLEXCUTEIMPACTOShockabsorbgloves.png"
+  },
+  {
+    "id": "safety-091",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "Flexfit- 18G Seamless Knitted PU Gloves",
+    "image": "Flexfit18GSeamlessKnittedPUGloves.png"
+  },
+  {
+    "id": "safety-092",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "FLEXITOUCH-CUT PROTECTION GLOVE –LEVEL A",
+    "image": "FLEXITOUCHCUTPROTECTIONGLOVELEVELA.png"
+  },
+  {
+    "id": "safety-093",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "FLEXITOUCH/IMPACTO -CUT PROTECTION GLOVE –LEVEL A",
+    "image": "FLEXITOUCHIMPACTOCUTPROTECTIONGLOVELEVELA.png"
+  },
+  {
+    "id": "safety-094",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "GTA10/FRZ/K- 10G Para-aramid Gloves",
+    "image": "GTA10FRZK10GParaaramidGloves.png"
+  },
+  {
+    "id": "safety-095",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "Hyperfit- 18G Blue Polyamide PE Gloves",
+    "image": "Hyperfit18GBluePolyamidePEGloves.png"
+  },
+  {
+    "id": "safety-096",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "IRONTECH- 13G CLEAN PU Coated",
+    "image": "IRONTECH13GCLEANPUCoated.png"
+  },
+  {
+    "id": "safety-097",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "MasterBlack- 13G PE filament Gloves",
+    "image": "MasterBlack13GPEfilamentGloves.png"
+  },
+  {
+    "id": "safety-098",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "MASTERBLACK/SD- 13G Seamless PU Coated",
+    "image": "MASTERBLACKSD13GSeamlessPUCoated.png"
+  },
+  {
+    "id": "safety-099",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "MASTERCLEAN- 13G CLEAN PU Gloves",
+    "image": "MASTERCLEAN13GCLEANPUGloves.png"
+  },
+  {
+    "id": "safety-100",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "MASTERTECH- 13G PU Coated Gloves",
+    "image": "MASTERTECH- 13G PU Coated Gloves.png"
+  },
+  {
+    "id": "safety-101",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "METALFLEX27/K- 10G Reinforced Gloves",
+    "image": "METALFLEX27K- 10G Reinforced Gloves.png"
+  },
+  {
+    "id": "safety-102",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "METALTOUCH- 13G Black PU seamless knitted glove",
+    "image": "METALTOUCH- 13G Black PU seamless knitted glove.png"
+  },
+  {
+    "id": "safety-103",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "METALTOUCHIMPACTO - 13G Black PU seamless knitted glove",
+    "image": "METALTOUCHIMPACTO - 13G Black PU seamless knitted glove.png"
+  },
+  {
+    "id": "safety-104",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "NITRI5_FDL_790- CHEMICAL & CUT PROTECTION GLOVE LEVEL E",
+    "image": "NITRI5_FDL_790- CHEMICAL & CUT PROTECTION GLOVE LEVEL E.png"
+  },
+  {
+    "id": "safety-105",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "NITRIFLEX5- Geamless Knitted gloves",
+    "image": "NITRIFLEX5- Geamless Knitted gloves.png"
+  },
+  {
+    "id": "safety-106",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "POWERFOOD- 10G Seamless Knitted Gloves",
+    "image": "POWERFOOD- 10G Seamless Knitted Gloves.png"
+  },
+  {
+    "id": "safety-107",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "PROTECTPLUS- 10G High Tenacity Gloves",
+    "image": "PROTECTPLUS- 10G High Tenacity Gloves.png"
+  },
+  {
+    "id": "safety-108",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "PROTECTPLUS/DS/O/P- 10G High Tenacity Gloves",
+    "image": "PROTECTPLUSDSOP- 10G High Tenacity Gloves.png"
+  },
+  {
+    "id": "safety-109",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "Protectplus/Impacto - Heavy duty impact glove 5/D",
+    "image": "ProtectplusImpacto - Heavy duty impact glove 5D.png"
+  },
+  {
+    "id": "safety-110",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "SKINTOUCH- CUT PROTECTION GLOVE –LEVEL B",
+    "image": "SKINTOUCH- CUT PROTECTION GLOVE –LEVEL B.png"
+  },
+  {
+    "id": "safety-111",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "STEELFIT-13G PU Coated knitted gloves",
+    "image": "STEELFIT-13G PU Coated knitted gloves.png"
+  },
+  {
+    "id": "safety-112",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "STEELTECH/30- 13G CLEAN PU Gloves",
+    "image": "STEELTECH30- 13G CLEAN PU Gloves.png"
+  },
+  {
+    "id": "safety-113",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "FLEXCUT/E/IMPACTO- Shock absorb gloves",
+    "image": "FLEXCUTEIMPACTO- Shock absorb gloves.png"
+  },
+  {
+    "id": "safety-114",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "NITRIFLEX3/VRP/IMPACTO- Impact glove cut D",
+    "image": "NITRIFLEX3VRPIMPACTO- Impact glove cut D.png"
+  },
+  {
+    "id": "safety-115",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "Protectplus/Impacto - Heavy duty impact glove 5/D",
+    "image": "ProtectplusImpactoHeavydutyimpactglove5D.png"
+  },
+  {
+    "id": "safety-116",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "TAC/F/MIT/R (Cut Finger)- Anti vibration Leather Gloves",
+    "image": "TACFMITRCutFingerAntivibrationLeatherGloves.png"
+  },
+  {
+    "id": "safety-117",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "TAC/F/MIT/R (Full Finger)- Leather Palm Gloves",
+    "image": "TACFMITRFull FingerLeather Palm Gloves.png"
+  },
+  {
+    "id": "safety-118",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "GTA/D - 7G Ambidextrous gloves",
+    "image": "GTAD-7G Ambidextrous gloves.png"
+  },
+  {
+    "id": "safety-119",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "GTA/D/35CM + 27Cm- Para Aramid Ambidextrous gloves",
+    "image": "GTAD35CM 27CmPara Aramid Ambidextrous gloves.png"
+  },
+  {
+    "id": "safety-120",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "GTA/D/M-PH - 100% Para-aramid, wool lined",
+    "image": "GTADMPH100Paraaramid wool lined.png"
+  },
+  {
+    "id": "safety-121",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "GTA/D/M/COT/SD- Heat resistant silicon dotted",
+    "image": "GTADMCOTSDHeatresistant silicon dotted.png"
+  },
+  {
+    "id": "safety-122",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "GTA/DC/MTF- Para-Aramid Lined Glove",
+    "image": "GTADCMTFParaAramid Lined Glove.png"
+  },
+  {
+    "id": "safety-123",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "HOTGRIP/SD - Heat Protection Silicon Dotted Glove",
+    "image": "HOTGRIPSDHeat Protection Silicon Dotted Glove.png"
+  },
+  {
+    "id": "safety-124",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "HOTSAFE - Mild Hot Handling Terry Glove",
+    "image": "HOTSAFE - Mild Hot Handling Terry Glove.png"
+  },
+  {
+    "id": "safety-125",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "HR40PKBL- Aramid & Leather gloves",
+    "image": "HR40PKBL- Aramid  Leather gloves.png"
+  },
+  {
+    "id": "safety-126",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "T7/GD/LW-Aramid Double Layered Glove",
+    "image": "T7GDLW-Aramid Double Layered Glove.png"
+  },
+  {
+    "id": "safety-127",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "LFSL/CTS212- CUT & SEWN COATED GLOVES",
+    "image": "LFSLCTS212- CUT  SEWN COATED GLOVES.png"
+  },
+  {
+    "id": "safety-128",
+    "category": "Safety Equipment",
+    "subcategory": "Hand Protection",
+    "name": "MONO- Lint Free Glove",
+    "image": null
+  },
+  {
+    "id": "safety-129",
+    "category": "Safety Equipment",
+    "subcategory": "Arms Protection",
+    "name": "New Fit Sleeve- Blue/black sleeve, 15G",
+    "image": "New Fit Sleeve- Blueblack sleeve, 15G.png"
+  },
+  {
+    "id": "safety-130",
+    "category": "Safety Equipment",
+    "subcategory": "Arms Protection",
+    "name": "WG/BF- Arm Protection",
+    "image": "WGBF- Arm Protection.png"
+  },
+  {
+    "id": "safety-131",
+    "category": "Safety Equipment",
+    "subcategory": "Arms Protection",
+    "name": "WG/PA/CTS194- Para Aramid Wrist Guard",
+    "image": "WGPACTS194- Para Aramid Wrist Guard.png"
+  },
+  {
+    "id": "safety-132",
+    "category": "Safety Equipment",
+    "subcategory": "Arms Protection",
+    "name": "10G/NB/SLV- Flexible Cut Sleeve Level 2",
+    "image": "10GNBSLV- Flexible Cut Sleeve Level 2.png"
+  },
+  {
+    "id": "safety-133",
+    "category": "Safety Equipment",
+    "subcategory": "Arms Protection",
+    "name": "10G/RIB/SLV- FLEXIBLE RIB SLEEVE",
+    "image": "10GRIBSLV- FLEXIBLE RIB SLEEVE.png"
+  },
+  {
+    "id": "safety-134",
+    "category": "Safety Equipment",
+    "subcategory": "Arms Protection",
+    "name": "COMFORT/BC/H-Flexible rib sleeve cut 4/C",
+    "image": "COMFORTBCH-Flexible rib sleeve cut 4C.png"
+  },
+  {
+    "id": "safety-135",
+    "category": "Safety Equipment",
+    "subcategory": "Arms Protection",
+    "name": "FITSLEEVE- 13G ARGIOPEX@ PLUS Sleeve",
+    "image": "FITSLEEVE- 13G ARGIOPEX PLUS Sleeve.png"
+  },
+  {
+    "id": "safety-136",
+    "category": "Safety Equipment",
+    "subcategory": "Arms Protection",
+    "name": "FITSLEEVE/15- 15G flexible sleeve cut C",
+    "image": "FITSLEEVE15- 15G flexible sleeve cut C.png"
+  },
+  {
+    "id": "safety-137",
+    "category": "Safety Equipment",
+    "subcategory": "Arms Protection",
+    "name": "MASTERSLEEVE- High-Density PE Sleeve",
+    "image": "MASTERSLEEVE- High-Density PE Sleeve.png"
+  },
+  {
+    "id": "safety-138",
+    "category": "Safety Equipment",
+    "subcategory": "Arms Protection",
+    "name": "MBCK + EW- Flexible aramid rib sleeve cut 4/C",
+    "image": "MBCK  EW- Flexible aramid rib sleeve cut 4C.png"
+  },
+  {
+    "id": "safety-139",
+    "category": "Safety Equipment",
+    "subcategory": "Arms Protection",
+    "name": "METALSLEEVE- Hi cut sleeve level F",
+    "image": "METALSLEEVE- Hi cut sleeve level F.png"
+  },
+  {
+    "id": "safety-140",
+    "category": "Safety Equipment",
+    "subcategory": "Arms Protection",
+    "name": "SLEEVEFOOD- Food contact sleeve cut F",
+    "image": "SLEEVEFOOD- Food contact sleeve cut F.png"
+  },
+  {
+    "id": "safety-141",
+    "category": "Safety Equipment",
+    "subcategory": "Arms Protection",
+    "name": "VSI01/SLEEVE- Anti cut sleeve 5/D",
+    "image": "VSI01SLEEVE- Anti cut sleeve 5D.png"
+  },
+  {
+    "id": "safety-142",
+    "category": "Safety Equipment",
+    "subcategory": "Arms Protection",
+    "name": "MAN/C/D- Split leather welder sleeve",
+    "image": "MANCD- Split leather welder sleeve.png"
+  },
+  {
+    "id": "safety-143",
+    "category": "Safety Equipment",
+    "subcategory": "Arms Protection",
+    "name": "MAN/CA/V45- Rust Leather Hand Sleeve",
+    "image": null
+  },
+  {
+    "id": "safety-144",
+    "category": "Safety Equipment",
+    "subcategory": "Arms Protection",
+    "name": "CSL45- White PU Coated Sleeve",
+    "image": "CSL45- White PU Coated Sleeve.png"
+  },
+  {
+    "id": "safety-145",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "FSS/GRY/CTS141- Non FR jacket",
+    "image": "FSSGRYCTS141- Non FR jacket.png"
+  },
+  {
+    "id": "safety-146",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "HP/OR/CTS86- Cotton coverall",
+    "image": "HPORCTS86- Cotton coverall.png"
+  },
+  {
+    "id": "safety-147",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "NFR/C/CTS168- Non FR coverall",
+    "image": "NFRCCTS168- Non FR coverall.png"
+  },
+  {
+    "id": "safety-148",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "NFR/CJ/HSS/CTS174- Half sleeve shirt",
+    "image": "NFRCJHSSCTS174- Half sleeve shirt.png"
+  },
+  {
+    "id": "safety-149",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "BIB/TR/CTS96- COTTON FR BIB TROUSER",
+    "image": "BIBTRCTS96- COTTON FR BIB TROUSER.png"
+  },
+  {
+    "id": "safety-150",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "CFR/APR/CTS210- COTTON FR APRON",
+    "image": "CFRAPRCTS210-COTTON FR APRON.png"
+  },
+  {
+    "id": "safety-151",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "CJ/FR CTS329- FR BI COLOUR JACKET",
+    "image": "CJFR CTS329- FR BI COLOUR JACKET.png"
+  },
+  {
+    "id": "safety-152",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "CRJ/LC1421/CTS262- CUT PROTECTION JACKET",
+    "image": "CRJLC1421CTS262- CUT PROTECTION JACKET.png"
+  },
+  {
+    "id": "safety-153",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "FR COVERALL- CTS85B",
+    "image": "FR COVERALL- CTS85B.png"
+  },
+  {
+    "id": "safety-154",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "FR PROTECTIVE JACKET- CTS460A",
+    "image": "FR PROTECTIVE JACKET- CTS460A.png"
+  },
+  {
+    "id": "safety-155",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "FR PROTECTIVE JACKET- CTS463A",
+    "image": "FR PROTECTIVE JACKET- CTS463A.png"
+  },
+  {
+    "id": "safety-156",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "FRC/CTS84- COTTON FR COVERALL",
+    "image": "FRCCTS84- COTTON FR COVERALL.png"
+  },
+  {
+    "id": "safety-157",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "FRC240/CTS47- COTTON FR COVERALL",
+    "image": "FRC240CTS47- COTTON FR COVERALL.png"
+  },
+  {
+    "id": "safety-158",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "FRD500/J/1RT/CTS39- FR JACKET",
+    "image": "FRD500J1RTCTS39- FR JACKET.png"
+  },
+  {
+    "id": "safety-159",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "FRD500/J/CTS32- FR JACKET",
+    "image": "FRD500JCTS32- FR JACKET.png"
+  },
+  {
+    "id": "safety-160",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "FRD500/T/1RT/CTS40- FR TROUSER",
+    "image": "FRD500T1RTCTS40- FR TROUSER.png"
+  },
+  {
+    "id": "safety-161",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "FRD500/T/CTS119- FR TROUSER",
+    "image": "FRD500TCTS119- FR TROUSER.jpg"
+  },
+  {
+    "id": "safety-162",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "IFR COVERALL- CTS465A",
+    "image": "IFR COVERALL- CTS465A.png"
+  },
+  {
+    "id": "safety-163",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "IFR JACKET- CTS466A",
+    "image": "IFR JACKET- CTS466A.png"
+  },
+  {
+    "id": "safety-164",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "IFR/J/CTS392- IFR PROTECTIVE JACKET",
+    "image": "IFRJCTS392- IFR PROTECTIVE JACKET.jpeg"
+  },
+  {
+    "id": "safety-165",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "IFRC 150/ CTS259- PROTECTIVE WEAR - IFR COVERALL",
+    "image": "IFRC 150 CTS259- PROTECTIVE WEAR - IFR COVERALL.jpeg"
+  },
+  {
+    "id": "safety-166",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "K300- Disposable Coverall",
+    "image": "K300- Disposable Coverall.png"
+  },
+  {
+    "id": "safety-167",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "GCA 30- Heatproof leg guard",
+    "image": "GCA 30- Heatproof leg guard.png"
+  },
+  {
+    "id": "safety-168",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "GCH - Leather Leg Guard, Buckles",
+    "image": "GCH - Leather Leg Guard, Buckles.png"
+  },
+  {
+    "id": "safety-169",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "CRA/J1421/CLB CTS4- CUT PROTECTION APRON LEVEL C",
+    "image": "CRAJ1421CLB CTS4- CUT PROTECTION APRON LEVEL C.png"
+  },
+  {
+    "id": "safety-170",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "CRJ/LC1421/CTS139- CUT PROTECTION TROUSER",
+    "image": "CRJLC1421CTS139- CUT PROTECTION TROUSER.png"
+  },
+  {
+    "id": "safety-171",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "CRJ/LC1421/CTS366D- CUT RESISTANT JACKET",
+    "image": "CRJLC1421CTS366D- CUT RESISTANT JACKET.jpeg"
+  },
+  {
+    "id": "safety-172",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "CRJ/LC1421/DE/CTS92- CUT PROTECTION JACKET LEVEL C",
+    "image": "CRJLC1421DECTS92- CUT PROTECTION JACKET LEVEL C.png"
+  },
+  {
+    "id": "safety-173",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "CRJ/LC1421/DF/CTS138- CUT PROTECTION JACKET",
+    "image": "CRJLC1421DFTS138- CUT PROTECTION JACKET.png"
+  },
+  {
+    "id": "safety-174",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "CRT/LC1421/CTS367D- CUT RESISTANT TROUSER",
+    "image": "CRTLC1421CTS367D- CUT RESISTANT TROUSER.jpeg"
+  },
+  {
+    "id": "safety-175",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "CUT RESISTANT NECK GUARD- CTS458A",
+    "image": "CUT RESISTANT NECK GUARD- CTS458A.png"
+  },
+  {
+    "id": "safety-176",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "JS/LC1421/CTS235- CUT PROTECTION JUMPSUIT",
+    "image": "JSLC1421CTS235- CUT PROTECTION JUMPSUIT.png"
+  },
+  {
+    "id": "safety-177",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "BIB/TR/CTS136- Non FR bib trouser",
+    "image": "BIBTRCTS136- Non FR bib trouser.png"
+  },
+  {
+    "id": "safety-178",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "CJ/COTTON CTS129- COTTON BI- COLOUR JACKET",
+    "image": "CJCOTTON CTS129- COTTON BI- COLOUR JACKET.png"
+  },
+  {
+    "id": "safety-179",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "CJ/AST/CTS203- ANTI STATIC APRON",
+    "image": "CJASTCTS203- ANTI STATIC APRON.png"
+  },
+  {
+    "id": "safety-180",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "CJ/AST/CTS208- ANTI STATIC JACKET",
+    "image": "CJASTCTS208- ANTI STATIC JACKET.png"
+  },
+  {
+    "id": "safety-181",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "CLG/B/TS/BT/CTS16- shin protection guard",
+    "image": "CLGBTSBTCTS16- shin protection guard.png"
+  },
+  {
+    "id": "safety-182",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "TR/AST/CTS209- ANTI STATIC PANT",
+    "image": "TRASTCTS209- ANTI STATIC PANT.png"
+  },
+  {
+    "id": "safety-183",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "LV JACKET CTS151- LV/J- LV WORKWEAR",
+    "image": "LV JACKET CTS151- LVJ- LV WORKWEAR.png"
+  },
+  {
+    "id": "safety-184",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "LFA/CTS207- Lint free apron",
+    "image": "LFACTS207- Lint free apron.png"
+  },
+  {
+    "id": "safety-185",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "LFJ/CTS197 & LFT/CTS198- Lint free jacket & pant",
+    "image": "LFJCTS197 and LFTCTS198  Lint free jacket and pant.png"
+  },
+  {
+    "id": "safety-186",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "LFJ/CTS199- Lint free T-shirt",
+    "image": "LFJCTS199- Lint free T-shirt.png"
+  },
+  {
+    "id": "safety-187",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "LFJ/CTS205- LINT FREE JACKET",
+    "image": "LFJCTS205- LINT FREE JACKET.png"
+  },
+  {
+    "id": "safety-188",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "BI COLOUR REFLECTIVE VEST- CTS417A",
+    "image": "BI COLOUR REFLECTIVE VEST- CTS417A.png"
+  },
+  {
+    "id": "safety-189",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "CB/CTS150- REFLECTIVE CROSS BELT",
+    "image": "CBCTS150- REFLECTIVE CROSS BELT.png"
+  },
+  {
+    "id": "safety-190",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "RJ/OR- REFLECTIVE JACKET",
+    "image": "RJOR- REFLECTIVE JACKET.png"
+  },
+  {
+    "id": "safety-191",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "ALU/14L - Alum Aramid Gloves",
+    "image": "ALU14L - Alum Aramid Gloves.png"
+  },
+  {
+    "id": "safety-192",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "ALU/APR/CTS193- Aluminized Apron, FR Lined",
+    "image": "ALUAPRCTS193- Aluminized Apron FR Lined.png"
+  },
+  {
+    "id": "safety-193",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "ALU/APR3948/BFR/CTS275- Aluminized Apron",
+    "image": "ALUAPR3948BFRCTS275- Aluminized Apron.png"
+  },
+  {
+    "id": "safety-194",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "ALU/J/CTS306- THERMAL PROTECTIVE JACKET",
+    "image": "ALUJCTS306-THERMAL PROTECTIVE JACKET.jpeg"
+  },
+  {
+    "id": "safety-195",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "ALU480/3JT/CTS172- Aluminised Thermal Suit",
+    "image": "ALU4803JTCTS172-Aluminised Thermal Suit.png"
+  },
+  {
+    "id": "safety-196",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "ALUMINISED JACKET/CTS431D",
+    "image": "ALUMINISED JACKETCTS431D.png"
+  },
+  {
+    "id": "safety-197",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "ALUMINISED NECK GUARD- CTS435A",
+    "image": "ALUMINISED NECK GUARD- CTS435A.png"
+  },
+  {
+    "id": "safety-198",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "ALUMINISED TROUSER- CTS432B",
+    "image": "ALUMINISED TROUSER- CTS432B.png"
+  },
+  {
+    "id": "safety-199",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "GCA30/ALU- Aluminized Para Aramid leg guard",
+    "image": "GCA30ALU- Aluminized Para Aramid leg guard.png"
+  },
+  {
+    "id": "safety-200",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "HOOD/GV/ALU/CTS134-Aluminized Hood with Visor",
+    "image": "HOODGVALUCTS134-Aluminized Hood with Visor.png"
+  },
+  {
+    "id": "safety-201",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "VEST/ALU/480/3L- Aluminized Wool Vest",
+    "image": "VESTALU4803L- Aluminized Wool Vest.png"
+  },
+  {
+    "id": "safety-202",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "VEST/C/ALU50/CTS180- Aluminized Body Jacket",
+    "image": "VESTCALU50CTS180- Aluminized Body Jacket.png"
+  },
+  {
+    "id": "safety-203",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "CPF1/CA69/CTS177- Oil Repellent Apron",
+    "image": "CPF1CA69CTS177- Oil Repellent Apron.png"
+  },
+  {
+    "id": "safety-204",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "CPF1/FBJT/CTS43- Oil Repellent Suit",
+    "image": "CPF1FBJTCTS43- Oil Repellent Suit.png"
+  },
+  {
+    "id": "safety-205",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "Aramid Balaclava- Welding Eqipment Hood",
+    "image": "Aramid Balaclava- Welding Eqipment Hood.png"
+  },
+  {
+    "id": "safety-206",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "CAG/LORM/NB/CTS107- Flameproof canvas hood",
+    "image": "CAGLORMNBCTS107- Flameproof canvas hood.png"
+  },
+  {
+    "id": "safety-207",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "HOOD/FR/HS/CTS33- Flameproof canvas hood",
+    "image": "HOODFRHSCTS33- Flameproof canvas hood.png"
+  },
+  {
+    "id": "safety-208",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "HOOD/FR/MT/RB/CTS260- Meta Aramid Hood, Mask",
+    "image": "HOODFRMTRBCTS260- Meta Aramid Hood Mask.png"
+  },
+  {
+    "id": "safety-209",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "KLA/69- Adjustable Leather Welder Apron",
+    "image": "KLA69- Adjustable Leather Welder Apron.png"
+  },
+  {
+    "id": "safety-210",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "KLA/CA/69- Leather Welder Apron",
+    "image": "KLACA69- Leather Welder Apron.png"
+  },
+  {
+    "id": "safety-211",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "NGFR/1010/CTS120- FR NECK GUARD",
+    "image": "NGFR1010CTS120- FR NECK GUARD.png"
+  },
+  {
+    "id": "safety-212",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "TAB/C-Adjustable Leather Apron",
+    "image": "TABC-Adjustable Leather Apron.png"
+  },
+  {
+    "id": "safety-213",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "WLJ/BNF - Leather Welding Jacket",
+    "image": "WLJBNF - Leather Welding Jacket.png"
+  },
+  {
+    "id": "safety-214",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "WLJ/FLBO- Leather Welding Jacket",
+    "image": "WLJFLBO- Leather Welding Jacket.png"
+  },
+  {
+    "id": "safety-215",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "CJ/CTS88- HI VIZ IFR JACKET",
+    "image": "CJCTS88- HI VIZ IFR JACKET.png"
+  },
+  {
+    "id": "safety-216",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "FMS/CTS83- HI VIZ IFR COVERALL",
+    "image": "FMSCTS83- HI VIZ IFR COVERALL.png"
+  },
+  {
+    "id": "safety-217",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "IFR/J350/CTS184- IFR BI COLOR JACKET",
+    "image": "IFRJ350CTS184- IFR BI COLOR JACKET.png"
+  },
+  {
+    "id": "safety-218",
+    "category": "Safety Equipment",
+    "subcategory": "Body Protection",
+    "name": "CLG/B/TS/V/3S/CTS229- shin protection guard",
+    "image": "CLGBTSV3SCTS229- shin protection guard.png"
+  },
+  {
+    "id": "safety-219",
+    "category": "Safety Equipment",
+    "subcategory": "Other Accessories",
+    "name": "BC1/TM - HDPE Bumpcap shell",
+    "image": "BC1TM - HDPE Bumpcap shell.png"
+  },
+  {
+    "id": "safety-220",
+    "category": "Safety Equipment",
+    "subcategory": "Other Accessories",
+    "name": "BC1/TM/EV-Bump shell, EVA padding",
+    "image": "BC1TMEV-Bump shell EVA padding.png"
+  },
+  {
+    "id": "safety-221",
+    "category": "Safety Equipment",
+    "subcategory": "Other Accessories",
+    "name": "IFR PROTECTIVE HOOD- CTS472B",
+    "image": "IFR PROTECTIVE HOOD- CTS472B.png"
+  },
+  {
+    "id": "safety-222",
+    "category": "Safety Equipment",
+    "subcategory": "Other Accessories",
+    "name": "NGFR1010/CTS49- FR NECK GUARD",
+    "image": "NGFR1010CTS49- FR NECK GUARD.png"
+  },
+  {
+    "id": "safety-223",
+    "category": "Safety Equipment",
+    "subcategory": "Other Accessories",
+    "name": "FP/CSV15- Non- Asbestos Fire Blanket",
+    "image": "FPCSV15- Non- Asbestos Fire Blanket.png"
+  },
+  {
+    "id": "safety-224",
+    "category": "Safety Equipment",
+    "subcategory": "Other Accessories",
+    "name": "FP/FRT/80- Fire Retardant Tarpulin",
+    "image": "FPFRT80- Fire Retardant Tarpulin.png"
+  },
+  {
+    "id": "safety-225",
+    "category": "Safety Equipment",
+    "subcategory": "Other Accessories",
+    "name": "FP/GS/11- Fire Blanket for welding",
+    "image": "FPGS11- Fire Blanket for welding.png"
+  },
+  {
+    "id": "safety-226",
+    "category": "Safety Equipment",
+    "subcategory": "Other Accessories",
+    "name": "FP/OVC35- Fire Blanket for welding",
+    "image": "FPOVC35- Fire Blanket for welding.png"
+  },
+  {
+    "id": "safety-227",
+    "category": "Safety Equipment",
+    "subcategory": "Other Accessories",
+    "name": "FRD500/WC- Welding Curtain",
+    "image": "FRD500WC- Welding Curtain.png"
+  },
+  {
+    "id": "safety-228",
+    "category": "Safety Equipment",
+    "subcategory": "Other Accessories",
+    "name": "KFB/SF502/2.5MM- FIRE BARRIER CLOTH",
+    "image": "KFBSF50225MM- FIRE BARRIER CLOTH.png"
+  },
+  {
+    "id": "safety-229",
+    "category": "Safety Equipment",
+    "subcategory": "Other Accessories",
+    "name": "GCH/FRB- Leather leg guard with FR line",
+    "image": "GCHFRB- Leather leg guard with FR line.png"
+  },
+  {
+    "id": "safety-230",
+    "category": "Safety Equipment",
+    "subcategory": "Other Accessories",
+    "name": "KGCA30/FRC - Leather leg guard with FR line",
+    "image": "KGCA30FRC - Leather leg guard with FR line.png"
+  },
+  {
+    "id": "safety-231",
+    "category": "Safety Equipment",
+    "subcategory": "Other Accessories",
+    "name": "KGCA30/SL- Soft Leather Leg Guard",
+    "image": "KGCA30SL- Soft Leather Leg Guard.png"
+  },
+  {
+    "id": "safety-232",
+    "category": "Safety Equipment",
+    "subcategory": "Other Accessories",
+    "name": "KLG/V- Leather Leg Guard",
+    "image": "KLGV- Leather Leg Guard.png"
+  },
+  {
+    "id": "safety-233",
+    "category": "Safety Equipment",
+    "subcategory": "Other Accessories",
+    "name": "TAB/CA- Heatproof Leather Apron",
+    "image": "TABCA- Heatproof Leather Apron.png"
+  },
+  {
+    "id": "safety-234",
+    "category": "Safety Equipment",
+    "subcategory": "Other Accessories",
+    "name": "TAB/CA/TP611- Leather apron with tool holder",
+    "image": "TABCATP611- Leather apron with tool holder.png"
+  },
+  {
+    "id": "safety-235",
+    "category": "Safety Equipment",
+    "subcategory": "Other Accessories",
+    "name": "KTD/3040- Dry Tac Wipe",
+    "image": "KTD3040- Dry Tac Wipe.png"
+  },
+  {
+    "id": "safety-236",
+    "category": "Safety Equipment",
+    "subcategory": "Other Accessories",
+    "name": "KTD/SL- Dry Tac Wipe",
+    "image": "KTD/SL- Dry Tac Wipe.png"
+  },
+  {
+    "id": "safety-237",
+    "category": "Safety Equipment",
+    "subcategory": "Other Accessories",
+    "name": "KTW/32- Tack Rag Wipes",
+    "image": "KTW32- Tack Rag Wipes.png"
+  },
+  {
+    "id": "safety-238",
+    "category": "Safety Equipment",
+    "subcategory": "Other Accessories",
+    "name": "KTW/5022- Tack Rag Wipes",
+    "image": "KTW/5022- Tack Rag Wipes.png"
+  }
 ]

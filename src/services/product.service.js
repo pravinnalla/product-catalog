@@ -4,7 +4,7 @@
  * ------------------------------------------------------------
  * File      : product.service.js
  * Purpose   : Product Data Service
- * Version   : 1.0.0
+ * Version   : 2.0.0
  * ============================================================
  */
 
@@ -51,14 +51,43 @@ export function getProductsByCategory(category) {
     }
 
     return products.filter(
-        product => product.category === category
+        product =>
+            product.category === category
     );
 
 }
 
 /**
  * ------------------------------------------------------------
- * Get Product Categories
+ * Get Products By Subcategory
+ * ------------------------------------------------------------
+ */
+
+export function getProductsBySubcategory(subcategory) {
+
+    if (!subcategory || subcategory === "All") {
+
+        return products;
+
+    }
+
+    return products.filter(
+        product =>
+            product.subcategory === subcategory
+    );
+
+}
+
+/**
+ * ------------------------------------------------------------
+ * Get Main Product Categories
+ * ------------------------------------------------------------
+ *
+ * Returns only the two top-level categories:
+ *
+ * Fire Extinguishers
+ * Safety Equipment
+ *
  * ------------------------------------------------------------
  */
 
@@ -67,8 +96,62 @@ export function getProductCategories() {
     return [
         ...new Set(
             products.map(
-                product => product.category
+                product =>
+                    product.category
             )
+        )
+    ];
+
+}
+
+/**
+ * ------------------------------------------------------------
+ * Get Product Subcategories
+ * ------------------------------------------------------------
+ *
+ * Returns unique subcategories.
+ *
+ * ------------------------------------------------------------
+ */
+
+export function getProductSubcategories() {
+
+    return [
+        ...new Set(
+            products.map(
+                product =>
+                    product.subcategory
+            )
+        )
+    ];
+
+}
+
+/**
+ * ------------------------------------------------------------
+ * Get Subcategories By Category
+ * ------------------------------------------------------------
+ */
+
+export function getSubcategoriesByCategory(category) {
+
+    if (!category || category === "All") {
+
+        return getProductSubcategories();
+
+    }
+
+    return [
+        ...new Set(
+            products
+                .filter(
+                    product =>
+                        product.category === category
+                )
+                .map(
+                    product =>
+                        product.subcategory
+                )
         )
     ];
 
