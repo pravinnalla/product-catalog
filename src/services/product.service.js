@@ -38,48 +38,6 @@ export function getProductById(id) {
 
 /**
  * ------------------------------------------------------------
- * Get Products By Category
- * ------------------------------------------------------------
- */
-
-export function getProductsByCategory(category) {
-
-    if (!category || category === "All") {
-
-        return products;
-
-    }
-
-    return products.filter(
-        product =>
-            product.category === category
-    );
-
-}
-
-/**
- * ------------------------------------------------------------
- * Get Products By Subcategory
- * ------------------------------------------------------------
- */
-
-export function getProductsBySubcategory(subcategory) {
-
-    if (!subcategory || subcategory === "All") {
-
-        return products;
-
-    }
-
-    return products.filter(
-        product =>
-            product.subcategory === subcategory
-    );
-
-}
-
-/**
- * ------------------------------------------------------------
  * Get Main Product Categories
  * ------------------------------------------------------------
  *
@@ -122,36 +80,6 @@ export function getProductSubcategories() {
                 product =>
                     product.subcategory
             )
-        )
-    ];
-
-}
-
-/**
- * ------------------------------------------------------------
- * Get Subcategories By Category
- * ------------------------------------------------------------
- */
-
-export function getSubcategoriesByCategory(category) {
-
-    if (!category || category === "All") {
-
-        return getProductSubcategories();
-
-    }
-
-    return [
-        ...new Set(
-            products
-                .filter(
-                    product =>
-                        product.category === category
-                )
-                .map(
-                    product =>
-                        product.subcategory
-                )
         )
     ];
 

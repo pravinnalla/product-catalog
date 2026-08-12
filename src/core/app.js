@@ -10,7 +10,6 @@
 
 import { renderHomePage } from "../pages/home.js";
 import { renderProductsPage } from "../pages/products.js";
-import { renderProductPage } from "../pages/product.js";
 import { renderContactPage } from "../pages/contact.js";
 import { renderAboutPage } from "../pages/about.js";
 
@@ -45,12 +44,6 @@ function initializeApp() {
         case "products":
 
             renderProductsPage(app);
-
-            break;
-
-        case "product":
-
-            renderProductPage(app);
 
             break;
 

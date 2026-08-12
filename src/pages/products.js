@@ -756,10 +756,6 @@ function getFilteredProducts() {
 
     product.subcategory,
 
-    product.description,
-
-    product.brand,
-
     product.id
 
 ]
