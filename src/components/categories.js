@@ -9,6 +9,7 @@
  */
 
 import products from "../data/products.json";
+import { pageUrl } from "../utils/paths.js";
 
 /**
  * ------------------------------------------------------------
@@ -251,7 +252,7 @@ function categoryCard(
                     <div class="mt-auto">
 
                         <a
-                          href="/products.html?search=${searchValue}"
+                          href="${pageUrl("products.html")}?search=${searchValue}"
                             class="
                                 btn
                                 btn-outline-danger
@@ -337,7 +338,7 @@ function viewAllCategoriesCard() {
                     <div class="mt-auto">
 
                         <a
-                            href="/product-catalog/products.html"
+                            href="${pageUrl("products.html")}"
                             class="
                                 btn
                                 btn-danger

@@ -9,8 +9,7 @@
  */
 
 
-const BRANDS_IMAGE_PATH =
-    "/product-catalog/src/assets/images/brands/";
+import { brandImageUrl } from "../utils/paths.js";
 
 
 export function renderBrands() {
@@ -177,7 +176,7 @@ function supplierCard(
 
 
                 <img
-                    src="${BRANDS_IMAGE_PATH}${logo}"
+                    src="${brandImageUrl(logo)}"
                     alt="${name}"
                     class="img-fluid"
                     loading="lazy"

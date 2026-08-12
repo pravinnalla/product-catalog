@@ -8,6 +8,8 @@
  * ============================================================
  */
 
+import { pageUrl } from "../utils/paths.js";
+
 
 export function renderFooter() {
 
@@ -78,7 +80,7 @@ export function renderFooter() {
                     <li>
                         <a
                             class="text-light text-decoration-none"
-                            href="/index.html">
+                            href="${pageUrl("index.html")}">
 
                             Home
 
@@ -89,7 +91,7 @@ export function renderFooter() {
                     <li>
                         <a
                             class="text-light text-decoration-none"
-                            href="/about.html">
+                            href="${pageUrl("about.html")}">
 
                             About
 
@@ -100,7 +102,7 @@ export function renderFooter() {
                     <li>
                         <a
                             class="text-light text-decoration-none"
-                            href="/products.html">
+                            href="${pageUrl("products.html")}">
 
                             Products
 
@@ -111,7 +113,7 @@ export function renderFooter() {
                     <li>
                         <a
                             class="text-light text-decoration-none"
-                            href="/contact.html">
+                            href="${pageUrl("contact.html")}">
 
                             Contact
 

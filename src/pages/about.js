@@ -10,6 +10,7 @@
 
 import { renderNavbar } from "../components/navbar.js";
 import { renderFooter } from "../components/footer.js";
+import { pageUrl } from "../utils/paths.js";
 
 
 /**
@@ -653,7 +654,7 @@ function renderAboutCTA() {
                         ">
 
                         <a
-                            href="/products.html"
+                            href="${pageUrl("products.html")}"
                             class="btn btn-light">
 
                             <i
@@ -669,7 +670,7 @@ function renderAboutCTA() {
                         </a>
 
                         <a
-                            href="/contact.html"
+                            href="${pageUrl("contact.html")}"
                             class="btn btn-outline-light">
 
                             <i

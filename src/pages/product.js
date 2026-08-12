@@ -14,6 +14,10 @@ import {
     getProductById,
     getProductsByCategory
 } from "../services/product.service.js";
+import {
+    pageUrl,
+    productImageUrl
+} from "../utils/paths.js";
 
 /**
  * ------------------------------------------------------------
@@ -106,7 +110,7 @@ function renderProductDetail(product) {
                 <li class="breadcrumb-item">
 
                     <a
-                        href="/index.html"
+                        href="${pageUrl("index.html")}"
                         class="text-decoration-none">
 
                         Home
@@ -118,7 +122,7 @@ function renderProductDetail(product) {
                 <li class="breadcrumb-item">
 
                     <a
-                        href="/products.html"
+                        href="${pageUrl("products.html")}"
                         class="text-decoration-none">
 
                         Products
@@ -156,7 +160,7 @@ function renderProductDetail(product) {
                     <div class="position-relative bg-body-tertiary">
 
                         <img
-                            src="${product.image}"
+                            src="${productImageUrl(product.image)}"
                             class="img-fluid w-100"
                             alt="${product.title}">
 
@@ -248,7 +252,7 @@ function renderProductDetail(product) {
                 <div class="d-flex flex-wrap gap-3 mb-4">
 
                     <a
-    href="/contact.html?product=${product.id}"
+    href="${pageUrl("contact.html")}?product=${product.id}"
     class="btn btn-danger btn-lg">
 
     <i class="bi bi-envelope-paper me-2"></i>
@@ -258,7 +262,7 @@ function renderProductDetail(product) {
 </a>
 
                     <a
-                        href="/products.html"
+                        href="${pageUrl("products.html")}"
                         class="btn btn-outline-dark btn-lg">
 
                         <i class="bi bi-arrow-left me-2"></i>
@@ -496,7 +500,7 @@ function relatedProductCard(product) {
         <div class="position-relative">
 
             <img
-                src="${product.image}"
+                src="${productImageUrl(product.image)}"
                 class="card-img-top"
                 alt="${product.title}"
                 loading="lazy">
@@ -543,7 +547,7 @@ function relatedProductCard(product) {
             <div class="mt-auto">
 
                 <a
-                    href="/product.html?id=${product.id}"
+                    href="${pageUrl("product.html")}?id=${product.id}"
                     class="btn btn-outline-danger w-100">
 
                     <i class="bi bi-eye me-2"></i>
@@ -602,7 +606,7 @@ function renderProductNotFound(detail) {
                     </p>
 
                     <a
-                        href="/products.html"
+                        href="${pageUrl("products.html")}"
                         class="btn btn-danger">
 
                         <i class="bi bi-grid-3x3-gap me-2"></i>

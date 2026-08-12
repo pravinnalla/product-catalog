@@ -8,8 +8,10 @@
  * ============================================================
  */
 
-const PRODUCTS_IMAGE_PATH =
-    "/product-catalog/src/assets/images/products/";
+import {
+    pageUrl,
+    productImageUrl
+} from "../utils/paths.js";
 
 
 /**
@@ -22,7 +24,7 @@ export function productCard(product) {
 
     const imagePath =
         product.image
-            ? PRODUCTS_IMAGE_PATH + product.image
+            ? productImageUrl(product.image)
             : "";
 
 
@@ -89,7 +91,7 @@ export function productCard(product) {
             <div class="d-grid">
 
                 <a
-                    href="/contact.html?product=${product.id}"
+                    href="${pageUrl("contact.html")}?product=${product.id}"
                     class="
                         btn
                         btn-sm

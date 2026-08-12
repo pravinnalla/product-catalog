@@ -10,10 +10,7 @@
 
 
 import { getProducts } from "../services/product.service.js";
-
-
-const PRODUCTS_IMAGE_PATH =
-    "/product-catalog/src/assets/images/products/";
+import { productImageUrl } from "../utils/paths.js";
 
 
 const FEATURED_PRODUCTS_COUNT = 8;
@@ -182,8 +179,7 @@ function galleryItem(product) {
 
 
     const imagePath =
-        PRODUCTS_IMAGE_PATH +
-        product.image;
+        productImageUrl(product.image);
 
 
     const productName =

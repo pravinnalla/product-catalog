@@ -9,6 +9,10 @@
  */
 
 import { getProducts } from "../services/product.service.js";
+import {
+    pageUrl,
+    productImageUrl
+} from "../utils/paths.js";
 
 
 /**
@@ -101,7 +105,7 @@ export function renderFeaturedProducts() {
         <div class="text-center mt-5">
 
             <a
-                href="/products.html"
+                href="${pageUrl("products.html")}"
                 class="btn btn-danger">
 
                 <i
@@ -136,9 +140,9 @@ export function renderFeaturedProducts() {
 function featuredProductCard(product) {
 
     const imagePath =
-    product.image
-        ? `/product-catalog/src/assets/images/products/${product.image}`
-        : "";
+        product.image
+            ? productImageUrl(product.image)
+            : "";
 
 
     const productName =
@@ -239,7 +243,7 @@ function featuredProductCard(product) {
             <div class="mt-auto">
 
                 <a
-                    href="/contact.html?product=${product.id}"
+                    href="${pageUrl("contact.html")}?product=${product.id}"
                     class="
                         btn
                         btn-danger

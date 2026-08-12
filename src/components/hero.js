@@ -8,6 +8,8 @@
  * ============================================================
  */
 
+import { heroImageUrl, pageUrl } from "../utils/paths.js";
+
 export function renderHero() {
 
     const hero = document.querySelector("#hero");
@@ -69,7 +71,7 @@ function heroTemplate() {
                 <div class="d-flex flex-wrap gap-3 mb-5">
 
                     <a
-                        href="/products.html"
+                        href="${pageUrl("products.html")}"
                         class="btn btn-danger btn-lg">
 
                         <i class="bi bi-grid me-2"></i>
@@ -79,7 +81,7 @@ function heroTemplate() {
                     </a>
 
                     <a
-                        href="/contact.html"
+                        href="${pageUrl("contact.html")}"
                         class="btn btn-outline-dark btn-lg">
 
                         <i class="bi bi-envelope-paper me-2"></i>
@@ -163,7 +165,7 @@ function heroTemplate() {
                     class="card border-0 shadow-sm overflow-hidden">
 
                     <img
-    src="src/assets/images/hero/hero-safety-products.png"
+    src="${heroImageUrl("hero-safety-products.png")}"
     alt="Industrial Safety Products"
     class="img-fluid w-100">
 

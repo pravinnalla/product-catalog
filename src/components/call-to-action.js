@@ -8,6 +8,8 @@
  * ============================================================
  */
 
+import { pageUrl } from "../utils/paths.js";
+
 
 export function renderCallToAction() {
 
@@ -83,7 +85,7 @@ export function renderCallToAction() {
 
 
                     <a
-                        href="/contact.html"
+                        href="${pageUrl("contact.html")}"
                         class="btn btn-light btn-lg">
 
 
@@ -97,7 +99,7 @@ export function renderCallToAction() {
 
 
                     <a
-                        href="/products.html"
+                        href="${pageUrl("products.html")}"
                         class="btn btn-outline-light btn-lg">
 
 

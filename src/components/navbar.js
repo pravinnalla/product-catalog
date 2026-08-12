@@ -8,6 +8,8 @@
  * ============================================================
  */
 
+import { pageUrl } from "../utils/paths.js";
+
 export function renderNavbar() {
 
     const navbar = document.querySelector("#navbar");
@@ -29,7 +31,7 @@ export function renderNavbar() {
             <!-- ========================================= -->
 
             <a class="navbar-brand fw-bold text-danger fs-3"
-               href="/index.html">
+               href="${pageUrl("index.html")}">
 
                 <i class="bi bi-shield-fill-check me-2"></i>
 
@@ -71,7 +73,7 @@ export function renderNavbar() {
                         <a
                             class="nav-link ${currentPage === "index" ? "active fw-semibold" : ""}"
                             ${currentPage === "index" ? 'aria-current="page"' : ""}
-                            href="/index.html">
+                            href="${pageUrl("index.html")}">
 
                             Home
 
@@ -84,7 +86,7 @@ export function renderNavbar() {
 
                         <a
                             class="nav-link ${currentPage === "about" ? "active fw-semibold" : ""}"
-                            href="/about.html">
+                            href="${pageUrl("about.html")}">
 
                             About
 
@@ -97,7 +99,7 @@ export function renderNavbar() {
 
                         <a
                             class="nav-link ${currentPage === "products" ? "active fw-semibold" : ""}"
-                            href="/products.html">
+                            href="${pageUrl("products.html")}">
 
                             Products
 
@@ -110,7 +112,7 @@ export function renderNavbar() {
 
                         <a
                             class="nav-link ${currentPage === "contact" ? "active fw-semibold" : ""}"
-                            href="/contact.html">
+                            href="${pageUrl("contact.html")}">
 
                             Contact
 
@@ -131,7 +133,7 @@ export function renderNavbar() {
                             <div class="d-flex">
 
                                 <a
-                                    href="/contact.html"
+                                    href="${pageUrl("contact.html")}"
                                     class="btn btn-danger">
 
                                     <i class="bi bi-envelope-paper me-2"></i>
