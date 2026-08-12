@@ -4,15 +4,56 @@
  * ------------------------------------------------------------
  * File      : statistics.js
  * Purpose   : Statistics Section
- * Version   : 1.4.0
+ * Version   : 2.0.0
  * ============================================================
+ */
+
+import {
+    getProducts,
+    getProductCategories,
+    getProductSubcategories
+} from "../services/product.service.js";
+
+
+/**
+ * ------------------------------------------------------------
+ * Render Statistics
+ * ------------------------------------------------------------
  */
 
 export function renderStatistics() {
 
-    const statistics = document.querySelector("#statistics");
+    const statistics =
+        document.querySelector("#statistics");
 
     if (!statistics) return;
+
+
+    /**
+     * --------------------------------------------------------
+     * Dynamic Catalogue Counts
+     * --------------------------------------------------------
+     */
+
+    const productCount =
+        getProducts().length;
+
+    const categoryCount =
+        getProductCategories()
+            .filter(Boolean)
+            .length;
+
+    const subcategoryCount =
+        getProductSubcategories()
+            .filter(Boolean)
+            .length;
+
+
+    /**
+     * --------------------------------------------------------
+     * Statistics Section
+     * --------------------------------------------------------
+     */
 
     statistics.innerHTML = `
 
@@ -28,22 +69,33 @@ export function renderStatistics() {
 
             <div class="col-lg-8 text-center">
 
-                <span class="badge rounded-pill text-bg-danger px-3 py-2 mb-3">
+                <span
+                    class="
+                        badge
+                        rounded-pill
+                        text-bg-danger
+                        px-3
+                        py-2
+                        mb-3
+                    ">
 
-                    SAFETYMART AT A GLANCE
+                    LAXMIKANT TRADERS AT A GLANCE
 
                 </span>
 
+
                 <h2 class="display-6 fw-bold mb-3">
 
-                    Safety Solutions You Can Count On
+                    Our Product Range
 
                 </h2>
 
+
                 <p class="lead text-white-50 mb-0">
 
-                    Quality products, trusted brands and reliable
-                    safety solutions for businesses and professionals.
+                    A wide range of industrial safety products
+                    for workplaces, businesses and professional
+                    requirements.
 
                 </p>
 
@@ -51,43 +103,49 @@ export function renderStatistics() {
 
         </div>
 
+
         <!-- ========================================= -->
         <!-- Statistics -->
         <!-- ========================================= -->
 
         <div class="row g-0">
 
+
             ${statisticCard(
                 "bi-box-seam",
-                500,
-                "+",
+                productCount,
+                "",
                 "Products",
                 true
             )}
 
+
             ${statisticCard(
-                "bi-award",
-                50,
-                "+",
-                "Trusted Brands",
+                "bi-clock",
+                "24",
+                " × 7",
+                "Availability",
                 true
             )}
 
+
             ${statisticCard(
-                "bi-people",
-                1000,
-                "+",
-                "Customers",
+                "bi-grid-3x3-gap",
+                categoryCount,
+                "",
+                "Product Categories",
                 true
             )}
 
+
             ${statisticCard(
-                "bi-calendar-check",
-                10,
-                "+",
-                "Years of Experience",
+                "bi-shield-check",
+                subcategoryCount,
+                "",
+                "Safety Solutions",
                 false
             )}
+
 
         </div>
 
@@ -97,9 +155,11 @@ export function renderStatistics() {
 
 `;
 
+
     initializeCounters();
 
 }
+
 
 /**
  * ------------------------------------------------------------
@@ -125,19 +185,37 @@ function statisticCard(
             text-center
             px-3
             py-4
-            ${hasDivider ? "border-end border-secondary" : ""}
+            ${hasDivider
+                ? "border-end border-secondary"
+                : ""}
         ">
 
-        <i class="bi ${icon} fs-3 text-danger mb-2"></i>
+
+        <i
+            class="
+                bi
+                ${icon}
+                fs-3
+                text-danger
+                mb-2
+            ">
+        </i>
+
 
         <div
-            class="display-6 fw-bold lh-1 mb-2"
+            class="
+                display-6
+                fw-bold
+                lh-1
+                mb-2
+            "
             data-stat-value="${value}"
             data-stat-suffix="${suffix}">
 
             0${suffix}
 
         </div>
+
 
         <p class="text-white-50 mb-0">
 
@@ -153,6 +231,7 @@ function statisticCard(
 
 }
 
+
 /**
  * ------------------------------------------------------------
  * Counter Animation
@@ -161,48 +240,77 @@ function statisticCard(
 
 function initializeCounters() {
 
-    const counters = document.querySelectorAll(
-        "[data-stat-value]"
-    );
+    const counters =
+        document.querySelectorAll(
+            "[data-stat-value]"
+        );
+
 
     if (!counters.length) return;
+
 
     const animateCounters = () => {
 
         counters.forEach(counter => {
 
-            const target = Number(
-                counter.dataset.statValue
-            );
+            const target =
+                Number(
+                    counter.dataset.statValue
+                );
+
 
             const suffix =
                 counter.dataset.statSuffix || "";
 
+
             const duration = 1600;
 
-            const startTime = performance.now();
 
-            function updateCounter(currentTime) {
+            const startTime =
+                performance.now();
+
+
+            function updateCounter(
+                currentTime
+            ) {
 
                 const elapsed =
-                    currentTime - startTime;
+                    currentTime -
+                    startTime;
+
 
                 const progress =
-                    Math.min(elapsed / duration, 1);
+                    Math.min(
+                        elapsed / duration,
+                        1
+                    );
+
 
                 /*
                  * Ease-out effect.
-                 * Starts quickly and slows down near the target.
+                 * Starts quickly and slows down
+                 * near the target.
                  */
 
                 const easedProgress =
-                    1 - Math.pow(1 - progress, 3);
+                    1 -
+                    Math.pow(
+                        1 - progress,
+                        3
+                    );
+
 
                 const currentValue =
-                    Math.floor(target * easedProgress);
+                    Math.floor(
+                        target *
+                        easedProgress
+                    );
+
 
                 counter.textContent =
-                    currentValue.toLocaleString() + suffix;
+                    currentValue.toLocaleString() +
+                    suffix;
+
 
                 if (progress < 1) {
 
@@ -214,6 +322,7 @@ function initializeCounters() {
 
             }
 
+
             requestAnimationFrame(
                 updateCounter
             );
@@ -222,9 +331,11 @@ function initializeCounters() {
 
     };
 
-    /*
-     * Start animation only when the section
-     * becomes visible.
+
+    /**
+     * --------------------------------------------------------
+     * Start Animation When Visible
+     * --------------------------------------------------------
      */
 
     if ("IntersectionObserver" in window) {
@@ -233,15 +344,23 @@ function initializeCounters() {
             new IntersectionObserver(
                 entries => {
 
-                    entries.forEach(entry => {
+                    entries.forEach(
+                        entry => {
 
-                        if (!entry.isIntersecting) return;
+                            if (
+                                !entry.isIntersecting
+                            ) {
+                                return;
+                            }
 
-                        animateCounters();
 
-                        observer.disconnect();
+                            animateCounters();
 
-                    });
+
+                            observer.disconnect();
+
+                        }
+                    );
 
                 },
                 {
@@ -249,9 +368,18 @@ function initializeCounters() {
                 }
             );
 
-        observer.observe(
-            document.querySelector("#statistics")
-        );
+
+        const section =
+            document.querySelector(
+                "#statistics"
+            );
+
+
+        if (section) {
+
+            observer.observe(section);
+
+        }
 
     } else {
 

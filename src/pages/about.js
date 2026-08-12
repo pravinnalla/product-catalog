@@ -1,15 +1,16 @@
 /**
  * ============================================================
- * Product Catalog
+ * Laxmikant Traders
  * ------------------------------------------------------------
  * File      : about.js
  * Purpose   : About Us Page
- * Version   : 1.0.0
+ * Version   : 2.1.0
  * ============================================================
  */
 
 import { renderNavbar } from "../components/navbar.js";
 import { renderFooter } from "../components/footer.js";
+
 
 /**
  * ------------------------------------------------------------
@@ -63,6 +64,7 @@ export function renderAboutPage(app) {
 
 }
 
+
 /**
  * ------------------------------------------------------------
  * About Header
@@ -90,22 +92,22 @@ function renderAboutHeader() {
                             class="badge rounded-pill text-bg-danger
                                    px-3 py-2 mb-3">
 
-                            ABOUT SAFETYMART
+                            ABOUT LAXMIKANT TRADERS
 
                         </span>
 
                         <h1 class="display-5 fw-bold mb-3">
 
-                            Industrial Safety Solutions
-                            You Can Trust
+                            Industrial Safety Products
+                            for Workplace Protection
 
                         </h1>
 
                         <p class="lead text-secondary mb-0">
 
-                            We provide reliable industrial safety products
-                            to help businesses create safer and more
-                            protected workplaces.
+                            Laxmikant Traders supplies industrial
+                            safety products for workplace protection,
+                            fire safety and personal safety requirements.
 
                         </p>
 
@@ -120,6 +122,7 @@ function renderAboutHeader() {
     `;
 
 }
+
 
 /**
  * ------------------------------------------------------------
@@ -158,35 +161,37 @@ function renderAboutCompany() {
 
                         <h2 class="fw-bold mb-3">
 
-                            Your Partner in Workplace Safety
+                            Your Partner in Industrial Safety
 
                         </h2>
 
                         <p class="text-secondary">
 
-                            SafetyMart is focused on providing dependable
-                            industrial safety equipment for businesses,
-                            workplaces and professional applications.
+                            Laxmikant Traders deals in industrial
+                            safety products for workplaces,
+                            businesses and industrial applications.
 
                         </p>
 
                         <p class="text-secondary">
 
-                            Our product range covers essential personal
-                            protective equipment and industrial safety
-                            products from trusted brands.
+                            Our product range includes fire safety
+                            equipment, personal protective equipment,
+                            safety gloves and other industrial safety
+                            products.
 
                         </p>
 
                         <p class="text-secondary mb-0">
 
-                            We aim to make it easier for customers to
-                            identify suitable safety products based on
-                            their workplace and operational requirements.
+                            We help customers identify suitable
+                            products based on their workplace,
+                            operational and safety requirements.
 
                         </p>
 
                     </div>
+
 
                     <!-- ===================================== -->
                     <!-- Highlight -->
@@ -225,7 +230,7 @@ function renderAboutCompany() {
                                         <p
                                             class="text-secondary small mb-0">
 
-                                            Protection for every workplace
+                                            Products for workplace protection
 
                                         </p>
 
@@ -235,10 +240,9 @@ function renderAboutCompany() {
 
                                 <p class="text-secondary mb-0">
 
-                                    From personal protective equipment to
-                                    industrial safety essentials, we focus
-                                    on products that support safer working
-                                    environments.
+                                    We provide products covering fire
+                                    safety, personal protection and
+                                    other workplace safety requirements.
 
                                 </p>
 
@@ -257,6 +261,7 @@ function renderAboutCompany() {
     `;
 
 }
+
 
 /**
  * ------------------------------------------------------------
@@ -289,14 +294,14 @@ function renderAboutValues() {
 
                     <h2 class="fw-bold mb-3">
 
-                        Safety Backed by Reliability
+                        Focused on Your Safety Requirements
 
                     </h2>
 
                     <p class="text-secondary mb-0">
 
-                        We focus on quality products, dependable brands
-                        and practical customer support.
+                        We focus on suitable products, dependable
+                        suppliers and responsive customer support.
 
                     </p>
 
@@ -306,26 +311,26 @@ function renderAboutValues() {
 
                     ${valueCard(
                         "bi-patch-check",
-                        "Quality Products",
-                        "Reliable safety products selected for industrial and professional applications."
+                        "Suitable Products",
+                        "Industrial safety products for workplace and operational requirements."
                     )}
 
                     ${valueCard(
-                        "bi-award",
-                        "Trusted Brands",
-                        "Access safety products from established and recognised brands."
+                        "bi-shield-check",
+                        "Fire Safety",
+                        "Fire safety equipment and related products for workplace protection."
                     )}
 
                     ${valueCard(
-                        "bi-person-check",
-                        "Expert Guidance",
-                        "We help customers identify products suitable for their workplace requirements."
+                        "bi-hand-index-thumb",
+                        "Hand Protection",
+                        "Safety gloves and hand protection products for industrial applications."
                     )}
 
                     ${valueCard(
                         "bi-headset",
                         "Customer Support",
-                        "Clear communication and responsive support for product enquiries and quotations."
+                        "Support for product enquiries, quotations and safety product requirements."
                     )}
 
                 </div>
@@ -337,6 +342,7 @@ function renderAboutValues() {
     `;
 
 }
+
 
 /**
  * ------------------------------------------------------------
@@ -386,9 +392,10 @@ function valueCard(icon, title, description) {
 
 }
 
+
 /**
  * ------------------------------------------------------------
- * Industries
+ * Product Areas
  * ------------------------------------------------------------
  */
 
@@ -411,20 +418,20 @@ function renderAboutIndustries() {
                         class="badge rounded-pill text-bg-light border
                                text-dark px-3 py-2 mb-3">
 
-                        INDUSTRIES WE SERVE
+                        PRODUCT AREAS
 
                     </span>
 
                     <h2 class="fw-bold mb-3">
 
-                        Safety Solutions Across Industries
+                        Industrial Safety Product Areas
 
                     </h2>
 
                     <p class="text-secondary mb-0">
 
-                        Our products are suitable for a wide range of
-                        industrial and professional environments.
+                        Our product range covers important areas of
+                        industrial and workplace safety.
 
                     </p>
 
@@ -433,27 +440,27 @@ function renderAboutIndustries() {
                 <div class="row g-4">
 
                     ${industryCard(
-                        "bi-building",
-                        "Construction",
-                        "Safety equipment for construction sites and infrastructure projects."
+                        "bi-fire",
+                        "Fire Safety",
+                        "Fire extinguishers and other fire safety equipment and accessories."
                     )}
 
                     ${industryCard(
-                        "bi-gear-wide-connected",
-                        "Manufacturing",
-                        "Personal protective equipment for manufacturing and production environments."
+                        "bi-hand-index-thumb",
+                        "Hand Protection",
+                        "Safety gloves and related products for industrial hand protection."
+                    )}
+
+                    ${industryCard(
+                        "bi-shield-check",
+                        "Personal Protection",
+                        "Personal protective equipment for workplace safety requirements."
                     )}
 
                     ${industryCard(
                         "bi-tools",
-                        "Engineering",
-                        "Industrial safety products for engineering and technical workplaces."
-                    )}
-
-                    ${industryCard(
-                        "bi-buildings",
-                        "Infrastructure",
-                        "Safety solutions for infrastructure, maintenance and field operations."
+                        "Industrial Safety",
+                        "Safety products and equipment for industrial and workplace applications."
                     )}
 
                 </div>
@@ -466,9 +473,10 @@ function renderAboutIndustries() {
 
 }
 
+
 /**
  * ------------------------------------------------------------
- * Industry Card
+ * Product Area Card
  * ------------------------------------------------------------
  */
 
@@ -514,6 +522,7 @@ function industryCard(icon, title, description) {
 
 }
 
+
 /**
  * ------------------------------------------------------------
  * Commitment
@@ -540,11 +549,22 @@ function renderAboutCommitment() {
                         <div
                             class="card border-0 shadow-sm">
 
-                            <div class="card-body text-center p-4 p-lg-5">
+                            <div
+                                class="
+                                    card-body
+                                    text-center
+                                    p-4
+                                    p-lg-5
+                                ">
 
                                 <i
-                                    class="bi bi-shield-fill-check
-                                           text-danger display-5 mb-4">
+                                    class="
+                                        bi
+                                        bi-shield-fill-check
+                                        text-danger
+                                        display-5
+                                        mb-4
+                                    ">
                                 </i>
 
                                 <h2 class="fw-bold mb-3">
@@ -555,13 +575,11 @@ function renderAboutCommitment() {
 
                                 <p class="text-secondary mb-0">
 
-                                    We believe that the right safety
-                                    equipment can make a meaningful
-                                    difference in protecting people at
-                                    work. Our commitment is to provide
-                                    dependable products and helpful
-                                    information so customers can make
-                                    informed safety decisions.
+                                    We are committed to providing
+                                    suitable industrial safety products
+                                    and responsive support to help
+                                    customers meet their workplace
+                                    safety requirements.
 
                                 </p>
 
@@ -580,6 +598,7 @@ function renderAboutCommitment() {
     `;
 
 }
+
 
 /**
  * ------------------------------------------------------------
@@ -601,31 +620,49 @@ function renderAboutCTA() {
             <div class="container">
 
                 <div
-                    class="bg-danger rounded-4 p-4 p-lg-5
-                           text-center text-white">
+                    class="
+                        bg-danger
+                        rounded-4
+                        p-4
+                        p-lg-5
+                        text-center
+                        text-white
+                    ">
 
                     <h2 class="fw-bold mb-3">
 
-                        Looking for the Right Safety Products?
+                        Looking for Industrial Safety Products?
 
                     </h2>
 
-                    <p class="mb-4 text-white-50">
+                    <p class="lead mb-0 text-white">
 
-                        Explore our product range or contact us
-                        for assistance with your requirements.
+                        Explore our product range or contact
+                        Laxmikant Traders for your safety
+                        product requirements.
 
                     </p>
 
                     <div
-                        class="d-flex flex-column flex-sm-row
-                               justify-content-center gap-3">
+                        class="
+                            d-flex
+                            flex-column
+                            flex-sm-row
+                            justify-content-center
+                            gap-3
+                        ">
 
                         <a
                             href="/products.html"
                             class="btn btn-light">
 
-                            <i class="bi bi-grid-3x3-gap me-2"></i>
+                            <i
+                                class="
+                                    bi
+                                    bi-grid-3x3-gap
+                                    me-2
+                                ">
+                            </i>
 
                             Explore Products
 
@@ -635,7 +672,13 @@ function renderAboutCTA() {
                             href="/contact.html"
                             class="btn btn-outline-light">
 
-                            <i class="bi bi-envelope-paper me-2"></i>
+                            <i
+                                class="
+                                    bi
+                                    bi-envelope-paper
+                                    me-2
+                                ">
+                            </i>
 
                             Request Quote
 

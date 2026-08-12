@@ -251,7 +251,7 @@ function categoryCard(
                     <div class="mt-auto">
 
                         <a
-                            href="/product-catalog/products.html?search=${searchValue}"
+                          href="/products.html?search=${searchValue}"
                             class="
                                 btn
                                 btn-outline-danger

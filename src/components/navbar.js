@@ -20,7 +20,6 @@ export function renderNavbar() {
 
 <header class="sticky-top shadow-sm">
 
-    
     <nav class="navbar navbar-expand-lg bg-white py-3">
 
         <div class="container">
@@ -32,12 +31,12 @@ export function renderNavbar() {
             <a class="navbar-brand fw-bold text-danger fs-3"
                href="/index.html">
 
-               
                 <i class="bi bi-shield-fill-check me-2"></i>
 
-                SAFETYMART
+                LAXMIKANT TRADERS
 
             </a>
+
 
             <!-- ========================================= -->
             <!-- Mobile Toggle -->
@@ -56,6 +55,7 @@ export function renderNavbar() {
 
             </button>
 
+
             <!-- ========================================= -->
             <!-- Navigation -->
             <!-- ========================================= -->
@@ -68,17 +68,17 @@ export function renderNavbar() {
 
                     <li class="nav-item">
 
-                        
-                            <a
-    class="nav-link ${currentPage === "index" ? "active fw-semibold" : ""}"
-    ${currentPage === "index" ? 'aria-current="page"' : ""}
-    href="/index.html">
+                        <a
+                            class="nav-link ${currentPage === "index" ? "active fw-semibold" : ""}"
+                            ${currentPage === "index" ? 'aria-current="page"' : ""}
+                            href="/index.html">
 
                             Home
 
                         </a>
 
                     </li>
+
 
                     <li class="nav-item">
 
@@ -92,6 +92,7 @@ export function renderNavbar() {
 
                     </li>
 
+
                     <li class="nav-item">
 
                         <a
@@ -103,6 +104,7 @@ export function renderNavbar() {
                         </a>
 
                     </li>
+
 
                     <li class="nav-item">
 
@@ -118,29 +120,30 @@ export function renderNavbar() {
 
                 </ul>
 
+
                 <!-- ===================================== -->
-<!-- CTA -->
-<!-- ===================================== -->
+                <!-- CTA -->
+                <!-- ===================================== -->
 
-${
-    currentPage !== "contact"
-        ? `
-            <div class="d-flex">
+                ${
+                    currentPage !== "contact"
+                        ? `
+                            <div class="d-flex">
 
-                <a
-                    href="/contact.html"
-                    class="btn btn-danger">
+                                <a
+                                    href="/contact.html"
+                                    class="btn btn-danger">
 
-                    <i class="bi bi-envelope-paper me-2"></i>
+                                    <i class="bi bi-envelope-paper me-2"></i>
 
-                    Request Quote
+                                    Request Quote
 
-                </a>
+                                </a>
 
-            </div>
-        `
-        : ""
-}
+                            </div>
+                        `
+                        : ""
+                }
 
             </div>
 
@@ -153,6 +156,7 @@ ${
 `;
 
 }
+
 
 /**
  * ------------------------------------------------------------

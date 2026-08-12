@@ -4,7 +4,7 @@
  * ------------------------------------------------------------
  * File      : hero.js
  * Purpose   : Home Page Hero Section
- * Version   : 1.0.0
+ * Version   : 1.1.0
  * ============================================================
  */
 
@@ -22,7 +22,6 @@ function heroTemplate() {
 
     return `
 
-
 <section class="py-5 bg-body-tertiary">
 
     <div class="container">
@@ -35,31 +34,35 @@ function heroTemplate() {
 
             <div class="col-lg-6">
 
-                <span class="badge rounded-pill text-bg-danger px-3 py-2 mb-3">
+                <span
+                    class="badge rounded-pill text-bg-danger
+                           px-3 py-2 mb-3">
 
-    <i class="bi bi-shield-check me-2"></i>
+                    <i class="bi bi-shield-check me-2"></i>
 
-    Trusted Industrial Safety Supplier
+                    LAXMIKANT TRADERS
 
-</span>
+                </span>
 
                 <h1 class="display-4 fw-bold mb-4">
 
-    Complete Industrial
+                    Industrial Safety
 
-    <span class="text-danger">
-        Safety Solutions
-    </span>
+                    <span class="text-danger">
+                        Products
+                    </span>
 
-    <br>
+                    <br>
 
-    For Every Workplace
+                    for Every Workplace
 
-</h1>
+                </h1>
 
                 <p class="lead text-secondary mb-4">
 
-                    We supply certified Personal Protective Equipment (PPE), fire safety equipment, industrial footwear, helmets, gloves and workplace safety solutions for manufacturing, engineering and construction industries.
+                    Laxmikant Traders supplies industrial safety
+                    products and fire safety equipment for workplaces,
+                    businesses and professional requirements.
 
                 </p>
 
@@ -71,7 +74,7 @@ function heroTemplate() {
 
                         <i class="bi bi-grid me-2"></i>
 
-Explore Products
+                        Explore Products
 
                     </a>
 
@@ -79,9 +82,9 @@ Explore Products
                         href="/contact.html"
                         class="btn btn-outline-dark btn-lg">
 
-                       <i class="bi bi-envelope-paper me-2"></i>
+                        <i class="bi bi-envelope-paper me-2"></i>
 
-Request Quote
+                        Request Quote
 
                     </a>
 
@@ -93,7 +96,10 @@ Request Quote
 
                         <div class="d-flex align-items-center">
 
-                            <i class="bi bi-patch-check-fill text-success fs-4 me-2"></i>
+                            <i
+                                class="bi bi-patch-check-fill
+                                       text-success fs-4 me-2">
+                            </i>
 
                             <span>
 
@@ -109,7 +115,10 @@ Request Quote
 
                         <div class="d-flex align-items-center">
 
-                            <i class="bi bi-box-seam text-primary fs-4 me-2"></i>
+                            <i
+                                class="bi bi-box-seam
+                                       text-primary fs-4 me-2">
+                            </i>
 
                             <span>
 
@@ -125,7 +134,10 @@ Request Quote
 
                         <div class="d-flex align-items-center">
 
-                            <i class="bi bi-truck text-warning fs-4 me-2"></i>
+                            <i
+                                class="bi bi-truck
+                                       text-warning fs-4 me-2">
+                            </i>
 
                             <span>
 
@@ -145,12 +157,17 @@ Request Quote
             <!-- Right Column -->
             <!-- ========================================= -->
 
-            <div class="col-lg-6 text-center">
+            <div class="col-lg-6">
 
-                <img
-                    src="https://picsum.photos/700/600"
-                    alt="Industrial Safety Products"
-                    class="img-fluid rounded shadow">
+                <div
+                    class="card border-0 shadow-sm overflow-hidden">
+
+                    <img
+    src="src/assets/images/hero/hero-safety-products.png"
+    alt="Industrial Safety Products"
+    class="img-fluid w-100">
+
+                </div>
 
             </div>
 

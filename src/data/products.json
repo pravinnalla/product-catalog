@@ -1236,8 +1236,8 @@
     "category": "Safety Equipment",
     "subcategory": "Hand Protection",
     "name": "MONO- Lint Free Glove",
-    "image": null
-  },
+    "image": "MONO- Lint Free Glove.png"
+},
   {
     "id": "safety-129",
     "category": "Safety Equipment",
@@ -1341,8 +1341,8 @@
     "category": "Safety Equipment",
     "subcategory": "Arms Protection",
     "name": "MAN/CA/V45- Rust Leather Hand Sleeve",
-    "image": null
-  },
+    "image": "MANCAV45- Rust Leather Hand Sleeve.png"
+},
   {
     "id": "safety-144",
     "category": "Safety Equipment",
@@ -1992,8 +1992,8 @@
     "category": "Safety Equipment",
     "subcategory": "Other Accessories",
     "name": "KTD/SL- Dry Tac Wipe",
-    "image": "KTD/SL- Dry Tac Wipe.png"
-  },
+    "image": "KTDSL- Dry Tac Wipe.png"
+},
   {
     "id": "safety-237",
     "category": "Safety Equipment",
@@ -2006,6 +2006,6 @@
     "category": "Safety Equipment",
     "subcategory": "Other Accessories",
     "name": "KTW/5022- Tack Rag Wipes",
-    "image": "KTW/5022- Tack Rag Wipes.png"
-  }
+    "image": "KTW5022- Tack Rag Wipes.png"
+}
 ]
