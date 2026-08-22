@@ -2,3 +2,7 @@ node_modules/
 dist/
 .vscode/
 .DS_Store
+api/config.php
+api/.rate-limit/
+
+vendor/
