@@ -7,7 +7,8 @@ import { pageUrl } from "../../utils/paths.js";
 const links = [
     ["dashboard", "Dashboard", "speedometer2"], ["categories", "Categories", "tags"],
     ["subcategories", "Subcategories", "diagram-3"], ["suppliers", "Suppliers", "building"],
-    ["products", "Products", "box-seam"], ["change-password", "Change Password", "key"],
+    ["products", "Products", "box-seam"], ["backup", "Backup & Restore", "archive"],
+    ["change-password", "Change Password", "key"],
 ];
 
 export function renderAdminShell(root, title, active, helper = "") {

@@ -31,6 +31,7 @@ export default defineConfig({
                 adminResetPassword: resolve(import.meta.dirname, "admin-reset-password.html"),
                 adminChangePassword: resolve(import.meta.dirname, "admin/change-password.html"),
                 adminDashboard: resolve(import.meta.dirname, "admin/dashboard.html"),
+                adminBackup: resolve(import.meta.dirname, "admin/backup.html"),
                 adminCategories: resolve(import.meta.dirname, "admin/categories.html"),
                 adminSubcategories: resolve(import.meta.dirname, "admin/subcategories.html"),
                 adminSuppliers: resolve(import.meta.dirname, "admin/suppliers.html"),

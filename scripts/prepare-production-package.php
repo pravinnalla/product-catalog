@@ -68,7 +68,19 @@ try {
     copy($project . '/private/admin.example.php', $target . '/laxmikant_private/admin.example.php');
     copy($project . '/docs/PRODUCTION-DEPLOYMENT.md', $target . '/README.md');
 
-    fwrite(STDOUT, "Production package prepared under deployment/. No live server was contacted.\n");
+    foreach (['backup-catalog.php', 'restore-catalog-backup.php', 'validate-runtime-catalog.php'] as $script) {
+        $directory = $target . '/maintenance/scripts';
+        if (!is_dir($directory)) mkdir($directory, 0755, true);
+        copy($project . '/scripts/' . $script, $directory . '/' . $script);
+    }
+    foreach (['backup-domains.php', 'catalog-storage.php', 'catalog-validation.php', 'paths.php'] as $include) {
+        $directory = $target . '/maintenance/api/includes';
+        if (!is_dir($directory)) mkdir($directory, 0755, true);
+        copy($project . '/api/includes/' . $include, $directory . '/' . $include);
+    }
+    copy($project . '/docs/BACKUP-RESTORE.md', $target . '/maintenance/BACKUP-RESTORE.md');
+
+    fwrite(STDOUT, "Production package prepared under deployment/. Private maintenance tools are outside public_html. No live server was contacted.\n");
 } catch (Throwable $exception) {
     fwrite(STDERR, 'Package preparation failed: ' . $exception->getMessage() . PHP_EOL);
     exit(1);

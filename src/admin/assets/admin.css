@@ -32,6 +32,9 @@ body.admin-body { background: #f4f6f8; color: #25313a; overflow-x: hidden; }
 .admin-table tbody tr:hover > * { background: #fbfcfd; }
 .admin-actions { min-width: 6rem; white-space: nowrap; }
 .admin-actions .btn { width: 2rem; height: 2rem; padding: 0; }
+.backup-actions { min-width: 27rem; white-space: nowrap; }
+.backup-actions .btn { margin: .15rem .25rem .15rem 0; }
+.backup-counts { min-width: 18rem; font-size: .875rem; }
 .admin-media-thumb { width: 3.25rem; height: 3.25rem; display: block; border: 1px solid var(--admin-border); border-radius: .5rem; background: #fff; object-fit: contain; }
 .admin-media-preview { width: min(100%,18rem); max-height: 14rem; display: block; border: 1px solid var(--admin-border); border-radius: .5rem; background: #f8f9fa; object-fit: contain; }
 .admin-media-preview[hidden] { display: none; }

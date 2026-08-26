@@ -13,8 +13,12 @@ deployment/
 
 # Private runtime catalogue state (generated locally/on the server)
 private/catalog/
+private/business/
 private/locks/
 private/backups/
+private/snapshots/
+*.catalog-backup.tar.gz
+*.catalog-backup.zip
 private/logs/
 private/rate-limit/
 

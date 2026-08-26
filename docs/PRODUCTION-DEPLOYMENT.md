@@ -17,7 +17,7 @@ The private root must contain `admin.php`, `catalog/`, `locks/`, `backups/`, `ra
 1. Run `npm ci` and `npm run build`. The normal build uses `/` as its Vite base and defaults to same-origin `/api` and `/uploads`.
 2. Run `composer install --no-dev --optimize-autoloader`. Upload `vendor/`; Composer does not need to run on BigRock.
 3. Run `php scripts/prepare-production-package.php --force`. This creates ignored `deployment/public_html/` and `deployment/laxmikant_private/` trees without credentials or SMTP configuration.
-4. Inspect the package before any future upload. `public_html` receives the built pages, PHP API, Composer vendor files, uploads protection, and root `.htaccess`. The private tree receives the validated catalogue only; it does not receive a real admin credential or reset state.
+4. Inspect the package before any future upload. `public_html` receives the built pages, PHP API, Composer vendor files, uploads protection, and root `.htaccess`. The private tree receives the validated catalogue only; it does not receive a real admin credential or reset state. `deployment/maintenance/` contains CLI-only catalogue backup/restore tools and their required includes; deploy it outside `public_html`.
 
 GitHub Pages remains a separate static test build: `npm run build:github-pages`. It uses `/product-catalog/` and needs explicitly configured externally hosted API and media URLs to provide runtime features.
 
@@ -50,6 +50,12 @@ Before making the site live:
 6. Run `php scripts/audit-runtime-media.php` with both `APP_PRIVATE_ROOT` and `RUNTIME_MEDIA_ROOT` configured.
 
 The CLI scripts are source/deployment tools, not web endpoints. Do not place them under `public_html`.
+
+## Catalogue backup and restore
+
+Catalogue mutations retain the newest 20 exact pre-change backups per dataset under the private `backups/catalog/` directory. The private maintenance package also provides explicit backup listing, full-integrity dry runs, confirmed atomic restores with pre-restore rollback backups, and complete four-dataset snapshots. Follow `maintenance/BACKUP-RESTORE.md`; never publish the backup or maintenance directories and never commit runtime JSON or snapshot archives.
+
+The protected Admin **Backup & Restore** page uses the same catalogue backup core. After deployment, verify listing, create and download one snapshot, and run its dry-run. Do not perform an actual production restore without separate approval.
 
 ## Apache, SSL, and permissions
 

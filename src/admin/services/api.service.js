@@ -49,6 +49,22 @@ export async function apiMultipartRequest(path, formData) {
     return data;
 }
 
+export async function apiDownload(path) {
+    let response;
+    try {
+        response = await fetch(`${API_BASE}/${path}`, { credentials: "include", headers: { Accept: "application/zip" } });
+    } catch { throw new ApiError("Unable to reach the server. Please try again."); }
+    if (response.status === 401) { redirectToLogin(true); throw new ApiError("Session expired.", 401); }
+    if (!response.ok) {
+        let data = {};
+        try { data = await response.json(); } catch { /* use the status fallback */ }
+        throw new ApiError(data.message || friendlyStatus(response.status), response.status, data);
+    }
+    const disposition = response.headers.get("Content-Disposition") || "";
+    const match = disposition.match(/filename="([^"]+)"/);
+    return { blob: await response.blob(), filename: match?.[1] || "catalog-snapshot.zip" };
+}
+
 function friendlyStatus(status) {
     if (status === 403) return "Security validation failed. Please retry.";
     if (status === 409) return "This change conflicts with existing catalogue data.";
