@@ -21,7 +21,7 @@ import { renderEnquiryForm } from "../components/enquiry-form.js";
  */
 
 
-export function renderContactPage(app) {
+export async function renderContactPage(app) {
 
 
     if (!app) return;
@@ -60,7 +60,7 @@ export function renderContactPage(app) {
     renderContactContent();
 
 
-    renderEnquiryForm();
+    await renderEnquiryForm();
 
 
     renderFooter();

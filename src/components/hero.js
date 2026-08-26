@@ -9,6 +9,7 @@
  */
 
 import { heroImageUrl, pageUrl } from "../utils/paths.js";
+import { getProducts } from "../services/product.service.js";
 
 export function renderHero() {
 
@@ -21,6 +22,8 @@ export function renderHero() {
 }
 
 function heroTemplate() {
+
+    const productCount = getProducts().length;
 
     return `
 
@@ -124,7 +127,7 @@ function heroTemplate() {
 
                             <span>
 
-                                500+ Products
+                                ${productCount}+ Products
 
                             </span>
 

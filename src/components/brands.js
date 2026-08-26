@@ -10,6 +10,7 @@
 
 
 import { brandImageUrl } from "../utils/paths.js";
+import { getSuppliers } from "../services/product.service.js";
 
 
 export function renderBrands() {
@@ -93,18 +94,9 @@ export function renderBrands() {
         <div class="row g-4 justify-content-center">
 
 
-            ${supplierCard(
-                "shreefire.png",
-                "Shree Fire Services",
-                "Fire safety equipment and solutions."
-            )}
-
-
-            ${supplierCard(
-                "safetygloves.png",
-                "Safety Gloves / Sawalka KEL Pvt. Ltd.",
-                "Industrial safety gloves and protective equipment."
-            )}
+            ${getSuppliers().length ? getSuppliers()
+                .map(supplier => supplierCard(supplier))
+                .join("") : '<div class="col-12"><p class="text-center text-secondary mb-0">Supplier information is not available yet.</p></div>'}
 
 
         </div>
@@ -128,12 +120,7 @@ export function renderBrands() {
  */
 
 
-function supplierCard(
-    logo,
-    name,
-    description
-) {
-
+function supplierCard(supplier) {
 
     return `
 
@@ -176,8 +163,9 @@ function supplierCard(
 
 
                 <img
-                    src="${brandImageUrl(logo)}"
-                    alt="${name}"
+                    data-catalogue-image
+                    src="${brandImageUrl(supplier.logo)}"
+                    alt="${supplier.name}"
                     class="img-fluid"
                     loading="lazy"
                     style="
@@ -200,24 +188,10 @@ function supplierCard(
             <h4 class="fw-bold mb-2">
 
 
-                ${name}
+                ${supplier.name}
 
 
             </h4>
-
-
-            <!-- ===================================== -->
-            <!-- Description -->
-            <!-- ===================================== -->
-
-
-            <p class="text-secondary small mb-0">
-
-
-                ${description}
-
-
-            </p>
 
 
         </div>

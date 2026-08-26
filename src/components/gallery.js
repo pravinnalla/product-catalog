@@ -145,12 +145,12 @@ export function renderGallery() {
         <div class="row g-4">
 
 
-            ${galleryProducts
+            ${galleryProducts.length ? galleryProducts
                 .map(
                     product =>
                         galleryItem(product)
                 )
-                .join("")}
+                .join("") : '<div class="col-12"><p class="text-center text-secondary mb-0">No additional products are available yet.</p></div>'}
 
 
         </div>
@@ -222,6 +222,7 @@ function galleryItem(product) {
 
 
             <img
+                data-catalogue-image
                 src="${imagePath}"
                 class="img-fluid"
                 alt="${productName}"

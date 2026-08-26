@@ -45,6 +45,7 @@ export function productCard(product) {
     <div class="position-relative bg-white">
 
         <img
+            data-catalogue-image
             src="${imagePath}"
             class="card-img-top"
             alt="${productName}"

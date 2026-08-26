@@ -17,6 +17,8 @@ declare(strict_types=1);
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\PHPMailer;
 
+require_once __DIR__ . '/includes/paths.php';
+
 
 /**
  * ------------------------------------------------------------
@@ -28,9 +30,11 @@ header(
     "Content-Type: application/json; charset=UTF-8"
 );
 
-header(
-    "Access-Control-Allow-Origin: http://localhost:5173"
-);
+$origin = (string) ($_SERVER['HTTP_ORIGIN'] ?? '');
+if ($origin !== '' && app_origin_is_allowed($origin)) {
+    header('Access-Control-Allow-Origin: ' . $origin);
+    header('Vary: Origin');
+}
 
 header(
     "Access-Control-Allow-Methods: POST, OPTIONS"
@@ -50,6 +54,11 @@ header(
 if (
     $_SERVER["REQUEST_METHOD"] === "OPTIONS"
 ) {
+
+    if ($origin !== '' && !app_origin_is_allowed($origin)) {
+        http_response_code(403);
+        exit;
+    }
 
     http_response_code(204);
 
@@ -577,8 +586,7 @@ foreach (
  */
 
 $rateLimitDirectory =
-    __DIR__ .
-    "/.rate-limit";
+    app_enquiry_rate_limit_directory();
 
 
 if (
@@ -686,7 +694,9 @@ try {
 
 
     $mail->SMTPSecure =
-        PHPMailer::ENCRYPTION_STARTTLS;
+        ($config['smtp_encryption'] ?? 'tls') === 'ssl'
+            ? PHPMailer::ENCRYPTION_SMTPS
+            : PHPMailer::ENCRYPTION_STARTTLS;
 
 
     $mail->Port =

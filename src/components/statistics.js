@@ -11,7 +11,8 @@
 import {
     getProducts,
     getProductCategories,
-    getProductSubcategories
+    getProductSubcategories,
+    getSuppliers
 } from "../services/product.service.js";
 
 
@@ -45,6 +46,11 @@ export function renderStatistics() {
 
     const subcategoryCount =
         getProductSubcategories()
+            .filter(Boolean)
+            .length;
+
+    const supplierCount =
+        getSuppliers()
             .filter(Boolean)
             .length;
 
@@ -121,10 +127,10 @@ export function renderStatistics() {
 
 
             ${statisticCard(
-                "bi-clock",
-                "24",
-                " × 7",
-                "Availability",
+                "bi-people",
+                supplierCount,
+                "",
+                "Trusted Suppliers",
                 true
             )}
 
@@ -142,7 +148,7 @@ export function renderStatistics() {
                 "bi-shield-check",
                 subcategoryCount,
                 "",
-                "Safety Solutions",
+                "Product Subcategories",
                 false
             )}
 

@@ -11,6 +11,11 @@
 import { renderNavbar } from "../components/navbar.js";
 import { renderFooter } from "../components/footer.js";
 import { pageUrl } from "../utils/paths.js";
+import {
+    getProductCategories,
+    getProductSubcategories,
+    getProducts
+} from "../services/product.service.js";
 
 
 /**
@@ -407,6 +412,22 @@ function renderAboutIndustries() {
 
     if (!section) return;
 
+    const products = getProducts();
+
+    const productAreas =
+        getProductCategories()
+            .flatMap(category =>
+                getProductSubcategories(category.id)
+                    .map(subcategory => ({
+                        categoryName: category.name,
+                        subcategoryName: subcategory.name,
+                        productCount: products.filter(
+                            product =>
+                                product.subcategoryId === subcategory.id
+                        ).length
+                    }))
+            );
+
     section.innerHTML = `
 
         <section class="py-5 bg-body-tertiary">
@@ -440,29 +461,9 @@ function renderAboutIndustries() {
 
                 <div class="row g-4">
 
-                    ${industryCard(
-                        "bi-fire",
-                        "Fire Safety",
-                        "Fire extinguishers and other fire safety equipment and accessories."
-                    )}
-
-                    ${industryCard(
-                        "bi-hand-index-thumb",
-                        "Hand Protection",
-                        "Safety gloves and related products for industrial hand protection."
-                    )}
-
-                    ${industryCard(
-                        "bi-shield-check",
-                        "Personal Protection",
-                        "Personal protective equipment for workplace safety requirements."
-                    )}
-
-                    ${industryCard(
-                        "bi-tools",
-                        "Industrial Safety",
-                        "Safety products and equipment for industrial and workplace applications."
-                    )}
+                    ${productAreas
+                        .map(productArea => industryCard(productArea))
+                        .join("")}
 
                 </div>
 
@@ -481,7 +482,9 @@ function renderAboutIndustries() {
  * ------------------------------------------------------------
  */
 
-function industryCard(icon, title, description) {
+function industryCard(productArea) {
+
+    const icon = getProductAreaIcon(productArea.subcategoryName);
 
     return `
 
@@ -503,13 +506,13 @@ function industryCard(icon, title, description) {
 
                     <h5 class="fw-semibold mb-2">
 
-                        ${title}
+                        ${productArea.subcategoryName}
 
                     </h5>
 
                     <p class="text-secondary small mb-0">
 
-                        ${description}
+                        ${productArea.categoryName} · ${productArea.productCount} Products
 
                     </p>
 
@@ -520,6 +523,38 @@ function industryCard(icon, title, description) {
         </div>
 
     `;
+
+}
+
+function getProductAreaIcon(subcategoryName) {
+
+    const value = subcategoryName.toLowerCase();
+
+    if (value.includes("hand") || value.includes("glove")) {
+
+        return "bi-hand-index-thumb";
+
+    }
+
+    if (value.includes("arm") || value.includes("sleeve")) {
+
+        return "bi-person-arms-up";
+
+    }
+
+    if (value.includes("body") || value.includes("wear")) {
+
+        return "bi-shield-check";
+
+    }
+
+    if (value.includes("fire") || value.includes("hydrant")) {
+
+        return "bi-fire";
+
+    }
+
+    return "bi-tools";
 
 }
 

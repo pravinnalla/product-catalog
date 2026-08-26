@@ -86,14 +86,14 @@ export function renderFeaturedProducts() {
 
         <div class="row g-4">
 
-            ${products
+            ${products.length ? products
                 .map(
                     product =>
                         featuredProductCard(
                             product
                         )
                 )
-                .join("")}
+                .join("") : '<div class="col-12"><p class="text-center text-secondary mb-0">No featured products are available yet.</p></div>'}
 
         </div>
 
@@ -102,7 +102,7 @@ export function renderFeaturedProducts() {
         <!-- View All Products -->
         <!-- ========================================= -->
 
-        <div class="text-center mt-5">
+        <div class="text-center mt-5 ${products.length ? "" : "d-none"}">
 
             <a
                 href="${pageUrl("products.html")}"
@@ -146,15 +146,15 @@ function featuredProductCard(product) {
 
 
     const productName =
-        product.name ||
         product.title ||
-        "Safety Product";
+        product.name ||
+        "";
 
 
     const category =
         product.subcategory ||
         product.category ||
-        "Safety Equipment";
+        "";
 
 
     return `
@@ -180,6 +180,7 @@ function featuredProductCard(product) {
             ">
 
             <img
+                data-catalogue-image
                 src="${imagePath}"
                 class="
                     card-img-top

@@ -1,86 +1,53 @@
-/**
- * ============================================================
- * Product Catalog
- * ------------------------------------------------------------
- * File      : product.service.js
- * Purpose   : Product Data Service
- * Version   : 2.0.0
- * ============================================================
- */
+import { fetchPublicJson } from "./api.service.js";
 
-import products from "../data/products.json";
+const datasets = ["categories", "subcategories", "suppliers", "products"];
+let catalogue = null;
+let pendingLoad = null;
 
-/**
- * ------------------------------------------------------------
- * Get All Products
- * ------------------------------------------------------------
- */
-
-export function getProducts() {
-
-    return products;
-
+async function fetchDataset(name) {
+    const response = await fetchPublicJson(`catalog/${name}.php`);
+    if (response?.success !== true || !Array.isArray(response.data)) {
+        throw new Error("Catalogue information is temporarily unavailable. Please try again.");
+    }
+    return response.data;
 }
 
-/**
- * ------------------------------------------------------------
- * Get Product By ID
- * ------------------------------------------------------------
- */
-
-export function getProductById(id) {
-
-    return products.find(
-        product => product.id === id
-    );
-
+function normalizeCatalogue([categories, subcategories, suppliers, products]) {
+    const categoryById = new Map(categories.map((item) => [item.id, item]));
+    const subcategoryById = new Map(subcategories.map((item) => [item.id, item]));
+    const supplierById = new Map(suppliers.map((item) => [item.id, item]));
+    const hydratedProducts = products.map((product) => {
+        const subcategory = subcategoryById.get(product.subcategoryId);
+        const category = subcategory ? categoryById.get(subcategory.categoryId) : undefined;
+        return {
+            ...product,
+            name: product.title,
+            categoryId: category?.id || "",
+            category: category?.name || "",
+            subcategory: subcategory?.name || "",
+            supplier: supplierById.get(product.supplierId)?.name || "",
+        };
+    });
+    return { categories, subcategories, suppliers, products: hydratedProducts, categoryById, subcategoryById, supplierById };
 }
 
-/**
- * ------------------------------------------------------------
- * Get Main Product Categories
- * ------------------------------------------------------------
- *
- * Returns only the two top-level categories:
- *
- * Fire Extinguishers
- * Safety Equipment
- *
- * ------------------------------------------------------------
- */
-
-export function getProductCategories() {
-
-    return [
-        ...new Set(
-            products.map(
-                product =>
-                    product.category
-            )
-        )
-    ];
-
+export async function loadCatalogue({ force = false } = {}) {
+    if (catalogue && !force) return catalogue;
+    if (pendingLoad) return pendingLoad;
+    if (force) catalogue = null;
+    pendingLoad = Promise.all(datasets.map(fetchDataset))
+        .then(normalizeCatalogue)
+        .then((state) => { catalogue = state; return state; })
+        .finally(() => { pendingLoad = null; });
+    return pendingLoad;
 }
 
-/**
- * ------------------------------------------------------------
- * Get Product Subcategories
- * ------------------------------------------------------------
- *
- * Returns unique subcategories.
- *
- * ------------------------------------------------------------
- */
-
-export function getProductSubcategories() {
-
-    return [
-        ...new Set(
-            products.map(
-                product =>
-                    product.subcategory
-            )
-        )
-    ];
-
-}
+export const reloadCatalogue = () => loadCatalogue({ force: true });
+export const getCatalogue = () => catalogue;
+export const getProducts = () => catalogue?.products || [];
+export const getProductById = (id) => getProducts().find((product) => product.id === id);
+export const getProductCategories = () => catalogue?.categories || [];
+export const getProductSubcategories = (categoryId) => categoryId
+    ? (catalogue?.subcategories || []).filter((subcategory) => subcategory.categoryId === categoryId)
+    : (catalogue?.subcategories || []);
+export const getSuppliers = () => catalogue?.suppliers || [];

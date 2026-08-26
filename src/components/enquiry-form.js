@@ -8,7 +8,8 @@
  * ============================================================
  */
 
-import { getProductById } from "../services/product.service.js";
+import { getProductById, loadCatalogue } from "../services/product.service.js";
+import { apiUrl } from "../services/api.service.js";
 
 
 /**
@@ -17,8 +18,7 @@ import { getProductById } from "../services/product.service.js";
  * ------------------------------------------------------------
  */
 
-const API_URL =
-    "http://localhost:8000/api/send-enquiry.php";
+const API_URL = apiUrl("send-enquiry.php");
 
 
 /**
@@ -27,7 +27,7 @@ const API_URL =
  * ------------------------------------------------------------
  */
 
-export function renderEnquiryForm() {
+export async function renderEnquiryForm() {
 
     const formContainer =
         document.querySelector("#enquiry-form");
@@ -39,10 +39,12 @@ export function renderEnquiryForm() {
         getProductIdFromUrl();
 
 
-    const product =
-        productId
-            ? getProductById(productId)
-            : null;
+    if (productId) {
+        try { await loadCatalogue(); }
+        catch { renderEnquiryCatalogueFailure(formContainer); return; }
+    }
+
+    const product = productId ? getProductById(productId) : null;
 
 
     formContainer.innerHTML =
@@ -51,6 +53,11 @@ export function renderEnquiryForm() {
 
     initializeEnquiryForm();
 
+}
+
+function renderEnquiryCatalogueFailure(container) {
+    container.innerHTML = `<div class="alert alert-light border text-center"><p class="mb-3">The selected product could not be loaded.</p><button type="button" class="btn btn-danger btn-sm" id="enquiry-catalogue-retry">Retry</button></div>`;
+    container.querySelector("#enquiry-catalogue-retry").addEventListener("click", () => renderEnquiryForm());
 }
 
 

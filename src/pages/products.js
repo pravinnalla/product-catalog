@@ -11,7 +11,10 @@
 import { renderNavbar } from "../components/navbar.js";
 import { renderFooter } from "../components/footer.js";
 import { productCard } from "../components/product-card.js";
-import { getProducts } from "../services/product.service.js";
+import {
+    getProductCategories,
+    getProducts
+} from "../services/product.service.js";
 
 /**
  * ------------------------------------------------------------
@@ -19,28 +22,16 @@ import { getProducts } from "../services/product.service.js";
  * ------------------------------------------------------------
  */
 
-const products = getProducts();
+let products = [];
 
 /**
  * ------------------------------------------------------------
  * Product Categories
  * ------------------------------------------------------------
- *
- * Only two main categories are required on the Products page.
- *
  * ------------------------------------------------------------
  */
 
-const PRODUCT_CATEGORIES = [
-    {
-        id: "fire-extinguishers",
-        name: "Fire Extinguishers"
-    },
-    {
-        id: "safety-equipment",
-        name: "Safety Equipment"
-    }
-];
+let PRODUCT_CATEGORIES = [];
 
 /**
  * ------------------------------------------------------------
@@ -90,6 +81,9 @@ function getInitialSearchTerm() {
  */
 
 export function renderProductsPage(app) {
+
+    products = getProducts();
+    PRODUCT_CATEGORIES = getProductCategories();
 
     app.innerHTML = `
 
@@ -631,42 +625,11 @@ function renderCategoryList() {
 
 /**
  * ------------------------------------------------------------
- * Convert Text To Comparable Category
- * ------------------------------------------------------------
- *
- * Example:
- *
- * Fire Extinguishers
- * fire-extinguishers
- * FIRE EXTINGUISHERS
- *
- * All become:
- *
- * fire-extinguishers
- *
- * ------------------------------------------------------------
- */
-
-function normalizeCategory(value) {
-
-    return String(value || "")
-        .trim()
-        .toLowerCase()
-        .replace(/[_\s]+/g, "-")
-        .replace(/[^a-z0-9-]/g, "")
-        .replace(/-+/g, "-");
-
-}
-
-/**
- * ------------------------------------------------------------
  * Get Product Name
  * ------------------------------------------------------------
  *
- * Our simplified products.json may use "name".
- *
- * The fallback to "title" keeps compatibility with
- * older product records.
+ * Hydrated runtime records expose "name" while "title"
+ * remains the persisted catalogue field.
  *
  * ------------------------------------------------------------
  */
@@ -700,38 +663,9 @@ function getFilteredProducts() {
 
     if (selectedCategory !== "All") {
 
-        const selectedCategoryObject =
-            PRODUCT_CATEGORIES.find(
-                category =>
-                    category.id ===
-                    selectedCategory
-            );
-
-        const selectedCategoryName =
-            selectedCategoryObject
-                ? selectedCategoryObject.name
-                : selectedCategory;
-
-        const selectedCategoryNormalized =
-            normalizeCategory(
-                selectedCategoryName
-            );
-
         filteredProducts =
             filteredProducts.filter(
-                product => {
-
-                    const productCategory =
-                        normalizeCategory(
-                            product.category
-                        );
-
-                    return (
-                        productCategory ===
-                        selectedCategoryNormalized
-                    );
-
-                }
+                product => product.categoryId === selectedCategory
             );
 
     }

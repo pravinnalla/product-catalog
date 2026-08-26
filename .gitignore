@@ -4,5 +4,28 @@ dist/
 .DS_Store
 api/config.php
 api/.rate-limit/
+.env.production
+.env.local
+.env.*.local
 
 vendor/
+deployment/
+
+# Private runtime catalogue state (generated locally/on the server)
+private/catalog/
+private/locks/
+private/backups/
+private/logs/
+private/rate-limit/
+
+# Private authentication credentials and runtime rate-limit state
+private/admin.php
+private/password-reset.json
+private/locks/auth*
+private/locks/auth-rate-limit/
+
+# Public runtime media (directory protections/placeholders remain tracked)
+public/uploads/products/*
+public/uploads/suppliers/*
+!public/uploads/products/.gitkeep
+!public/uploads/suppliers/.gitkeep

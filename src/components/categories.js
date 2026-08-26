@@ -8,21 +8,12 @@
  * ============================================================
  */
 
-import products from "../data/products.json";
+import {
+    getProductCategories,
+    getProductSubcategories,
+    getProducts
+} from "../services/product.service.js";
 import { pageUrl } from "../utils/paths.js";
-
-/**
- * ------------------------------------------------------------
- * Configuration
- * ------------------------------------------------------------
- */
-
-const MAIN_CATEGORIES = [
-    "Fire Extinguishers",
-    "Safety Equipment"
-];
-
-const TOP_SUBCATEGORIES = 4;
 
 /**
  * ------------------------------------------------------------
@@ -37,20 +28,11 @@ export function renderCategories() {
 
     if (!categories) return;
 
-    const fireCategories =
-        getTopSubcategories(
-            "Fire Extinguishers"
-        );
-
-    const safetyCategories =
-        getTopSubcategories(
-            "Safety Equipment"
-        );
-
-    const selectedCategories = [
-        ...fireCategories,
-        ...safetyCategories
-    ];
+    const categoryCards =
+        getProductCategories()
+            .flatMap(category =>
+                getCategoryCards(category)
+            );
 
     categories.innerHTML = `
 
@@ -82,16 +64,16 @@ export function renderCategories() {
 
             <div class="row g-4">
 
-                ${selectedCategories
+                ${categoryCards.length ? categoryCards
                     .map(
                         category =>
                             categoryCard(
                                 category
                             )
                     )
-                    .join("")}
+                    .join("") : '<div class="col-12"><p class="text-center text-secondary mb-0">No product categories are available yet.</p></div>'}
 
-                ${viewAllCategoriesCard()}
+                ${categoryCards.length ? viewAllCategoriesCard() : ""}
 
             </div>
 
@@ -103,72 +85,28 @@ export function renderCategories() {
 
 /**
  * ------------------------------------------------------------
- * Get Top Subcategories
+ * Get Category Cards
  * ------------------------------------------------------------
  *
- * Groups products by subcategory and sorts them by
- * product count in descending order.
+ * Joins canonical category and subcategory records, then counts products
+ * through their subcategory IDs.
  *
  * ------------------------------------------------------------
  */
 
-function getTopSubcategories(
-    mainCategory
-) {
+function getCategoryCards(category) {
 
-    const counts = {};
+    const products = getProducts();
 
-    products
-        .filter(
-            product =>
-                product.category ===
-                mainCategory
-        )
-        .forEach(
-            product => {
-
-                const subcategory =
-                    String(
-                        product.subcategory || ""
-                    ).trim();
-
-                if (!subcategory) return;
-
-                if (!counts[subcategory]) {
-
-                    counts[subcategory] = 0;
-
-                }
-
-                counts[subcategory]++;
-
-            }
-        );
-
-    return Object.entries(counts)
-
-        .sort(
-            (a, b) =>
-                b[1] - a[1]
-        )
-
-        .slice(
-            0,
-            TOP_SUBCATEGORIES
-        )
-
-        .map(
-            ([name, count]) => ({
-
-                category:
-                    mainCategory,
-
-                name,
-
-                count
-
-            })
-        );
+    return getProductSubcategories(category.id)
+        .map(subcategory => ({
+            category: category.name,
+            name: subcategory.name,
+            count: products.filter(
+                product =>
+                    product.subcategoryId === subcategory.id
+            ).length
+        }));
 
 }
 

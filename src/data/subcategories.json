@@ -1,0 +1,52 @@
+[
+  {
+    "id": "SUBB55F5FF3",
+    "categoryId": "CATA0283CEA",
+    "name": "CO2 Type Fire Extinguisher Spare Parts"
+  },
+  {
+    "id": "SUBD4657B2E",
+    "categoryId": "CATA0283CEA",
+    "name": "ABC Type Fire Extinguisher Spare Parts"
+  },
+  {
+    "id": "SUB13EDFC26",
+    "categoryId": "CATA0283CEA",
+    "name": "DCP Type Fire Extinguisher Spare Parts"
+  },
+  {
+    "id": "SUB6FA386AE",
+    "categoryId": "CATA0283CEA",
+    "name": "AFFF/Water Type Fire Extinguisher Spare Parts"
+  },
+  {
+    "id": "SUB34A56AD8",
+    "categoryId": "CATA0283CEA",
+    "name": "Hydrant Accessories"
+  },
+  {
+    "id": "SUB25F4E828",
+    "categoryId": "CATA0283CEA",
+    "name": "Fire Extinguisher Products & Services"
+  },
+  {
+    "id": "SUB0C51F59A",
+    "categoryId": "CATF1CD24FE",
+    "name": "Hand Protection"
+  },
+  {
+    "id": "SUBDBABE4CC",
+    "categoryId": "CATF1CD24FE",
+    "name": "Arms Protection"
+  },
+  {
+    "id": "SUB10AAD108",
+    "categoryId": "CATF1CD24FE",
+    "name": "Body Protection"
+  },
+  {
+    "id": "SUB7D0CF4B9",
+    "categoryId": "CATF1CD24FE",
+    "name": "Other Accessories"
+  }
+]
