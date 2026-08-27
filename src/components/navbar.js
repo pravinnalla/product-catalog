@@ -33,7 +33,7 @@ export function renderNavbar() {
 
             <a
                 class="navbar-brand p-0"
-                href="${pageUrl("index.html")}"
+                href="${pageUrl("")}"
                 aria-label="Laxmikant Traders Home">
 
                 <img
@@ -78,7 +78,7 @@ export function renderNavbar() {
                         <a
                             class="nav-link ${currentPage === "index" ? "active fw-semibold" : ""}"
                             ${currentPage === "index" ? 'aria-current="page"' : ""}
-                            href="${pageUrl("index.html")}">
+                            href="${pageUrl("")}">
                             Home
                         </a>
                     </li>

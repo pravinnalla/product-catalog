@@ -32,7 +32,7 @@ export function renderFooter() {
             <div class="col-lg-4">
 
                 <a
-                    href="${pageUrl("index.html")}"
+                    href="${pageUrl("")}"
                     class="d-inline-block mb-3"
                     aria-label="Laxmikant Traders Home">
 
@@ -74,7 +74,7 @@ export function renderFooter() {
                     <li>
                         <a
                             class="text-light text-decoration-none"
-                            href="${pageUrl("index.html")}">
+                            href="${pageUrl("")}">
                             Home
                         </a>
                     </li>
