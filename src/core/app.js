@@ -16,6 +16,7 @@ import { loadCatalogue } from "../services/product.service.js";
 import { renderNavbar } from "../components/navbar.js";
 import { renderFooter } from "../components/footer.js";
 import { installImageFallbacks } from "../utils/paths.js";
+import { logPublicVisit } from "../services/visitor.service.js";
 
 /**
  * ------------------------------------------------------------
@@ -36,6 +37,8 @@ async function initializeApp() {
     }
 
     const currentPage = getCurrentPage();
+
+    logPublicVisit();
 
     installImageFallbacks(app);
 

@@ -21,6 +21,7 @@ private/snapshots/
 *.catalog-backup.zip
 private/logs/
 private/rate-limit/
+private/analytics/
 
 # Private authentication credentials and runtime rate-limit state
 private/admin.php

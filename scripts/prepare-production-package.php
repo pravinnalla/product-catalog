@@ -61,7 +61,7 @@ try {
     );
     if (is_dir($project . '/vendor')) package_copy_tree($project . '/vendor', $target . '/public_html/vendor');
 
-    foreach (['catalog', 'locks', 'backups', 'rate-limit', 'logs'] as $directory) {
+    foreach (['catalog', 'locks', 'backups', 'rate-limit', 'logs', 'analytics'] as $directory) {
         mkdir($target . '/laxmikant_private/' . $directory, 0700, true);
     }
     package_copy_tree($project . '/private/catalog', $target . '/laxmikant_private/catalog');

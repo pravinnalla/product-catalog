@@ -8,6 +8,10 @@ This guide prepares the BigRock Linux shared-hosting deployment. Phase 9C does n
 - PHP: 8.2, selected with cPanel MultiPHP Manager
 - Public document root: `/home1/laxmi8ce/public_html/`
 - Private application root: `/home1/laxmi8ce/laxmikant_private/`
+
+## Visitor report privacy
+
+The visitor report stores a UTC timestamp, the request IP address, an approximate city/region/country when server GeoIP data is available, and a simple device class. IP addresses may be personal data. IP-derived locations are approximate; the feature does not request GPS access, create browser fingerprints, or use advertising cookies. Records older than 45 days are automatically removed and cannot be recovered through the Visitor Reports interface. Review applicable privacy and legal requirements before long-term production use.
 - Runtime uploads: `/home1/laxmi8ce/public_html/uploads/`
 
 The private root must contain `admin.php`, `catalog/`, `locks/`, `backups/`, `rate-limit/`, and optionally `logs/`. `password-reset.json` is created only while a reset is active. Use 0700 for private directories and 0600 for credential/reset files where the hosting account permits it.
