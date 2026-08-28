@@ -87,7 +87,7 @@ try {
     $domain = backup_api_string($input, 'domain', 40);
     if ($action === 'create-snapshot') {
         backup_api_fields($input, ['action', 'domain'], ['action', 'domain']);
-        json_response(['success' => true, 'message' => 'Catalogue snapshot created.', 'item' => backup_admin_create_snapshot($domain)], 201);
+        json_response(['success' => true, 'message' => 'Snapshot created.', 'item' => backup_admin_create_snapshot($domain)], 201);
     }
     if ($action === 'dry-run') {
         backup_api_fields($input, ['action', 'domain', 'type', 'id'], ['action', 'domain', 'type', 'id', 'dataset']);
@@ -104,12 +104,12 @@ try {
             backup_api_string($input, 'confirmation', 20),
             isset($input['dataset']) ? backup_api_string($input, 'dataset', 40) : null
         );
-        json_response(['success' => true, 'message' => 'Catalogue restore completed.', 'result' => $result]);
+        json_response(['success' => true, 'message' => 'Restore completed.', 'result' => $result]);
     }
     throw new BackupAdminException('Unsupported backup action.', 400);
 } catch (BackupAdminException $exception) {
     json_response(['success' => false, 'message' => $exception->getMessage()], $exception->status);
-} catch (CatalogStorageException|BackupDomainException $exception) {
+} catch (CatalogStorageException|BusinessStorageException|BackupDomainException $exception) {
     json_response(['success' => false, 'message' => $exception->getMessage()], 400);
 } catch (Throwable) {
     json_response(['success' => false, 'message' => 'Unable to complete the backup request.'], 500);

@@ -56,7 +56,7 @@ try {
 
     backup_test($results, 'catalogue backup domain is registered', static function (): bool {
         $domain = backup_domain('catalog');
-        return backup_domain_names() === ['catalog']
+        return backup_domain_names() === ['catalog', 'business']
             && $domain['storageRoot'] === catalog_directory()
             && $domain['backupRoot'] === catalog_backup_directory()
             && $domain['lockStrategy']['scope'] === 'catalog';

@@ -1,8 +1,10 @@
-# Catalogue backup and restore
+# Catalogue and Business backup and restore
 
 This runbook covers the four authoritative runtime datasets: `categories.json`, `subcategories.json`, `suppliers.json`, and `products.json`. It does not back up administrator credentials, reset state, SMTP configuration, sessions, logs, rate-limit state, or other secrets.
 
-The current registered backup domain is `catalog`. Domain names and their storage, backup, validation, lock, snapshot, and restore strategies are defined by server code in `api/includes/backup-domains.php`. Operators cannot provide filesystem paths, and unregistered or malformed domain names are rejected. The protected Admin page and catalogue-specific CLI commands reuse the same authoritative server-side operations.
+The registered backup domains are `catalog` and `business`. Domain names and their storage, backup, validation, lock, snapshot, and restore strategies are defined by server code in `api/includes/backup-domains.php`. Operators cannot provide filesystem paths, and unregistered or malformed domain names are rejected. The protected Admin page reuses the authoritative server-side operations; the existing CLI commands remain Catalogue-specific.
+
+The Business domain is one coordinated V1 snapshot containing `customers.json`, `receivables.json`, `refilling-items.json`, `certificates.json`, and a manifest. Payments and Certificate Items remain embedded. Generated PDFs and calculated payment/next-refill values are not backed up.
 
 ## Locations and permissions
 
@@ -17,6 +19,7 @@ Automatic pre-change backups and complete snapshots:
 ```text
 /home1/laxmi8ce/laxmikant_private/backups/catalog/
 /home1/laxmi8ce/laxmikant_private/backups/snapshots/
+/home1/laxmi8ce/laxmikant_private/backups/business/
 ```
 
 These paths are outside `public_html`. Private directories should be `0700` and JSON/manifest files `0600` where BigRock permits. Never copy catalogue backups below `public_html` or expose the maintenance scripts as HTTP endpoints.
@@ -33,7 +36,9 @@ Run commands from the private `maintenance/` directory produced by the productio
 
 Authenticated administrators can open **Backup & Restore** from the Admin navigation. The page lists only registered domains and safe metadata for server-held catalogue snapshots and automatic dataset backups. It can create a complete catalogue snapshot, download a validated complete snapshot as a ZIP, run a non-mutating dry-run, and restore a selected server-held item.
 
-The API requires a current credential-version-bound PHP session before returning metadata or downloads. Every POST—including dry-run—also requires the existing `X-CSRF-Token` header. Requests contain identifiers only and are limited to 4 KB; backup JSON upload is not supported. The API rejects unknown domains, malformed identifiers, traversal, absolute paths, unexpected fields, symlinks, and files outside the registered private roots. Snapshot ZIPs are generated in temporary non-public storage and deleted after streaming.
+The API requires a current credential-version-bound PHP session before returning metadata or downloads. Every mutation and dry-run requires the existing `X-CSRF-Token` header. Requests contain identifiers only and are limited to 4 KB; backup JSON upload is not supported. The API rejects unknown domains, malformed identifiers, traversal, absolute paths, unexpected fields, symlinks, and files outside the registered private roots. Snapshot ZIPs are generated in temporary non-public storage and deleted after streaming.
+
+Business creation and restore hold the shared Business lock across all four datasets. Validation checks each frozen schema, duplicate IDs, payment totals, dates, and Customer/Refilling Item references while accepting inactive historical masters. Restore revalidates server-side, creates a coordinated rollback snapshot, replaces all four files, verifies the result, and attempts full rollback on failure. Business restore cannot alter Catalogue data, and Catalogue restore cannot alter Business data.
 
 Before restore, the page displays current and selected record counts and requires typing exactly `RESTORE`. The server does not trust a prior browser result: it reacquires the catalogue lock and repeats complete validation. Complete snapshot restore first creates a coordinated rollback snapshot, atomically replaces the four datasets, and validates the resulting live catalogue. If replacement or verification fails, it attempts to restore all captured current datasets before returning an error. Dataset-backup restore retains the existing Phase 10A rollback and atomic replacement behavior.
 

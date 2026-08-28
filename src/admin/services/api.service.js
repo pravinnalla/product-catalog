@@ -6,6 +6,8 @@ const API_BASE = (
     || (import.meta.env.DEV ? "http://localhost:8000/api" : "/api")
 ).replace(/\/$/, "");
 
+export const apiUrl = (path) => `${API_BASE}/${String(path).replace(/^\//, "")}`;
+
 export class ApiError extends Error {
     constructor(message, status = 0, details = {}) { super(message); this.status = status; this.details = details; }
 }
@@ -17,7 +19,7 @@ export async function apiRequest(path, { method = "GET", body } = {}) {
 
     let response;
     try {
-        response = await fetch(`${API_BASE}/${path}`, {
+        response = await fetch(apiUrl(path), {
             method, credentials: "include", headers,
             ...(body !== undefined ? { body: JSON.stringify(body) } : {}),
         });

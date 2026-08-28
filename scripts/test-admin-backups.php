@@ -60,6 +60,20 @@ try {
     foreach (['categories', 'subcategories', 'suppliers', 'products'] as $dataset) {
         copy($project . '/private/catalog/' . $dataset . '.json', $privateRoot . '/catalog/' . $dataset . '.json');
     }
+    mkdir($privateRoot . '/business', 0700, true);
+    $businessFixtures = [
+        'customers' => [['id' => 'CUS0001', 'name' => 'PDF Restore Customer', 'address' => 'Pune', 'gstin' => '', 'contactPerson' => '', 'phone' => '', 'email' => '', 'isActive' => true]],
+        'receivables' => [],
+        'refilling-items' => [['id' => 'RFI0001', 'name' => 'ABC Fire Extinguisher', 'isActive' => true]],
+        'certificates' => [[
+            'id' => 'CERT0001', 'certificateNumber' => 'CERT-RESTORE-1', 'customerId' => 'CUS0001', 'invoiceNumber' => 'INV-RESTORE-1', 'certificateDate' => '2026-08-01',
+            'items' => [['id' => 'CIT0001', 'refillingItemId' => 'RFI0001', 'capacity' => '6 KG', 'quantity' => 1, 'serialNumbers' => ['RESTORE-SERIAL'], 'refillingDate' => '2026-08-01', 'nextRefillingDate' => '2027-08-01', 'remark' => '']],
+            'remarks' => '',
+        ]],
+    ];
+    foreach ($businessFixtures as $dataset => $records) {
+        file_put_contents($privateRoot . '/business/' . $dataset . '.json', json_encode($records, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR) . "\n");
+    }
     $credentials = "<?php\n\ndeclare(strict_types=1);\n\nreturn " . var_export([
         'admin_email' => 'backup-test@example.com',
         'password_hash' => password_hash($password, PASSWORD_DEFAULT),
@@ -97,6 +111,9 @@ try {
     admin_backup_test($results, 'unauthenticated delete returns 401', static fn(): bool =>
         admin_backup_http($base . '/api/admin/backups.php', $cookieJar, 'DELETE', ['domain' => 'catalog', 'type' => 'snapshot', 'id' => 'catalog-20260101-000000-00000000', 'confirmation' => 'DELETE'])['status'] === 401
     );
+    admin_backup_test($results, 'unauthenticated Business creation returns 401', static fn(): bool =>
+        admin_backup_http($base . '/api/admin/backups.php', $cookieJar, 'POST', ['action' => 'create-snapshot', 'domain' => 'business'])['status'] === 401
+    );
 
     $login = admin_backup_http($base . '/api/auth/login.php', $cookieJar, 'POST', ['password' => $password]);
     $csrf = is_string($login['json']['csrfToken'] ?? null) ? $login['json']['csrfToken'] : '';
@@ -106,6 +123,12 @@ try {
         $response = admin_backup_http($base . '/api/admin/backups.php?domain=catalog', $cookieJar);
         return $response['status'] === 200 && ($response['json']['success'] ?? false) === true
             && !str_contains($response['body'], $privateRoot) && !str_contains($response['body'], 'storageRoot');
+    });
+    admin_backup_test($results, 'registered domains include Catalogue and Business', static function () use ($base, $cookieJar): bool {
+        $response = admin_backup_http($base . '/api/admin/backups.php?domain=business', $cookieJar);
+        return $response['status'] === 200
+            && array_column($response['json']['domains'] ?? [], 'id') === ['catalog', 'business']
+            && !str_contains($response['body'], 'storageRoot');
     });
     admin_backup_test($results, 'unknown domain rejected', static fn(): bool =>
         admin_backup_http($base . '/api/admin/backups.php?domain=invoices', $cookieJar)['status'] === 400
@@ -124,6 +147,44 @@ try {
     admin_backup_test($results, 'delete with invalid CSRF returns 403', static fn(): bool =>
         admin_backup_http($base . '/api/admin/backups.php', $cookieJar, 'DELETE', ['domain' => 'catalog', 'type' => 'snapshot', 'id' => 'catalog-20260101-000000-00000000', 'confirmation' => 'DELETE'], str_repeat('0', 64))['status'] === 403
     );
+    admin_backup_test($results, 'Business creation without CSRF returns 403', static fn(): bool =>
+        admin_backup_http($base . '/api/admin/backups.php', $cookieJar, 'POST', ['action' => 'create-snapshot', 'domain' => 'business'])['status'] === 403
+    );
+
+    $businessCreated = admin_backup_http($base . '/api/admin/backups.php', $cookieJar, 'POST', ['action' => 'create-snapshot', 'domain' => 'business'], $csrf);
+    $businessSnapshot = is_string($businessCreated['json']['item']['id'] ?? null) ? $businessCreated['json']['item']['id'] : '';
+    admin_backup_test($results, 'authenticated Business snapshot creation and counts', static fn(): bool =>
+        $businessCreated['status'] === 201 && preg_match('/^business-\d{8}-\d{6}-[a-f0-9]{8}$/', $businessSnapshot) === 1
+            && ($businessCreated['json']['item']['counts']['certificateItems'] ?? null) === 1
+    );
+    admin_backup_test($results, 'Business dry run succeeds', static function () use ($base, $cookieJar, $csrf, $businessSnapshot): bool {
+        $response = admin_backup_http($base . '/api/admin/backups.php', $cookieJar, 'POST', ['action' => 'dry-run', 'domain' => 'business', 'type' => 'snapshot', 'id' => $businessSnapshot], $csrf);
+        return $response['status'] === 200 && ($response['json']['result']['validation'] ?? null) === 'passed';
+    });
+    admin_backup_test($results, 'Business download is authenticated and non-empty', static function () use ($base, $cookieJar, $businessSnapshot): bool {
+        $response = admin_backup_http($base . '/api/admin/backups.php?action=download&domain=business&id=' . rawurlencode($businessSnapshot), $cookieJar);
+        return $response['status'] === 200 && str_starts_with($response['body'], 'PK');
+    });
+    admin_backup_test($results, 'Business restore revalidates server-side', static function () use ($base, $cookieJar, $csrf, $businessSnapshot): bool {
+        $response = admin_backup_http($base . '/api/admin/backups.php', $cookieJar, 'POST', ['action' => 'restore', 'domain' => 'business', 'type' => 'snapshot', 'id' => $businessSnapshot, 'confirmation' => 'RESTORE'], $csrf);
+        return $response['status'] === 200 && ($response['json']['result']['rollbackBackupCreated'] ?? false) === true;
+    });
+    admin_backup_test($results, 'Certificate PDF resolves restored Business data', static function () use ($base, $cookieJar): bool {
+        $response = admin_backup_http($base . '/api/business/certificate-pdf.php?id=CERT0001', $cookieJar);
+        return $response['status'] === 200 && str_starts_with($response['body'], '%PDF-');
+    });
+    $businessHashes = [];
+    foreach (['customers', 'receivables', 'refilling-items', 'certificates'] as $dataset) {
+        $businessHashes[$dataset] = hash_file('sha256', $privateRoot . '/business/' . $dataset . '.json');
+    }
+    $businessDeleted = admin_backup_http($base . '/api/admin/backups.php', $cookieJar, 'DELETE', [
+        'domain' => 'business', 'type' => 'snapshot', 'id' => $businessSnapshot, 'confirmation' => 'DELETE',
+    ], $csrf);
+    admin_backup_test($results, 'Business snapshot deletion leaves live data unchanged', static function () use ($businessDeleted, $privateRoot, $businessHashes): bool {
+        if ($businessDeleted['status'] !== 200) return false;
+        foreach ($businessHashes as $dataset => $hash) if (hash_file('sha256', $privateRoot . '/business/' . $dataset . '.json') !== $hash) return false;
+        return true;
+    });
 
     $created = admin_backup_http($base . '/api/admin/backups.php', $cookieJar, 'POST', ['action' => 'create-snapshot', 'domain' => 'catalog'], $csrf);
     $snapshot = is_string($created['json']['item']['id'] ?? null) ? $created['json']['item']['id'] : '';

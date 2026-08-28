@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 require_once __DIR__ . '/catalog-storage.php';
+require_once __DIR__ . '/business-backup.php';
 
 final class BackupAdminException extends RuntimeException
 {
@@ -19,7 +20,10 @@ function backup_admin_domains(): array
         $definition = backup_domain($name);
         return [
             'id' => $name,
-            'label' => $name === 'catalog' ? 'Catalogue' : ucfirst($name),
+            'label' => $name === 'catalog' ? 'Catalogue' : 'Business',
+            'description' => $name === 'business'
+                ? 'Customers, Payment Tracking, Refilling Items, and Certificates'
+                : 'Catalogue categories, subcategories, suppliers, and products',
             'capabilities' => [
                 'createSnapshot' => is_callable($definition['snapshotStrategy'] ?? null),
                 'restore' => is_callable($definition['adminSnapshotStrategy']['restore'] ?? null),
@@ -45,7 +49,9 @@ function backup_admin_list(string $domain): array
     $definition = backup_admin_definition($domain);
     $list = $definition['adminSnapshotStrategy']['list'] ?? null;
     if (!is_callable($list)) throw new BackupAdminException('Backup listing is unavailable.', 501);
-    $lock = $domain === 'catalog' ? catalog_acquire_backup_management_lock(false) : null;
+    $lock = $domain === 'catalog'
+        ? catalog_acquire_backup_management_lock(false)
+        : business_acquire_backup_management_lock(false);
     try {
         $items = $list();
 
@@ -69,7 +75,9 @@ function backup_admin_list(string $domain): array
         }
         return $items;
     } finally {
-        if (is_resource($lock)) catalog_release_backup_management_lock($lock);
+        if (is_resource($lock)) {
+            $domain === 'catalog' ? catalog_release_backup_management_lock($lock) : business_release_backup_management_lock($lock);
+        }
     }
 }
 
@@ -78,8 +86,9 @@ function backup_admin_create_snapshot(string $domain): array
 {
     backup_admin_definition($domain);
     $created = backup_domain_create_snapshot($domain);
-    if ($domain === 'catalog') return catalog_read_snapshot_metadata($created['name']);
-    throw new BackupAdminException('Snapshot metadata is unavailable.', 501);
+    $metadata = backup_admin_definition($domain)['adminSnapshotStrategy']['metadata'] ?? null;
+    if (!is_callable($metadata)) throw new BackupAdminException('Snapshot metadata is unavailable.', 501);
+    return $metadata($created['name']);
 }
 
 /** @return array<string, mixed> */
@@ -130,19 +139,21 @@ function backup_admin_create_download(string $domain, string $snapshotId): array
     $definition = backup_admin_definition($domain);
     $metadata = $definition['adminSnapshotStrategy']['metadata'] ?? null;
     if (!is_callable($metadata)) throw new BackupAdminException('Snapshot download is unavailable.', 501);
-    if ($domain !== 'catalog') throw new BackupAdminException('Snapshot download is unavailable.', 501);
-    $lock = catalog_acquire_backup_management_lock(false);
+    $lock = $domain === 'catalog'
+        ? catalog_acquire_backup_management_lock(false)
+        : business_acquire_backup_management_lock(false);
 
     try {
         $metadata($snapshotId, true);
-        $directory = catalog_snapshot_path($snapshotId);
-        $temporary = tempnam(sys_get_temp_dir(), 'catalog-snapshot-');
+        $directory = $domain === 'catalog' ? catalog_snapshot_path($snapshotId) : business_snapshot_path($snapshotId);
+        $temporary = tempnam(sys_get_temp_dir(), $domain . '-snapshot-');
         if ($temporary === false) throw new RuntimeException('Unable to prepare snapshot download.');
         $archive = new ZipArchive();
         if ($archive->open($temporary, ZipArchive::OVERWRITE) !== true) {
             throw new RuntimeException('Unable to prepare snapshot download.');
         }
-        foreach ([...catalog_dataset_names(), 'manifest'] as $name) {
+        $datasets = $domain === 'catalog' ? catalog_dataset_names() : business_dataset_names();
+        foreach ([...$datasets, 'manifest'] as $name) {
             $path = $directory . '/' . $name . '.json';
             if (is_link($path) || !is_file($path) || !$archive->addFile($path, $name . '.json')) {
                 $archive->close();
@@ -157,7 +168,7 @@ function backup_admin_create_download(string $domain, string $snapshotId): array
         if (isset($temporary)) @unlink($temporary);
         throw $exception;
     } finally {
-        catalog_release_backup_management_lock($lock);
+        $domain === 'catalog' ? catalog_release_backup_management_lock($lock) : business_release_backup_management_lock($lock);
     }
 }
 
@@ -166,21 +177,26 @@ function backup_admin_delete(string $domain, string $type, string $id, string $c
 {
     if ($confirmation !== 'DELETE') throw new BackupAdminException('Type DELETE exactly to confirm.', 400);
     $definition = backup_admin_definition($domain);
-    if ($domain !== 'catalog') throw new BackupAdminException('Backup deletion is unavailable.', 501);
-    try { $lock = catalog_acquire_backup_management_lock(true); }
-    catch (CatalogStorageException) { throw new BackupAdminException('Unable to complete backup deletion.', 500); }
+    try {
+        $lock = $domain === 'catalog'
+            ? catalog_acquire_backup_management_lock(true)
+            : business_acquire_backup_management_lock(true);
+    } catch (CatalogStorageException|BusinessStorageException) {
+        throw new BackupAdminException('Unable to complete backup deletion.', 500);
+    }
     try {
         if ($type === 'snapshot') {
-            if (preg_match('/^catalog-\d{8}-\d{6}-[a-f0-9]{8}$/D', $id) !== 1) {
+            $prefix = $domain === 'catalog' ? 'catalog' : 'business';
+            if (preg_match('/^' . $prefix . '-\d{8}-\d{6}-[a-f0-9]{8}$/D', $id) !== 1) {
                 throw new BackupAdminException('Invalid backup identifier.', 422);
             }
-            $path = catalog_snapshot_path($id);
+            $path = $domain === 'catalog' ? catalog_snapshot_path($id) : business_snapshot_path($id);
             if (is_link($path)) throw new BackupAdminException('Symbolic-link snapshots cannot be deleted.', 422);
             if (!is_dir($path)) throw new BackupAdminException('Backup item not found.', 404);
             $callback = $definition['adminSnapshotStrategy']['delete'] ?? null;
             if (!is_callable($callback)) throw new BackupAdminException('Backup deletion is unavailable.', 501);
             try { return $callback($id); }
-            catch (CatalogStorageException $exception) {
+            catch (CatalogStorageException|BusinessStorageException $exception) {
                 if ($exception->getMessage() === 'At least one valid catalogue snapshot must be retained.') {
                     throw new BackupAdminException($exception->getMessage(), 409);
                 }
@@ -190,7 +206,7 @@ function backup_admin_delete(string $domain, string $type, string $id, string $c
                     || str_contains($exception->getMessage(), 'record counts')) {
                     throw new BackupAdminException('The selected snapshot is not safe to delete.', 422);
                 }
-                throw new BackupAdminException('The catalogue snapshot could not be deleted.', 500);
+                throw new BackupAdminException('The snapshot could not be deleted.', 500);
             }
         }
         if ($type === 'dataset-backup') {
@@ -208,6 +224,6 @@ function backup_admin_delete(string $domain, string $type, string $id, string $c
         }
         throw new BackupAdminException('Invalid backup selection.', 422);
     } finally {
-        catalog_release_backup_management_lock($lock);
+        $domain === 'catalog' ? catalog_release_backup_management_lock($lock) : business_release_backup_management_lock($lock);
     }
 }

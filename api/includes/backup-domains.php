@@ -46,6 +46,29 @@ function backup_domain_registry(): array
                 'restore' => 'catalog_restore_backup',
             ],
         ],
+        'business' => [
+            'storageRoot' => $privateRoot . '/business',
+            'backupRoot' => $privateRoot . '/backups/business',
+            'snapshotRoot' => $privateRoot . '/backups/business',
+            'validationStrategy' => 'business_validate_all',
+            'lockStrategy' => [
+                'acquire' => 'business_acquire_lock',
+                'release' => 'business_release_lock',
+                'scope' => 'business',
+            ],
+            'snapshotStrategy' => 'business_create_snapshot',
+            'adminSnapshotStrategy' => [
+                'list' => 'business_list_snapshots',
+                'metadata' => 'business_read_snapshot_metadata',
+                'dryRun' => 'business_snapshot_restore_dry_run',
+                'restore' => 'business_restore_snapshot',
+                'delete' => 'business_delete_snapshot',
+            ],
+            'restoreStrategy' => [
+                'dryRun' => 'business_snapshot_restore_dry_run',
+                'restore' => 'business_restore_snapshot',
+            ],
+        ],
     ];
 }
 

@@ -59,9 +59,12 @@ try {
         $target . '/public_html/api',
         static fn(string $relative): bool => $relative !== 'config.php' && !str_starts_with($relative, '.rate-limit')
     );
+    $pdfAssetDirectory = $target . '/public_html/api/assets';
+    if (!is_dir($pdfAssetDirectory)) mkdir($pdfAssetDirectory, 0755, true);
+    copy($project . '/src/assets/images/brands/laxmikant-traders-logo.png', $pdfAssetDirectory . '/laxmikant-traders-logo.png');
     if (is_dir($project . '/vendor')) package_copy_tree($project . '/vendor', $target . '/public_html/vendor');
 
-    foreach (['catalog', 'locks', 'backups', 'rate-limit', 'logs', 'analytics'] as $directory) {
+    foreach (['catalog', 'business', 'locks', 'backups', 'rate-limit', 'logs', 'analytics'] as $directory) {
         mkdir($target . '/laxmikant_private/' . $directory, 0700, true);
     }
     package_copy_tree($project . '/private/catalog', $target . '/laxmikant_private/catalog');
@@ -73,7 +76,7 @@ try {
         if (!is_dir($directory)) mkdir($directory, 0755, true);
         copy($project . '/scripts/' . $script, $directory . '/' . $script);
     }
-    foreach (['backup-domains.php', 'catalog-storage.php', 'catalog-validation.php', 'paths.php'] as $include) {
+    foreach (['backup-domains.php', 'business-backup.php', 'business-storage.php', 'catalog-storage.php', 'catalog-validation.php', 'paths.php'] as $include) {
         $directory = $target . '/maintenance/api/includes';
         if (!is_dir($directory)) mkdir($directory, 0755, true);
         copy($project . '/api/includes/' . $include, $directory . '/' . $include);
