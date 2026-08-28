@@ -34,3 +34,6 @@ public/uploads/products/*
 public/uploads/suppliers/*
 !public/uploads/products/.gitkeep
 !public/uploads/suppliers/.gitkeep
+
+# Generated PDF test output
+output/pdf/
