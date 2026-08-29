@@ -314,7 +314,7 @@ function catalog_list_backups(?string $requestedDataset = null): array
     foreach (scandir(catalog_backup_directory()) ?: [] as $filename) {
         foreach (catalog_dataset_names() as $dataset) {
             if (($requestedDataset === null || $requestedDataset === $dataset)
-                && preg_match(catalog_backup_filename_pattern($dataset), $filename, $matches) === 1
+                && preg_match(catalog_backup_filename_pattern($dataset), $filename) === 1
                 && is_file(catalog_backup_directory() . '/' . $filename)) {
                 $backups[] = [
                     'dataset' => $dataset,
@@ -749,48 +749,6 @@ function catalog_delete_dataset_backup(string $dataset, string $filename): array
     catalog_read_backup($dataset, $filename);
     if (!@unlink($path)) throw new CatalogStorageException('The catalogue backup could not be deleted.');
     return ['domain' => 'catalog', 'id' => $filename, 'type' => 'dataset-backup', 'dataset' => $dataset];
-}
-
-/**
- * Replace one dataset while holding the global lock for the complete transaction.
- *
- * @param list<array<string, mixed>> $proposedRecords
- */
-function catalog_replace_dataset(string $dataset, array $proposedRecords): void
-{
-    catalog_dataset_path($dataset);
-    $lock = catalog_acquire_mutation_lock();
-
-    try {
-        $currentCatalog = catalog_read_all();
-        $proposedCatalog = $currentCatalog;
-        $proposedCatalog[$dataset] = $proposedRecords;
-
-        try {
-            $validatedCatalog = catalog_validate_all($proposedCatalog);
-        } catch (CatalogValidationException $exception) {
-            throw new CatalogStorageException(
-                'The proposed catalogue update failed validation: ' . $exception->getMessage(),
-                0,
-                $exception
-            );
-        }
-
-        $targetPath = catalog_dataset_path($dataset);
-        $currentContents = @file_get_contents($targetPath);
-
-        if ($currentContents === false) {
-            throw new CatalogStorageException('Unable to read the current dataset for backup.');
-        }
-
-        catalog_create_backup($dataset, $currentContents);
-        catalog_atomic_replace(
-            $targetPath,
-            catalog_encode_json($validatedCatalog[$dataset])
-        );
-    } finally {
-        catalog_release_mutation_lock($lock);
-    }
 }
 
 /**
