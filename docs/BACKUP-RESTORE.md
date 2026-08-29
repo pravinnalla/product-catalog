@@ -163,9 +163,9 @@ Preserve relative directories and generated filenames. Restore media without ren
 
 Keep the catalogue snapshot and runtime media archive until the recovered site has passed all validation and acceptance checks.
 
-## Future Admin Modules
+## Future Additional Admin Modules
 
-This section defines extension points only. Invoicing, Quotations, Customers, and Reports are not implemented, registered, or given production files by this phase. JSON remains the expected authoritative format unless a later approved design changes it; no database is part of this architecture.
+This section defines extension points only for additional modules. Customers, Payment Tracking, Refilling Items, and Certificates are already implemented in the frozen Business V1 domain. Invoicing, Quotations, and additional Reports are not implemented, registered, or given production files. JSON remains the authoritative format; no database is part of this architecture.
 
 ### Storage and domain registry
 
@@ -177,13 +177,11 @@ private/
 ├── business/
 │   ├── invoices/
 │   ├── quotations/
-│   ├── customers/
 │   └── reports/
 ├── backups/
 │   ├── catalog/
 │   ├── invoices/
 │   ├── quotations/
-│   ├── customers/
 │   └── reports/
 └── locks/
 ```
@@ -214,7 +212,7 @@ Catalogue validation remains authoritative for the four catalogue datasets. A ca
 
 ### Lock and snapshot strategies
 
-The catalogue domain keeps its existing global catalogue mutation lock. A future invoice, quotation, or customer domain may use its own module lock or an intentionally designed shared business lock. Domains must not silently reuse the catalogue lock. If an operation changes multiple business domains, it must acquire a documented shared business lock in one consistent order and validate the complete proposed change before publishing it. No additional lock files are needed until such operations exist.
+The catalogue domain keeps its existing global catalogue mutation lock. A future invoice, quotation, or report domain may use its own module lock or an intentionally designed shared business lock. Domains must not silently reuse the catalogue lock. If an operation changes multiple business domains, it must acquire a documented shared business lock in one consistent order and validate the complete proposed change before publishing it. No additional lock files are needed until such operations exist.
 
 A **domain snapshot** is one validated, lock-consistent domain event, such as the current catalogue-only snapshot. A future **full application-data snapshot** must be one coordinated event containing every included domain under the locks needed to prevent mixed-time data. Its top-level manifest should carry one event ID and creation time, enumerate included domains and domain snapshot manifests/checksums, and record format versions. It must validate intra-domain and applicable cross-domain relationships before publication. It must fail as a whole if an included domain cannot be locked, read, or validated. Unavailable or unimplemented domains must not be represented by empty or invented data.
 

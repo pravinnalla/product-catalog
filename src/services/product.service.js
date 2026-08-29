@@ -42,8 +42,6 @@ export async function loadCatalogue({ force = false } = {}) {
     return pendingLoad;
 }
 
-export const reloadCatalogue = () => loadCatalogue({ force: true });
-export const getCatalogue = () => catalogue;
 export const getProducts = () => catalogue?.products || [];
 export const getProductById = (id) => getProducts().find((product) => product.id === id);
 export const getProductCategories = () => catalogue?.categories || [];
